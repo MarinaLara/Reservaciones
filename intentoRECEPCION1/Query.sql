@@ -193,9 +193,10 @@ insert into Habitaciones (No_cuarto, Tipo_habitacion, Disponibilidad, Estado_hab
 
 	--insert reservaciones
 insert into Reservaciones (Id_empleado, Id_habitacion, Fecha_reservacion, Fecha_entrada, Fecha_salida, Nombre_cliente, Telefono_cliente, Tarjeta_pago, Total) values (1, 3, '2018-11-14', '2018-11-15', '2018-11-16', 'Juan Perez', 6698445764, 1234567890123456, 1500.0);
-insert into Reservaciones (Id_empleado, Id_habitacion, Fecha_reservacion, Fecha_entrada, Fecha_salida, Nombre_cliente, Telefono_cliente, Tarjeta_pago, Total) values (1, 3, '2018-11-14', '2018-11-17', '2018-11-19', 'Juan G', 6698445764, 1234567890123456, 1500.0);
 
-insert into Disponibilidad_hab (Id_habitacion, Fecha_entrada, Fecha_salida, Estado) values (6 , '2018-11-17', '2018-11-19', 'No disponible');
+insert into Reservaciones (Id_empleado, Id_habitacion, Fecha_reservacion, Fecha_entrada, Fecha_salida, Nombre_cliente, Telefono_cliente, Tarjeta_pago, Total) values (1, 7, '14/11/2018 08:04:19 p. m.', '16/11/2018 08:04:19 p. m.', '17/11/2018 08:04:19 p. m.', 'Juan P', 6698445764, 1234567890123456, 2500);
+insert into Disponibilidad_hab (Id_habitacion, Fecha_entrada, Fecha_salida, Estado) values (7 , '16/11/2018 08:04:19 p. m.', '17/11/2018 08:04:19 p. m.', 'No disponible');
+
 insert into Disponibilidad_hab (Id_habitacion, Fecha_entrada, Fecha_salida, Estado) values (3 , '2018-11-17', '2018-11-19', 'No disponible');
 
 --update Habitaciones set Disponibilidad = 'Disponible' where Id_habitacion = 6;
@@ -212,4 +213,4 @@ select * from Disponibilidad_hab;
 select Id_habitacion No_cuarto, Disponibilidad
 from Habitaciones
 where  not Id_habitacion in (Select Id_habitacion 
-from Disponibilidad_hab where Fecha_entrada = '2018-11-17' and Fecha_salida = '2018-11-19');
+from Disponibilidad_hab where Fecha_entrada like '16/11/2018%' and Fecha_salida like '17/11/2018%');

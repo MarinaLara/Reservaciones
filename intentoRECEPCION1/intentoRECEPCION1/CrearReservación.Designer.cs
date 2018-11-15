@@ -45,10 +45,6 @@
             this.groupBox1 = new System.Windows.Forms.GroupBox();
             this.groupBox2 = new System.Windows.Forms.GroupBox();
             this.dataGridView1 = new System.Windows.Forms.DataGridView();
-            this.nocuartoDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.tipohabitacionDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.disponibilidadDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.Seleccion = new System.Windows.Forms.DataGridViewCheckBoxColumn();
             this.habitacionesBindingSource2 = new System.Windows.Forms.BindingSource(this.components);
             this.hotelDataSet1BindingSource = new System.Windows.Forms.BindingSource(this.components);
             this.hotelDataSet1 = new intentoRECEPCION1.HotelDataSet1();
@@ -70,6 +66,11 @@
             this.button2 = new System.Windows.Forms.Button();
             this.habitacionesTableAdapter1 = new intentoRECEPCION1.HotelDataSetTableAdapters.HabitacionesTableAdapter();
             this.habitacionesTableAdapter2 = new intentoRECEPCION1.HotelDataSet1TableAdapters.HabitacionesTableAdapter();
+            this.Id_habitacion = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.nocuartoDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.tipohabitacionDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.disponibilidadDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Column1 = new System.Windows.Forms.DataGridViewCheckBoxColumn();
             this.menuStrip1.SuspendLayout();
             this.groupBox1.SuspendLayout();
             this.groupBox2.SuspendLayout();
@@ -230,38 +231,17 @@
             this.dataGridView1.AutoGenerateColumns = false;
             this.dataGridView1.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.dataGridView1.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
+            this.Id_habitacion,
             this.nocuartoDataGridViewTextBoxColumn,
             this.tipohabitacionDataGridViewTextBoxColumn,
             this.disponibilidadDataGridViewTextBoxColumn,
-            this.Seleccion});
+            this.Column1});
             this.dataGridView1.DataSource = this.habitacionesBindingSource2;
             this.dataGridView1.Location = new System.Drawing.Point(135, 20);
             this.dataGridView1.Name = "dataGridView1";
-            this.dataGridView1.Size = new System.Drawing.Size(454, 124);
+            this.dataGridView1.Size = new System.Drawing.Size(515, 124);
             this.dataGridView1.TabIndex = 0;
-            // 
-            // nocuartoDataGridViewTextBoxColumn
-            // 
-            this.nocuartoDataGridViewTextBoxColumn.DataPropertyName = "No_cuarto";
-            this.nocuartoDataGridViewTextBoxColumn.HeaderText = "No_cuarto";
-            this.nocuartoDataGridViewTextBoxColumn.Name = "nocuartoDataGridViewTextBoxColumn";
-            // 
-            // tipohabitacionDataGridViewTextBoxColumn
-            // 
-            this.tipohabitacionDataGridViewTextBoxColumn.DataPropertyName = "Tipo_habitacion";
-            this.tipohabitacionDataGridViewTextBoxColumn.HeaderText = "Tipo_habitacion";
-            this.tipohabitacionDataGridViewTextBoxColumn.Name = "tipohabitacionDataGridViewTextBoxColumn";
-            // 
-            // disponibilidadDataGridViewTextBoxColumn
-            // 
-            this.disponibilidadDataGridViewTextBoxColumn.DataPropertyName = "Disponibilidad";
-            this.disponibilidadDataGridViewTextBoxColumn.HeaderText = "Disponibilidad";
-            this.disponibilidadDataGridViewTextBoxColumn.Name = "disponibilidadDataGridViewTextBoxColumn";
-            // 
-            // Seleccion
-            // 
-            this.Seleccion.HeaderText = "Seleccionar";
-            this.Seleccion.Name = "Seleccion";
+            this.dataGridView1.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dataGridView1_CellContentClick);
             // 
             // habitacionesBindingSource2
             // 
@@ -409,6 +389,38 @@
             // 
             this.habitacionesTableAdapter2.ClearBeforeFill = true;
             // 
+            // Id_habitacion
+            // 
+            this.Id_habitacion.DataPropertyName = "Id_habitacion";
+            this.Id_habitacion.HeaderText = "Id_habitacion";
+            this.Id_habitacion.Name = "Id_habitacion";
+            this.Id_habitacion.ReadOnly = true;
+            // 
+            // nocuartoDataGridViewTextBoxColumn
+            // 
+            this.nocuartoDataGridViewTextBoxColumn.DataPropertyName = "No_cuarto";
+            this.nocuartoDataGridViewTextBoxColumn.HeaderText = "No_cuarto";
+            this.nocuartoDataGridViewTextBoxColumn.Name = "nocuartoDataGridViewTextBoxColumn";
+            // 
+            // tipohabitacionDataGridViewTextBoxColumn
+            // 
+            this.tipohabitacionDataGridViewTextBoxColumn.DataPropertyName = "Tipo_habitacion";
+            this.tipohabitacionDataGridViewTextBoxColumn.HeaderText = "Tipo_habitacion";
+            this.tipohabitacionDataGridViewTextBoxColumn.Name = "tipohabitacionDataGridViewTextBoxColumn";
+            // 
+            // disponibilidadDataGridViewTextBoxColumn
+            // 
+            this.disponibilidadDataGridViewTextBoxColumn.DataPropertyName = "Disponibilidad";
+            this.disponibilidadDataGridViewTextBoxColumn.HeaderText = "Disponibilidad";
+            this.disponibilidadDataGridViewTextBoxColumn.Name = "disponibilidadDataGridViewTextBoxColumn";
+            // 
+            // Column1
+            // 
+            this.Column1.DataPropertyName = "Id_habitacion";
+            this.Column1.HeaderText = "Column1";
+            this.Column1.Name = "Column1";
+            this.Column1.ReadOnly = true;
+            // 
             // CrearReservación
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -484,9 +496,10 @@
         private System.Windows.Forms.BindingSource habitacionesBindingSource2;
         private HotelDataSet1TableAdapters.HabitacionesTableAdapter habitacionesTableAdapter2;
         private System.Windows.Forms.Label label4;
+        private System.Windows.Forms.DataGridViewTextBoxColumn Id_habitacion;
         private System.Windows.Forms.DataGridViewTextBoxColumn nocuartoDataGridViewTextBoxColumn;
         private System.Windows.Forms.DataGridViewTextBoxColumn tipohabitacionDataGridViewTextBoxColumn;
         private System.Windows.Forms.DataGridViewTextBoxColumn disponibilidadDataGridViewTextBoxColumn;
-        private System.Windows.Forms.DataGridViewCheckBoxColumn Seleccion;
+        private System.Windows.Forms.DataGridViewCheckBoxColumn Column1;
     }
 }

@@ -101,19 +101,25 @@ namespace intentoRECEPCION1
             SqlCommand cmd = Conn.CreateCommand();
 
             cmd.CommandType = CommandType.Text;
-            cmd.CommandText = "SELECT No_cuarto, Tipo_habitacion, Disponibilidad FROM Habitaciones where not Id_habitacion in (Select Id_habitacion  from Disponibilidad_hab where Fecha_entrada = '17-11-2018' and Fecha_salida = '19-11-2018')";
+            cmd.CommandText = "SELECT id_habitacion, No_cuarto, Tipo_habitacion, Disponibilidad FROM Habitaciones where not Id_habitacion in (Select Id_habitacion  from Disponibilidad_hab where Fecha_entrada like '17-11-2018%' and Fecha_salida like '19-11-2018%')";
             //cmd.CommandText = "SELECT No_cuarto, Tipo_habitacion, Disponibilidad FROM Habitaciones where not Id_habitacion in (Select Id_habitacion  from Disponibilidad_hab where Fecha_entrada like ('" + holi + "%') and Fecha_salida like ('" + holi2 + "%'))";
             //cmd.CommandText = "SELECT No_cuarto, Tipo_habitacion, Disponibilidad FROM Habitaciones where not Id_habitacion in (Select Id_habitacion  from Disponibilidad_hab where Fecha_entrada like ('" + dateTimePicker1 + "%') and Fecha_salida like ('" + dateTimePicker2 + "%'))";
             cmd.ExecuteNonQuery();
-
             DataTable dt = new DataTable();
             SqlDataAdapter da = new SqlDataAdapter(cmd);
-
             da.Fill(dt);
-
             dataGridView1.DataSource = dt;
-
+            dataGridView1.Refresh();
             Conn.Close();
+        }
+
+        private void dataGridView1_CellContentClick(object sender, DataGridViewCellEventArgs e)                
+        {
+            if (dataGridView1.SelectedCells.Count == 1)
+            {                
+                string id = dataGridView1.CurrentCell.Value.ToString();            
+                MessageBox.Show(" "+ id);
+            }            
         }
     }
 }
