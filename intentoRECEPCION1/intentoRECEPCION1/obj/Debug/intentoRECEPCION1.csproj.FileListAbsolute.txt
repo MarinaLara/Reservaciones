@@ -34,3 +34,6 @@ C:\Users\PC\Documents\GitHub\Reservaciones\intentoRECEPCION1\intentoRECEPCION1\o
 C:\Users\PC\Documents\GitHub\Reservaciones\intentoRECEPCION1\intentoRECEPCION1\obj\Debug\intentoRECEPCION1.csproj.GenerateResource.Cache
 C:\Users\PC\Documents\GitHub\Reservaciones\intentoRECEPCION1\intentoRECEPCION1\bin\Debug\intentoRECEPCION1.exe
 C:\Users\PC\Documents\GitHub\Reservaciones\intentoRECEPCION1\intentoRECEPCION1\bin\Debug\intentoRECEPCION1.pdb
+D:\Documentos\GitHub\Reservaciones\intentoRECEPCION1\intentoRECEPCION1\obj\Debug\intentoRECEPCION1.Mantenimiento.resources
+D:\Documentos\GitHub\Reservaciones\intentoRECEPCION1\intentoRECEPCION1\obj\Debug\intentoRECEPCION1.Modificar.resources
+D:\Documentos\GitHub\Reservaciones\intentoRECEPCION1\intentoRECEPCION1\obj\Debug\intentoRECEPCION1.RegistrarES.resources
