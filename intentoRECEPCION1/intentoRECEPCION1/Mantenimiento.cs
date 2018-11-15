@@ -28,5 +28,12 @@ namespace intentoRECEPCION1
             Inicio Regreso = new Inicio();
             Regreso.Show();
         }
+
+        private void consultaToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            this.Close();
+            Consultar ConRes = new Consultar();
+            ConRes.Show();
+        }
     }
 }

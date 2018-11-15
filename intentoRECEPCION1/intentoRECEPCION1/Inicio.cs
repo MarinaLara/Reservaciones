@@ -55,12 +55,16 @@ namespace intentoRECEPCION1
 
         private void button3_Click(object sender, EventArgs e)
         {
-
+            this.Hide();
+            Mantenimiento MAN = new Mantenimiento();
+            MAN.Show();
         }
 
         private void button6_Click(object sender, EventArgs e)
         {
-
+            this.Hide();
+            RegistrarES RES = new RegistrarES();
+            RES.Show();
         }
 
     }
