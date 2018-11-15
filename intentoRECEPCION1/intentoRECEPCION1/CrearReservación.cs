@@ -28,12 +28,20 @@ namespace intentoRECEPCION1
 
         private void guardar()
         {
+            int Tel, Tot;                                    
+            Tel =  Convert.ToInt32(this.textBox3.Text);            
+            Tot = 1500;
+
             DatosRes DatosRes = new DatosRes();
-            DatosRes.Fecha_entrada = dateTimePicker1.Text;
-            DatosRes.Fecha_salida = dateTimePicker2.Text;
-            DatosRes.Nombre_cliente =  Cliente_nombre_txt.Text;
-            //DatosRes.Id_empleado = textBox1.Text;
-            //DatosRes.Id_habitacion = textBox1.Text;
+            DatosRes.Id_empleado = "1";
+            DatosRes.Id_habitacion = "3";
+            DatosRes.Fecha_reservacion = dateTimePicker1.Value.ToString();
+            DatosRes.Fecha_entrada = dateTimePicker1.Value.ToString();
+            DatosRes.Fecha_salida = dateTimePicker2.Value.ToString();
+            DatosRes.Nombre_cliente = Cliente_nombre_txt.Text;
+            DatosRes.Telefono_cliente = Tel;
+            DatosRes.Tarjeta_pago = textBox5.Text;
+            DatosRes.Total = Tot;
 
             int resultado = Regreserva.Agregar(DatosRes);
 
@@ -46,6 +54,7 @@ namespace intentoRECEPCION1
             {
                 MessageBox.Show("No se pudieron Guardar lo datos", "Error al Guardar", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
             }
+            
 
 
         }
@@ -76,17 +85,25 @@ namespace intentoRECEPCION1
         private void button2_Click(object sender, EventArgs e)
         {
             guardar();
+            this.Close();
         }
 
         private void button1_Click(object sender, EventArgs e)
         {
+            string holi = dateTimePicker1.Value.ToShortDateString();
+            string holi2 = dateTimePicker2.Value.ToShortDateString();
+
+            //dateTimePicker1.Value = DateTime.ParseExact("dd/MM/yyyy", dateTimeString,);
+
+
             SqlConnection Conn = new SqlConnection(@"Data Source=LAPTOP-UGHMV4GH;Initial Catalog=Hotel;User ID=sa;Password=sasa");
             Conn.Open();
             SqlCommand cmd = Conn.CreateCommand();
 
             cmd.CommandType = CommandType.Text;
-            //cmd.CommandText = "SELECT Id_habitacion No_cuarto, Disponibilidad FROM Habitaciones where not Id_habitacion in (Select Id_habitacion  from Disponibilidad_hab where Fecha_entrada = '" + dateTimePicker1 + "' and Fecha_salida = '" + dateTimePicker2 + "'";
-            cmd.CommandText = "SELECT Id_habitacion No_cuarto, Disponibilidad FROM Habitaciones where not Id_habitacion in (Select Id_habitacion  from Disponibilidad_hab where Fecha_entrada = '2018-11-17' and Fecha_salida = '2018-11-19'";
+            cmd.CommandText = "SELECT No_cuarto, Tipo_habitacion, Disponibilidad FROM Habitaciones where not Id_habitacion in (Select Id_habitacion  from Disponibilidad_hab where Fecha_entrada = '17-11-2018' and Fecha_salida = '19-11-2018')";
+            //cmd.CommandText = "SELECT No_cuarto, Tipo_habitacion, Disponibilidad FROM Habitaciones where not Id_habitacion in (Select Id_habitacion  from Disponibilidad_hab where Fecha_entrada like ('" + holi + "%') and Fecha_salida like ('" + holi2 + "%'))";
+            //cmd.CommandText = "SELECT No_cuarto, Tipo_habitacion, Disponibilidad FROM Habitaciones where not Id_habitacion in (Select Id_habitacion  from Disponibilidad_hab where Fecha_entrada like ('" + dateTimePicker1 + "%') and Fecha_salida like ('" + dateTimePicker2 + "%'))";
             cmd.ExecuteNonQuery();
 
             DataTable dt = new DataTable();
