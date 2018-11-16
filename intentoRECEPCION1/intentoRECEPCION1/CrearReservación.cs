@@ -28,13 +28,16 @@ namespace intentoRECEPCION1
 
         private void guardar()
         {
-            int Tel, Tot;                                    
-            Tel =  Convert.ToInt32(this.textBox3.Text);            
-            Tot = 1500;
-
+            int Tel, Tot;
+            string id;
+            id = dataGridView1.CurrentCell.Value.ToString();  
+            Tel =  Convert.ToInt32(this.textBox3.Text);
+            Convert.ToInt32(id);
+            Tot = 1000;
+            
             DatosRes DatosRes = new DatosRes();
             DatosRes.Id_empleado = "1";
-            DatosRes.Id_habitacion = "3";
+            DatosRes.Id_habitacion = id;
             DatosRes.Fecha_reservacion = dateTimePicker1.Value.ToString();
             DatosRes.Fecha_entrada = dateTimePicker1.Value.ToString();
             DatosRes.Fecha_salida = dateTimePicker2.Value.ToString();
@@ -101,7 +104,7 @@ namespace intentoRECEPCION1
             Conn.Close();
         }
 
-        private void dataGridView1_CellContentClick(object sender, DataGridViewCellEventArgs e)                
+        private void dataGridView1_CellContentClick(object sender, DataGridViewCellEventArgs e)
         {
             if (dataGridView1.SelectedCells.Count == 1)
             {                
