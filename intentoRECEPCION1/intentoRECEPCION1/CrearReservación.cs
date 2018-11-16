@@ -53,10 +53,7 @@ namespace intentoRECEPCION1
             else
             {
                 MessageBox.Show("No se pudieron Guardar lo datos", "Error al Guardar", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
-            }
-            
-
-
+            }           
         }
 
 
@@ -75,11 +72,6 @@ namespace intentoRECEPCION1
         {
             // TODO: esta línea de código carga datos en la tabla 'hotelDataSet1.Habitaciones' Puede moverla o quitarla según sea necesario.
             this.habitacionesTableAdapter2.Fill(this.hotelDataSet1.Habitaciones);
-            // TODO: esta línea de código carga datos en la tabla 'hotelDataSet.Habitaciones' Puede moverla o quitarla según sea necesario.
-            //this.habitacionesTableAdapter1.Fill(this.hotelDataSet.Habitaciones);
-            // TODO: esta línea de código carga datos en la tabla 'reservacionesDataSet.habitaciones' Puede moverla o quitarla según sea necesario.
-            //this.habitacionesTableAdapter.Fill(this.reservacionesDataSet.habitaciones);
-
         }
 
         private void button2_Click(object sender, EventArgs e)
@@ -90,20 +82,16 @@ namespace intentoRECEPCION1
 
         private void button1_Click(object sender, EventArgs e)
         {
-            string holi = dateTimePicker1.Value.ToShortDateString();
-            string holi2 = dateTimePicker2.Value.ToShortDateString();
+            string F_entrada = dateTimePicker1.Value.ToString("dd/MM/yyyy");
+            string F_salida =  dateTimePicker2.Value.ToString("dd/MM/yyyy");
 
-            //dateTimePicker1.Value = DateTime.ParseExact("dd/MM/yyyy", dateTimeString,);
-
+            //MessageBox.Show(F_entrada+"_____"+F_salida);
 
             SqlConnection Conn = new SqlConnection(@"Data Source=LAPTOP-UGHMV4GH;Initial Catalog=Hotel;User ID=sa;Password=sasa");
             Conn.Open();
             SqlCommand cmd = Conn.CreateCommand();
-
             cmd.CommandType = CommandType.Text;
-            cmd.CommandText = "SELECT id_habitacion, No_cuarto, Tipo_habitacion, Disponibilidad FROM Habitaciones where not Id_habitacion in (Select Id_habitacion  from Disponibilidad_hab where Fecha_entrada like '17-11-2018%' and Fecha_salida like '19-11-2018%')";
-            //cmd.CommandText = "SELECT No_cuarto, Tipo_habitacion, Disponibilidad FROM Habitaciones where not Id_habitacion in (Select Id_habitacion  from Disponibilidad_hab where Fecha_entrada like ('" + holi + "%') and Fecha_salida like ('" + holi2 + "%'))";
-            //cmd.CommandText = "SELECT No_cuarto, Tipo_habitacion, Disponibilidad FROM Habitaciones where not Id_habitacion in (Select Id_habitacion  from Disponibilidad_hab where Fecha_entrada like ('" + dateTimePicker1 + "%') and Fecha_salida like ('" + dateTimePicker2 + "%'))";
+            cmd.CommandText = "SELECT id_habitacion, No_cuarto, Tipo_habitacion, Disponibilidad FROM Habitaciones where not Id_habitacion in (Select Id_habitacion  from Disponibilidad_hab where Fecha_entrada like '" + F_entrada + "%' and Fecha_salida like '" + F_salida +"%')";
             cmd.ExecuteNonQuery();
             DataTable dt = new DataTable();
             SqlDataAdapter da = new SqlDataAdapter(cmd);
