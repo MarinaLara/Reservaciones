@@ -70,7 +70,7 @@
             this.nocuartoDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.tipohabitacionDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.disponibilidadDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.Column1 = new System.Windows.Forms.DataGridViewCheckBoxColumn();
+            this.Seleccionar = new System.Windows.Forms.DataGridViewCheckBoxColumn();
             this.menuStrip1.SuspendLayout();
             this.groupBox1.SuspendLayout();
             this.groupBox2.SuspendLayout();
@@ -219,7 +219,7 @@
             this.groupBox2.Controls.Add(this.dataGridView1);
             this.groupBox2.Location = new System.Drawing.Point(13, 160);
             this.groupBox2.Name = "groupBox2";
-            this.groupBox2.Size = new System.Drawing.Size(743, 150);
+            this.groupBox2.Size = new System.Drawing.Size(743, 261);
             this.groupBox2.TabIndex = 12;
             this.groupBox2.TabStop = false;
             this.groupBox2.Text = "Habitaciones disponibles";
@@ -235,11 +235,11 @@
             this.nocuartoDataGridViewTextBoxColumn,
             this.tipohabitacionDataGridViewTextBoxColumn,
             this.disponibilidadDataGridViewTextBoxColumn,
-            this.Column1});
+            this.Seleccionar});
             this.dataGridView1.DataSource = this.habitacionesBindingSource2;
-            this.dataGridView1.Location = new System.Drawing.Point(135, 20);
+            this.dataGridView1.Location = new System.Drawing.Point(52, 20);
             this.dataGridView1.Name = "dataGridView1";
-            this.dataGridView1.Size = new System.Drawing.Size(515, 124);
+            this.dataGridView1.Size = new System.Drawing.Size(598, 221);
             this.dataGridView1.TabIndex = 0;
             this.dataGridView1.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dataGridView1_CellContentClick);
             // 
@@ -293,7 +293,7 @@
             this.groupBox3.Controls.Add(this.Cliente_nombre_txt);
             this.groupBox3.Controls.Add(this.label8);
             this.groupBox3.Controls.Add(this.label7);
-            this.groupBox3.Location = new System.Drawing.Point(13, 316);
+            this.groupBox3.Location = new System.Drawing.Point(12, 443);
             this.groupBox3.Name = "groupBox3";
             this.groupBox3.Size = new System.Drawing.Size(743, 93);
             this.groupBox3.TabIndex = 13;
@@ -373,7 +373,7 @@
             // 
             // button2
             // 
-            this.button2.Location = new System.Drawing.Point(148, 415);
+            this.button2.Location = new System.Drawing.Point(147, 542);
             this.button2.Name = "button2";
             this.button2.Size = new System.Drawing.Size(454, 44);
             this.button2.TabIndex = 14;
@@ -414,19 +414,19 @@
             this.disponibilidadDataGridViewTextBoxColumn.HeaderText = "Disponibilidad";
             this.disponibilidadDataGridViewTextBoxColumn.Name = "disponibilidadDataGridViewTextBoxColumn";
             // 
-            // Column1
+            // Seleccionar
             // 
-            this.Column1.DataPropertyName = "Id_habitacion";
-            this.Column1.HeaderText = "Column1";
-            this.Column1.Name = "Column1";
-            this.Column1.ReadOnly = true;
+            this.Seleccionar.DataPropertyName = "Id_habitacion";
+            this.Seleccionar.HeaderText = "Seleccionar";
+            this.Seleccionar.Name = "Seleccionar";
+            this.Seleccionar.ReadOnly = true;
             // 
             // CrearReservación
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(67)))), ((int)(((byte)(112)))), ((int)(((byte)(111)))));
-            this.ClientSize = new System.Drawing.Size(784, 471);
+            this.ClientSize = new System.Drawing.Size(784, 642);
             this.Controls.Add(this.button2);
             this.Controls.Add(this.groupBox3);
             this.Controls.Add(this.groupBox2);
@@ -500,6 +500,6 @@
         private System.Windows.Forms.DataGridViewTextBoxColumn nocuartoDataGridViewTextBoxColumn;
         private System.Windows.Forms.DataGridViewTextBoxColumn tipohabitacionDataGridViewTextBoxColumn;
         private System.Windows.Forms.DataGridViewTextBoxColumn disponibilidadDataGridViewTextBoxColumn;
-        private System.Windows.Forms.DataGridViewCheckBoxColumn Column1;
+        private System.Windows.Forms.DataGridViewCheckBoxColumn Seleccionar;
     }
 }
