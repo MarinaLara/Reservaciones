@@ -32,6 +32,7 @@ namespace intentoRECEPCION1
             string id;
             id = dataGridView1.CurrentCell.Value.ToString();  
             Tel =  Convert.ToInt32(this.textBox3.Text);
+            
             Convert.ToInt32(id);
             Tot = 1000;
             
@@ -81,6 +82,8 @@ namespace intentoRECEPCION1
         {
             guardar();
             this.Close();
+            Inicio Regreso = new Inicio();
+            Regreso.Show();
         }
 
         private void button1_Click(object sender, EventArgs e)
@@ -111,6 +114,13 @@ namespace intentoRECEPCION1
                 string id = dataGridView1.CurrentCell.Value.ToString();            
                 MessageBox.Show(" "+ id);
             }            
+        }
+
+        private void button3_Click(object sender, EventArgs e)
+        {
+            this.Close();
+            Inicio Regreso = new Inicio();
+            Regreso.Show();
         }
     }
 }

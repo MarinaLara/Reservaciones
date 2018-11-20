@@ -21,6 +21,7 @@ namespace intentoRECEPCION1
 
         private void button1_Click(object sender, EventArgs e)
         {
+            this.Hide();
             CrearReservación CR = new CrearReservación();
             CR.Show();
         }
@@ -35,20 +36,18 @@ namespace intentoRECEPCION1
             Application.Exit();
         }
 
-        private void cerrarSesionToolStripMenuItem_Click(object sender, EventArgs e)
-        {
-            CrearReservación CR = new CrearReservación();
-            CR.Show();
-        }
+        
 
         private void button2_Click(object sender, EventArgs e)
         {
+            this.Hide();
             Consultar ConRes = new Consultar();
             ConRes.Show();
         }
 
         private void consultarToolStripMenuItem_Click(object sender, EventArgs e)
         {
+            this.Hide();
             Consultar ConRes = new Consultar();
             ConRes.Show();
         }
@@ -61,6 +60,27 @@ namespace intentoRECEPCION1
         }
 
         private void button6_Click(object sender, EventArgs e)
+        {
+            this.Hide();
+            RegistrarES RES = new RegistrarES();
+            RES.Show();
+        }
+
+        private void cerrarSesionToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            this.Hide();
+            CrearReservación CR = new CrearReservación();
+            CR.Show();
+        }
+
+        private void solicitarToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            this.Hide();
+            Mantenimiento MAN = new Mantenimiento();
+            MAN.Show();
+        }
+
+        private void checarInOutToolStripMenuItem_Click(object sender, EventArgs e)
         {
             this.Hide();
             RegistrarES RES = new RegistrarES();
