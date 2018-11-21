@@ -33,13 +33,8 @@
             this.label2 = new System.Windows.Forms.Label();
             this.dateTimePicker1 = new System.Windows.Forms.DateTimePicker();
             this.button1 = new System.Windows.Forms.Button();
-            this.hotelDataSet = new intentoRECEPCION1.HotelDataSet();
-            this.habitacionesBindingSource = new System.Windows.Forms.BindingSource(this.components);
-            this.habitacionesTableAdapter = new intentoRECEPCION1.HotelDataSetTableAdapters.HabitacionesTableAdapter();
             this.button2 = new System.Windows.Forms.Button();
             this.comboBox1 = new System.Windows.Forms.ComboBox();
-            ((System.ComponentModel.ISupportInitialize)(this.hotelDataSet)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.habitacionesBindingSource)).BeginInit();
             this.SuspendLayout();
             // 
             // label1
@@ -76,20 +71,6 @@
             this.button1.Text = "Consulta Disponibilidad";
             this.button1.UseVisualStyleBackColor = true;
             // 
-            // hotelDataSet
-            // 
-            this.hotelDataSet.DataSetName = "HotelDataSet";
-            this.hotelDataSet.SchemaSerializationMode = System.Data.SchemaSerializationMode.IncludeSchema;
-            // 
-            // habitacionesBindingSource
-            // 
-            this.habitacionesBindingSource.DataMember = "Habitaciones";
-            this.habitacionesBindingSource.DataSource = this.hotelDataSet;
-            // 
-            // habitacionesTableAdapter
-            // 
-            this.habitacionesTableAdapter.ClearBeforeFill = true;
-            // 
             // button2
             // 
             this.button2.Location = new System.Drawing.Point(28, 212);
@@ -123,8 +104,6 @@
             this.Name = "Modificar";
             this.Text = "Modificar";
             this.Load += new System.EventHandler(this.Modificar_Load);
-            ((System.ComponentModel.ISupportInitialize)(this.hotelDataSet)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.habitacionesBindingSource)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -136,9 +115,7 @@
         private System.Windows.Forms.Label label2;
         private System.Windows.Forms.DateTimePicker dateTimePicker1;
         private System.Windows.Forms.Button button1;
-        private HotelDataSet hotelDataSet;
-        private System.Windows.Forms.BindingSource habitacionesBindingSource;
-        private HotelDataSetTableAdapters.HabitacionesTableAdapter habitacionesTableAdapter;
+        
         private System.Windows.Forms.Button button2;
         private System.Windows.Forms.ComboBox comboBox1;
     }

@@ -14,14 +14,14 @@ namespace intentoRECEPCION1
         public String Fecha_entrada { get; set; }
         public String Fecha_salida { get; set; }
         public String Nombre_cliente { get; set; }
-        public float Telefono_cliente { get; set; }
+        public String Telefono_cliente { get; set; }
         public String Tarjeta_pago { get; set; }
         public float Total { get; set; }
 
 
         public DatosRes() { }
 
-        public DatosRes(String pId_empleado, String pId_habitacion, String pFecha_reservacion, String pFecha_entrada, String pFecha_salida, String pNombre_cliente, float pTelefono_cliente, String pTarjeta_pago, float pTotal)
+        public DatosRes(String pId_empleado, String pId_habitacion, String pFecha_reservacion, String pFecha_entrada, String pFecha_salida, String pNombre_cliente, String pTelefono_cliente, String pTarjeta_pago, float pTotal)
         {
             this.Id_empleado = pId_empleado;
             this.Id_habitacion = pId_habitacion;

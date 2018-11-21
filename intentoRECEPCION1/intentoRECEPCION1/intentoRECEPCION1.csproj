@@ -62,11 +62,6 @@
       <DesignTime>True</DesignTime>
       <DependentUpon>HotelDataSet.xsd</DependentUpon>
     </Compile>
-    <Compile Include="HotelDataSet1.Designer.cs">
-      <AutoGen>True</AutoGen>
-      <DesignTime>True</DesignTime>
-      <DependentUpon>HotelDataSet1.xsd</DependentUpon>
-    </Compile>
     <Compile Include="Inicio.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -94,16 +89,6 @@
       <DependentUpon>RegistrarES.cs</DependentUpon>
     </Compile>
     <Compile Include="Regreserva.cs" />
-    <Compile Include="reservacionesDataSet.Designer.cs">
-      <AutoGen>True</AutoGen>
-      <DesignTime>True</DesignTime>
-      <DependentUpon>reservacionesDataSet.xsd</DependentUpon>
-    </Compile>
-    <Compile Include="reservacionesDataSet1.Designer.cs">
-      <AutoGen>True</AutoGen>
-      <DesignTime>True</DesignTime>
-      <DependentUpon>reservacionesDataSet1.xsd</DependentUpon>
-    </Compile>
     <EmbeddedResource Include="Consultar.resx">
       <DependentUpon>Consultar.cs</DependentUpon>
     </EmbeddedResource>
@@ -142,17 +127,6 @@
     <None Include="HotelDataSet.xss">
       <DependentUpon>HotelDataSet.xsd</DependentUpon>
     </None>
-    <None Include="HotelDataSet1.xsc">
-      <DependentUpon>HotelDataSet1.xsd</DependentUpon>
-    </None>
-    <None Include="HotelDataSet1.xsd">
-      <Generator>MSDataSetGenerator</Generator>
-      <LastGenOutput>HotelDataSet1.Designer.cs</LastGenOutput>
-      <SubType>Designer</SubType>
-    </None>
-    <None Include="HotelDataSet1.xss">
-      <DependentUpon>HotelDataSet1.xsd</DependentUpon>
-    </None>
     <None Include="Properties\Settings.settings">
       <Generator>SettingsSingleFileGenerator</Generator>
       <LastGenOutput>Settings.Designer.cs</LastGenOutput>
@@ -162,28 +136,6 @@
       <DependentUpon>Settings.settings</DependentUpon>
       <DesignTimeSharedInput>True</DesignTimeSharedInput>
     </Compile>
-    <None Include="reservacionesDataSet.xsc">
-      <DependentUpon>reservacionesDataSet.xsd</DependentUpon>
-    </None>
-    <None Include="reservacionesDataSet.xsd">
-      <Generator>MSDataSetGenerator</Generator>
-      <LastGenOutput>reservacionesDataSet.Designer.cs</LastGenOutput>
-      <SubType>Designer</SubType>
-    </None>
-    <None Include="reservacionesDataSet.xss">
-      <DependentUpon>reservacionesDataSet.xsd</DependentUpon>
-    </None>
-    <None Include="reservacionesDataSet1.xsc">
-      <DependentUpon>reservacionesDataSet1.xsd</DependentUpon>
-    </None>
-    <None Include="reservacionesDataSet1.xsd">
-      <Generator>MSDataSetGenerator</Generator>
-      <LastGenOutput>reservacionesDataSet1.Designer.cs</LastGenOutput>
-      <SubType>Designer</SubType>
-    </None>
-    <None Include="reservacionesDataSet1.xss">
-      <DependentUpon>reservacionesDataSet1.xsd</DependentUpon>
-    </None>
   </ItemGroup>
   <ItemGroup>
     <None Include="App.config" />
