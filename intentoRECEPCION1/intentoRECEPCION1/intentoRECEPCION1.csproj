@@ -44,6 +44,7 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="clases\Conexion.cs" />
     <Compile Include="Forms\Consultar.cs">
       <SubType>Form</SubType>
     </Compile>

@@ -1,4 +1,5 @@
-﻿using System;
+﻿using intentoRECEPCION1.clases;
+using System;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
@@ -16,15 +17,7 @@ namespace intentoRECEPCION1
         public CrearReservación()
         {
             InitializeComponent();
-        }
-
-        public static SqlConnection ObtnerCOnexion()
-        {
-            //SqlConnection Conn = new SqlConnection(@"Data Source=192.168.1.65;Initial Catalog=Hotel;User ID=servidor;Password=servidor123");
-            SqlConnection Conn = new SqlConnection(@"Data Source=LAPTOP-UGHMV4GH;Initial Catalog=Hotel;User ID=sa;Password=sasa");
-            Conn.Open();
-            return Conn;
-        }
+        }        
 
         //metodo para insertar, se manda a llamar en el button2_click
         private void guardar()
@@ -126,13 +119,12 @@ namespace intentoRECEPCION1
             string F_entrada = dateTimePicker1.Value.ToString("dd/MM/yyyy");
             string F_salida = dateTimePicker2.Value.ToString("dd/MM/yyyy");
 
-            using (SqlConnection Conn = CrearReservación.ObtnerCOnexion()) 
+            using (SqlConnection Conn = Conexion.ObtnerCOnexion()) 
             { 
                 SqlCommand cmd = Conn.CreateCommand();
                 cmd.CommandType = CommandType.Text;
                 cmd.CommandText = "SELECT id_habitacion, No_cuarto, Tipo_habitacion, Precio FROM Habitaciones where Tipo_habitacion = '" + cbx_tipo_hab.SelectedItem + "' and not Id_habitacion in (Select Id_habitacion  from Disponibilidad_hab where Fecha_entrada like '" + F_entrada + "%' and Fecha_salida like '" + F_salida + "%')";
                 cmd.ExecuteNonQuery();
-
 
                 DataTable dt = new DataTable();
                 SqlDataAdapter da = new SqlDataAdapter(cmd);
