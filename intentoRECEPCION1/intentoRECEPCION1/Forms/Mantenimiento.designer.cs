@@ -195,9 +195,9 @@
             // 
             // button3
             // 
-            this.button3.Location = new System.Drawing.Point(52, 367);
+            this.button3.Location = new System.Drawing.Point(52, 383);
             this.button3.Name = "button3";
-            this.button3.Size = new System.Drawing.Size(98, 44);
+            this.button3.Size = new System.Drawing.Size(98, 28);
             this.button3.TabIndex = 18;
             this.button3.Text = "Volver";
             this.button3.UseVisualStyleBackColor = true;
