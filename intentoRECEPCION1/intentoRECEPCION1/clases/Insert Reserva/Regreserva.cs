@@ -13,6 +13,7 @@ namespace intentoRECEPCION1
         public static int Agregar(DatosRes pDatosRes)
         {
             int retorno = 0;
+
             using (SqlConnection Conn = CrearReservación.ObtnerCOnexion())
             {
                 SqlCommand Comando = new SqlCommand(string.Format("Insert Into Reservaciones (Id_empleado, Id_habitacion, Fecha_reservacion, Fecha_entrada, Fecha_salida, Nombre_cliente, Telefono_cliente, Tarjeta_pago, Total) values ('{0}', '{1}', '{2}', '{3}', '{4}', '{5}', '{6}', '{7}', '{8}')",

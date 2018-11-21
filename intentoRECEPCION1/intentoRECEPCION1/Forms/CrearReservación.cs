@@ -26,6 +26,7 @@ namespace intentoRECEPCION1
             return Conn;
         }
 
+        //metodo para insertar, se manda a llamar en el button2_click
         private void guardar()
         {
             //variables
@@ -37,7 +38,7 @@ namespace intentoRECEPCION1
             DateTime Hoy = DateTime.Today;
             string fecha_reserva = Hoy.ToString("dd/MM/yyyy");
 
-            //conversiones            
+            //conversiones        
             columna1 = Convert.ToString(fila.Cells[3].Value); //obtengo el valor de la columna precio
             id = Convert.ToString(fila.Cells[0].Value); //obtengo el valor de la columna id
             colprecio = Convert.ToInt32(columna1);
@@ -74,25 +75,21 @@ namespace intentoRECEPCION1
                 MessageBox.Show("No se pudieron Guardar lo datos", "Error al Guardar", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
             }
         }
-
-
-        private void crearToolStripMenuItem_Click(object sender, EventArgs e)
-        {
-            CrearReservación CR = new CrearReservación();
-            CR.Show();
-        }
-
+       
+        //menu cerrar secion //salir
         private void cerrarSesiónToolStripMenuItem_Click(object sender, EventArgs e)
         {
             Application.Exit();
         }
 
+        //carga datagrid
         private void CrearReservación_Load(object sender, EventArgs e)
         {
             // TODO: esta línea de código carga datos en la tabla 'hotelDataSet.Habitaciones' Puede moverla o quitarla según sea necesario.
             //this.habitacionesTableAdapter.Fill(this.hotelDataSet.Habitaciones);            
         }
 
+        //boton crear reserva
         private void button2_Click(object sender, EventArgs e)
         {
             guardar();
@@ -115,6 +112,7 @@ namespace intentoRECEPCION1
             }            
         }
 
+        //boton volver
         private void button3_Click(object sender, EventArgs e)
         {
             this.Close();
@@ -122,25 +120,27 @@ namespace intentoRECEPCION1
             Regreso.Show();
         }
 
+        //Consultar disponibilidad
         private void disponibilidad_btn_Click(object sender, EventArgs e)
         {
             string F_entrada = dateTimePicker1.Value.ToString("dd/MM/yyyy");
             string F_salida = dateTimePicker2.Value.ToString("dd/MM/yyyy");
 
-            //MessageBox.Show(F_entrada+"_____"+F_salida);
+            using (SqlConnection Conn = CrearReservación.ObtnerCOnexion()) 
+            { 
+                SqlCommand cmd = Conn.CreateCommand();
+                cmd.CommandType = CommandType.Text;
+                cmd.CommandText = "SELECT id_habitacion, No_cuarto, Tipo_habitacion, Precio FROM Habitaciones where Tipo_habitacion = '" + cbx_tipo_hab.SelectedItem + "' and not Id_habitacion in (Select Id_habitacion  from Disponibilidad_hab where Fecha_entrada like '" + F_entrada + "%' and Fecha_salida like '" + F_salida + "%')";
+                cmd.ExecuteNonQuery();
 
-            SqlConnection Conn = new SqlConnection(@"Data Source=LAPTOP-UGHMV4GH;Initial Catalog=Hotel;User ID=sa;Password=sasa");
-            Conn.Open();
-            SqlCommand cmd = Conn.CreateCommand();
-            cmd.CommandType = CommandType.Text;
-            cmd.CommandText = "SELECT id_habitacion, No_cuarto, Tipo_habitacion, Precio FROM Habitaciones where Tipo_habitacion = '" + cbx_tipo_hab.SelectedItem + "' and not Id_habitacion in (Select Id_habitacion  from Disponibilidad_hab where Fecha_entrada like '" + F_entrada + "%' and Fecha_salida like '" + F_salida + "%')";
-            cmd.ExecuteNonQuery();
-            DataTable dt = new DataTable();
-            SqlDataAdapter da = new SqlDataAdapter(cmd);
-            da.Fill(dt);
-            dataGridView1.DataSource = dt;
-            dataGridView1.Refresh();
-            Conn.Close();
+
+                DataTable dt = new DataTable();
+                SqlDataAdapter da = new SqlDataAdapter(cmd);
+                da.Fill(dt);
+                dataGridView1.DataSource = dt;
+                dataGridView1.Refresh();
+                Conn.Close();
+            }
         }
     }
 }

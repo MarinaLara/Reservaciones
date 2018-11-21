@@ -209,7 +209,7 @@ select * from Habitaciones;
 select * from Disponibilidad_hab;
 
 
-select Id_habitacion No_cuarto, Disponibilidad
-from Habitaciones
-where  not Id_habitacion in (Select Id_habitacion 
-from Disponibilidad_hab where Fecha_entrada like '20/11/2018%' and Fecha_salida like '22/11/2018%');
+select Id_habitacion, No_cuarto, Disponibilidad 
+from Habitaciones 
+where Tipo_habitacion = 'Doble' and  not Id_habitacion in (Select Id_habitacion 
+from Disponibilidad_hab where Fecha_entrada like '27/11/2018%' and Fecha_salida like '29/11/2018%');
