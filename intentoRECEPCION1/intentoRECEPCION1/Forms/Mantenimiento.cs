@@ -17,11 +17,6 @@ namespace intentoRECEPCION1
             InitializeComponent();
         }
 
-        private void button1_Click(object sender, EventArgs e)
-        {
-
-        }
-
         private void button3_Click(object sender, EventArgs e)
         {
             this.Close();
@@ -34,6 +29,18 @@ namespace intentoRECEPCION1
             this.Close();
             Consultar ConRes = new Consultar();
             ConRes.Show();
+        }
+
+        private void enviar_btn_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void Mantenimiento_Load(object sender, EventArgs e)
+        {
+            // TODO: esta línea de código carga datos en la tabla 'hotelDataSet.solicitudes_recepcion_mantenimiento' Puede moverla o quitarla según sea necesario.
+            //this.solicitudes_recepcion_mantenimientoTableAdapter.Fill(this.hotelDataSet.solicitudes_recepcion_mantenimiento);
+
         }
     }
 }

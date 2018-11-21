@@ -5470,6 +5470,8 @@ namespace intentoRECEPCION1 {
             
             private global::System.Data.DataColumn columnEstado_solicitud;
             
+            private global::System.Data.DataColumn columnHabitacion;
+            
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
             public solicitudes_recepcion_mantenimientoDataTable() {
@@ -5537,6 +5539,14 @@ namespace intentoRECEPCION1 {
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public global::System.Data.DataColumn HabitacionColumn {
+                get {
+                    return this.columnHabitacion;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
             [global::System.ComponentModel.Browsable(false)]
             public int Count {
                 get {
@@ -5572,13 +5582,14 @@ namespace intentoRECEPCION1 {
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
-            public solicitudes_recepcion_mantenimientoRow Addsolicitudes_recepcion_mantenimientoRow(string Fecha_solicitud, string Solicita, string Estado_solicitud) {
+            public solicitudes_recepcion_mantenimientoRow Addsolicitudes_recepcion_mantenimientoRow(string Fecha_solicitud, string Solicita, string Estado_solicitud, int Habitacion) {
                 solicitudes_recepcion_mantenimientoRow rowsolicitudes_recepcion_mantenimientoRow = ((solicitudes_recepcion_mantenimientoRow)(this.NewRow()));
                 object[] columnValuesArray = new object[] {
                         null,
                         Fecha_solicitud,
                         Solicita,
-                        Estado_solicitud};
+                        Estado_solicitud,
+                        Habitacion};
                 rowsolicitudes_recepcion_mantenimientoRow.ItemArray = columnValuesArray;
                 this.Rows.Add(rowsolicitudes_recepcion_mantenimientoRow);
                 return rowsolicitudes_recepcion_mantenimientoRow;
@@ -5612,6 +5623,7 @@ namespace intentoRECEPCION1 {
                 this.columnFecha_solicitud = base.Columns["Fecha_solicitud"];
                 this.columnSolicita = base.Columns["Solicita"];
                 this.columnEstado_solicitud = base.Columns["Estado_solicitud"];
+                this.columnHabitacion = base.Columns["Habitacion"];
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
@@ -5625,6 +5637,8 @@ namespace intentoRECEPCION1 {
                 base.Columns.Add(this.columnSolicita);
                 this.columnEstado_solicitud = new global::System.Data.DataColumn("Estado_solicitud", typeof(string), null, global::System.Data.MappingType.Element);
                 base.Columns.Add(this.columnEstado_solicitud);
+                this.columnHabitacion = new global::System.Data.DataColumn("Habitacion", typeof(int), null, global::System.Data.MappingType.Element);
+                base.Columns.Add(this.columnHabitacion);
                 this.Constraints.Add(new global::System.Data.UniqueConstraint("Constraint1", new global::System.Data.DataColumn[] {
                                 this.columnId_solicitudM}, true));
                 this.columnId_solicitudM.AutoIncrement = true;
@@ -8345,6 +8359,23 @@ namespace intentoRECEPCION1 {
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public int Habitacion {
+                get {
+                    try {
+                        return ((int)(this[this.tablesolicitudes_recepcion_mantenimiento.HabitacionColumn]));
+                    }
+                    catch (global::System.InvalidCastException e) {
+                        throw new global::System.Data.StrongTypingException("El valor de la columna \'Habitacion\' de la tabla \'solicitudes_recepcion_mantenimie" +
+                                "nto\' es DBNull.", e);
+                    }
+                }
+                set {
+                    this[this.tablesolicitudes_recepcion_mantenimiento.HabitacionColumn] = value;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
             public bool IsFecha_solicitudNull() {
                 return this.IsNull(this.tablesolicitudes_recepcion_mantenimiento.Fecha_solicitudColumn);
             }
@@ -8377,6 +8408,18 @@ namespace intentoRECEPCION1 {
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
             public void SetEstado_solicitudNull() {
                 this[this.tablesolicitudes_recepcion_mantenimiento.Estado_solicitudColumn] = global::System.Convert.DBNull;
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public bool IsHabitacionNull() {
+                return this.IsNull(this.tablesolicitudes_recepcion_mantenimiento.HabitacionColumn);
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public void SetHabitacionNull() {
+                this[this.tablesolicitudes_recepcion_mantenimiento.HabitacionColumn] = global::System.Convert.DBNull;
             }
         }
         
@@ -14956,10 +14999,11 @@ SELECT Id_salida, Id_inventario, Descripcion, Cantidad, Fecha FROM Salidas WHERE
             tableMapping.ColumnMappings.Add("Fecha_solicitud", "Fecha_solicitud");
             tableMapping.ColumnMappings.Add("Solicita", "Solicita");
             tableMapping.ColumnMappings.Add("Estado_solicitud", "Estado_solicitud");
+            tableMapping.ColumnMappings.Add("Habitacion", "Habitacion");
             this._adapter.TableMappings.Add(tableMapping);
             this._adapter.DeleteCommand = new global::System.Data.SqlClient.SqlCommand();
             this._adapter.DeleteCommand.Connection = this.Connection;
-            this._adapter.DeleteCommand.CommandText = @"DELETE FROM [dbo].[solicitudes_recepcion_mantenimiento] WHERE (([Id_solicitudM] = @Original_Id_solicitudM) AND ((@IsNull_Fecha_solicitud = 1 AND [Fecha_solicitud] IS NULL) OR ([Fecha_solicitud] = @Original_Fecha_solicitud)) AND ((@IsNull_Solicita = 1 AND [Solicita] IS NULL) OR ([Solicita] = @Original_Solicita)) AND ((@IsNull_Estado_solicitud = 1 AND [Estado_solicitud] IS NULL) OR ([Estado_solicitud] = @Original_Estado_solicitud)))";
+            this._adapter.DeleteCommand.CommandText = @"DELETE FROM [solicitudes_recepcion_mantenimiento] WHERE (([Id_solicitudM] = @Original_Id_solicitudM) AND ((@IsNull_Fecha_solicitud = 1 AND [Fecha_solicitud] IS NULL) OR ([Fecha_solicitud] = @Original_Fecha_solicitud)) AND ((@IsNull_Solicita = 1 AND [Solicita] IS NULL) OR ([Solicita] = @Original_Solicita)) AND ((@IsNull_Estado_solicitud = 1 AND [Estado_solicitud] IS NULL) OR ([Estado_solicitud] = @Original_Estado_solicitud)) AND ((@IsNull_Habitacion = 1 AND [Habitacion] IS NULL) OR ([Habitacion] = @Original_Habitacion)))";
             this._adapter.DeleteCommand.CommandType = global::System.Data.CommandType.Text;
             this._adapter.DeleteCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Original_Id_solicitudM", global::System.Data.SqlDbType.Int, 0, global::System.Data.ParameterDirection.Input, 0, 0, "Id_solicitudM", global::System.Data.DataRowVersion.Original, false, null, "", "", ""));
             this._adapter.DeleteCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@IsNull_Fecha_solicitud", global::System.Data.SqlDbType.Int, 0, global::System.Data.ParameterDirection.Input, 0, 0, "Fecha_solicitud", global::System.Data.DataRowVersion.Original, true, null, "", "", ""));
@@ -14968,22 +15012,26 @@ SELECT Id_salida, Id_inventario, Descripcion, Cantidad, Fecha FROM Salidas WHERE
             this._adapter.DeleteCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Original_Solicita", global::System.Data.SqlDbType.VarChar, 0, global::System.Data.ParameterDirection.Input, 0, 0, "Solicita", global::System.Data.DataRowVersion.Original, false, null, "", "", ""));
             this._adapter.DeleteCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@IsNull_Estado_solicitud", global::System.Data.SqlDbType.Int, 0, global::System.Data.ParameterDirection.Input, 0, 0, "Estado_solicitud", global::System.Data.DataRowVersion.Original, true, null, "", "", ""));
             this._adapter.DeleteCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Original_Estado_solicitud", global::System.Data.SqlDbType.VarChar, 0, global::System.Data.ParameterDirection.Input, 0, 0, "Estado_solicitud", global::System.Data.DataRowVersion.Original, false, null, "", "", ""));
+            this._adapter.DeleteCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@IsNull_Habitacion", global::System.Data.SqlDbType.Int, 0, global::System.Data.ParameterDirection.Input, 0, 0, "Habitacion", global::System.Data.DataRowVersion.Original, true, null, "", "", ""));
+            this._adapter.DeleteCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Original_Habitacion", global::System.Data.SqlDbType.Int, 0, global::System.Data.ParameterDirection.Input, 0, 0, "Habitacion", global::System.Data.DataRowVersion.Original, false, null, "", "", ""));
             this._adapter.InsertCommand = new global::System.Data.SqlClient.SqlCommand();
             this._adapter.InsertCommand.Connection = this.Connection;
-            this._adapter.InsertCommand.CommandText = @"INSERT INTO [dbo].[solicitudes_recepcion_mantenimiento] ([Fecha_solicitud], [Solicita], [Estado_solicitud]) VALUES (@Fecha_solicitud, @Solicita, @Estado_solicitud);
-SELECT Id_solicitudM, Fecha_solicitud, Solicita, Estado_solicitud FROM solicitudes_recepcion_mantenimiento WHERE (Id_solicitudM = SCOPE_IDENTITY())";
+            this._adapter.InsertCommand.CommandText = @"INSERT INTO [solicitudes_recepcion_mantenimiento] ([Fecha_solicitud], [Solicita], [Estado_solicitud], [Habitacion]) VALUES (@Fecha_solicitud, @Solicita, @Estado_solicitud, @Habitacion);
+SELECT Id_solicitudM, Fecha_solicitud, Solicita, Estado_solicitud, Habitacion FROM solicitudes_recepcion_mantenimiento WHERE (Id_solicitudM = SCOPE_IDENTITY())";
             this._adapter.InsertCommand.CommandType = global::System.Data.CommandType.Text;
             this._adapter.InsertCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Fecha_solicitud", global::System.Data.SqlDbType.VarChar, 0, global::System.Data.ParameterDirection.Input, 0, 0, "Fecha_solicitud", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
             this._adapter.InsertCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Solicita", global::System.Data.SqlDbType.VarChar, 0, global::System.Data.ParameterDirection.Input, 0, 0, "Solicita", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
             this._adapter.InsertCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Estado_solicitud", global::System.Data.SqlDbType.VarChar, 0, global::System.Data.ParameterDirection.Input, 0, 0, "Estado_solicitud", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
+            this._adapter.InsertCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Habitacion", global::System.Data.SqlDbType.Int, 0, global::System.Data.ParameterDirection.Input, 0, 0, "Habitacion", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
             this._adapter.UpdateCommand = new global::System.Data.SqlClient.SqlCommand();
             this._adapter.UpdateCommand.Connection = this.Connection;
-            this._adapter.UpdateCommand.CommandText = @"UPDATE [dbo].[solicitudes_recepcion_mantenimiento] SET [Fecha_solicitud] = @Fecha_solicitud, [Solicita] = @Solicita, [Estado_solicitud] = @Estado_solicitud WHERE (([Id_solicitudM] = @Original_Id_solicitudM) AND ((@IsNull_Fecha_solicitud = 1 AND [Fecha_solicitud] IS NULL) OR ([Fecha_solicitud] = @Original_Fecha_solicitud)) AND ((@IsNull_Solicita = 1 AND [Solicita] IS NULL) OR ([Solicita] = @Original_Solicita)) AND ((@IsNull_Estado_solicitud = 1 AND [Estado_solicitud] IS NULL) OR ([Estado_solicitud] = @Original_Estado_solicitud)));
-SELECT Id_solicitudM, Fecha_solicitud, Solicita, Estado_solicitud FROM solicitudes_recepcion_mantenimiento WHERE (Id_solicitudM = @Id_solicitudM)";
+            this._adapter.UpdateCommand.CommandText = @"UPDATE [solicitudes_recepcion_mantenimiento] SET [Fecha_solicitud] = @Fecha_solicitud, [Solicita] = @Solicita, [Estado_solicitud] = @Estado_solicitud, [Habitacion] = @Habitacion WHERE (([Id_solicitudM] = @Original_Id_solicitudM) AND ((@IsNull_Fecha_solicitud = 1 AND [Fecha_solicitud] IS NULL) OR ([Fecha_solicitud] = @Original_Fecha_solicitud)) AND ((@IsNull_Solicita = 1 AND [Solicita] IS NULL) OR ([Solicita] = @Original_Solicita)) AND ((@IsNull_Estado_solicitud = 1 AND [Estado_solicitud] IS NULL) OR ([Estado_solicitud] = @Original_Estado_solicitud)) AND ((@IsNull_Habitacion = 1 AND [Habitacion] IS NULL) OR ([Habitacion] = @Original_Habitacion)));
+SELECT Id_solicitudM, Fecha_solicitud, Solicita, Estado_solicitud, Habitacion FROM solicitudes_recepcion_mantenimiento WHERE (Id_solicitudM = @Id_solicitudM)";
             this._adapter.UpdateCommand.CommandType = global::System.Data.CommandType.Text;
             this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Fecha_solicitud", global::System.Data.SqlDbType.VarChar, 0, global::System.Data.ParameterDirection.Input, 0, 0, "Fecha_solicitud", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
             this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Solicita", global::System.Data.SqlDbType.VarChar, 0, global::System.Data.ParameterDirection.Input, 0, 0, "Solicita", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
             this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Estado_solicitud", global::System.Data.SqlDbType.VarChar, 0, global::System.Data.ParameterDirection.Input, 0, 0, "Estado_solicitud", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
+            this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Habitacion", global::System.Data.SqlDbType.Int, 0, global::System.Data.ParameterDirection.Input, 0, 0, "Habitacion", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
             this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Original_Id_solicitudM", global::System.Data.SqlDbType.Int, 0, global::System.Data.ParameterDirection.Input, 0, 0, "Id_solicitudM", global::System.Data.DataRowVersion.Original, false, null, "", "", ""));
             this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@IsNull_Fecha_solicitud", global::System.Data.SqlDbType.Int, 0, global::System.Data.ParameterDirection.Input, 0, 0, "Fecha_solicitud", global::System.Data.DataRowVersion.Original, true, null, "", "", ""));
             this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Original_Fecha_solicitud", global::System.Data.SqlDbType.VarChar, 0, global::System.Data.ParameterDirection.Input, 0, 0, "Fecha_solicitud", global::System.Data.DataRowVersion.Original, false, null, "", "", ""));
@@ -14991,6 +15039,8 @@ SELECT Id_solicitudM, Fecha_solicitud, Solicita, Estado_solicitud FROM solicitud
             this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Original_Solicita", global::System.Data.SqlDbType.VarChar, 0, global::System.Data.ParameterDirection.Input, 0, 0, "Solicita", global::System.Data.DataRowVersion.Original, false, null, "", "", ""));
             this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@IsNull_Estado_solicitud", global::System.Data.SqlDbType.Int, 0, global::System.Data.ParameterDirection.Input, 0, 0, "Estado_solicitud", global::System.Data.DataRowVersion.Original, true, null, "", "", ""));
             this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Original_Estado_solicitud", global::System.Data.SqlDbType.VarChar, 0, global::System.Data.ParameterDirection.Input, 0, 0, "Estado_solicitud", global::System.Data.DataRowVersion.Original, false, null, "", "", ""));
+            this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@IsNull_Habitacion", global::System.Data.SqlDbType.Int, 0, global::System.Data.ParameterDirection.Input, 0, 0, "Habitacion", global::System.Data.DataRowVersion.Original, true, null, "", "", ""));
+            this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Original_Habitacion", global::System.Data.SqlDbType.Int, 0, global::System.Data.ParameterDirection.Input, 0, 0, "Habitacion", global::System.Data.DataRowVersion.Original, false, null, "", "", ""));
             this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Id_solicitudM", global::System.Data.SqlDbType.Int, 4, global::System.Data.ParameterDirection.Input, 0, 0, "Id_solicitudM", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
         }
         
@@ -15007,8 +15057,8 @@ SELECT Id_solicitudM, Fecha_solicitud, Solicita, Estado_solicitud FROM solicitud
             this._commandCollection = new global::System.Data.SqlClient.SqlCommand[1];
             this._commandCollection[0] = new global::System.Data.SqlClient.SqlCommand();
             this._commandCollection[0].Connection = this.Connection;
-            this._commandCollection[0].CommandText = "SELECT Id_solicitudM, Fecha_solicitud, Solicita, Estado_solicitud FROM dbo.solici" +
-                "tudes_recepcion_mantenimiento";
+            this._commandCollection[0].CommandText = "SELECT Id_solicitudM, Fecha_solicitud, Solicita, Estado_solicitud, Habitacion FRO" +
+                "M solicitudes_recepcion_mantenimiento";
             this._commandCollection[0].CommandType = global::System.Data.CommandType.Text;
         }
         
@@ -15069,7 +15119,7 @@ SELECT Id_solicitudM, Fecha_solicitud, Solicita, Estado_solicitud FROM solicitud
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
         [global::System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")]
         [global::System.ComponentModel.DataObjectMethodAttribute(global::System.ComponentModel.DataObjectMethodType.Delete, true)]
-        public virtual int Delete(int Original_Id_solicitudM, string Original_Fecha_solicitud, string Original_Solicita, string Original_Estado_solicitud) {
+        public virtual int Delete(int Original_Id_solicitudM, string Original_Fecha_solicitud, string Original_Solicita, string Original_Estado_solicitud, global::System.Nullable<int> Original_Habitacion) {
             this.Adapter.DeleteCommand.Parameters[0].Value = ((int)(Original_Id_solicitudM));
             if ((Original_Fecha_solicitud == null)) {
                 this.Adapter.DeleteCommand.Parameters[1].Value = ((object)(1));
@@ -15095,6 +15145,14 @@ SELECT Id_solicitudM, Fecha_solicitud, Solicita, Estado_solicitud FROM solicitud
                 this.Adapter.DeleteCommand.Parameters[5].Value = ((object)(0));
                 this.Adapter.DeleteCommand.Parameters[6].Value = ((string)(Original_Estado_solicitud));
             }
+            if ((Original_Habitacion.HasValue == true)) {
+                this.Adapter.DeleteCommand.Parameters[7].Value = ((object)(0));
+                this.Adapter.DeleteCommand.Parameters[8].Value = ((int)(Original_Habitacion.Value));
+            }
+            else {
+                this.Adapter.DeleteCommand.Parameters[7].Value = ((object)(1));
+                this.Adapter.DeleteCommand.Parameters[8].Value = global::System.DBNull.Value;
+            }
             global::System.Data.ConnectionState previousConnectionState = this.Adapter.DeleteCommand.Connection.State;
             if (((this.Adapter.DeleteCommand.Connection.State & global::System.Data.ConnectionState.Open) 
                         != global::System.Data.ConnectionState.Open)) {
@@ -15115,7 +15173,7 @@ SELECT Id_solicitudM, Fecha_solicitud, Solicita, Estado_solicitud FROM solicitud
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
         [global::System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")]
         [global::System.ComponentModel.DataObjectMethodAttribute(global::System.ComponentModel.DataObjectMethodType.Insert, true)]
-        public virtual int Insert(string Fecha_solicitud, string Solicita, string Estado_solicitud) {
+        public virtual int Insert(string Fecha_solicitud, string Solicita, string Estado_solicitud, global::System.Nullable<int> Habitacion) {
             if ((Fecha_solicitud == null)) {
                 this.Adapter.InsertCommand.Parameters[0].Value = global::System.DBNull.Value;
             }
@@ -15133,6 +15191,12 @@ SELECT Id_solicitudM, Fecha_solicitud, Solicita, Estado_solicitud FROM solicitud
             }
             else {
                 this.Adapter.InsertCommand.Parameters[2].Value = ((string)(Estado_solicitud));
+            }
+            if ((Habitacion.HasValue == true)) {
+                this.Adapter.InsertCommand.Parameters[3].Value = ((int)(Habitacion.Value));
+            }
+            else {
+                this.Adapter.InsertCommand.Parameters[3].Value = global::System.DBNull.Value;
             }
             global::System.Data.ConnectionState previousConnectionState = this.Adapter.InsertCommand.Connection.State;
             if (((this.Adapter.InsertCommand.Connection.State & global::System.Data.ConnectionState.Open) 
@@ -15154,7 +15218,7 @@ SELECT Id_solicitudM, Fecha_solicitud, Solicita, Estado_solicitud FROM solicitud
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
         [global::System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")]
         [global::System.ComponentModel.DataObjectMethodAttribute(global::System.ComponentModel.DataObjectMethodType.Update, true)]
-        public virtual int Update(string Fecha_solicitud, string Solicita, string Estado_solicitud, int Original_Id_solicitudM, string Original_Fecha_solicitud, string Original_Solicita, string Original_Estado_solicitud, int Id_solicitudM) {
+        public virtual int Update(string Fecha_solicitud, string Solicita, string Estado_solicitud, global::System.Nullable<int> Habitacion, int Original_Id_solicitudM, string Original_Fecha_solicitud, string Original_Solicita, string Original_Estado_solicitud, global::System.Nullable<int> Original_Habitacion, int Id_solicitudM) {
             if ((Fecha_solicitud == null)) {
                 this.Adapter.UpdateCommand.Parameters[0].Value = global::System.DBNull.Value;
             }
@@ -15173,32 +15237,46 @@ SELECT Id_solicitudM, Fecha_solicitud, Solicita, Estado_solicitud FROM solicitud
             else {
                 this.Adapter.UpdateCommand.Parameters[2].Value = ((string)(Estado_solicitud));
             }
-            this.Adapter.UpdateCommand.Parameters[3].Value = ((int)(Original_Id_solicitudM));
-            if ((Original_Fecha_solicitud == null)) {
-                this.Adapter.UpdateCommand.Parameters[4].Value = ((object)(1));
-                this.Adapter.UpdateCommand.Parameters[5].Value = global::System.DBNull.Value;
+            if ((Habitacion.HasValue == true)) {
+                this.Adapter.UpdateCommand.Parameters[3].Value = ((int)(Habitacion.Value));
             }
             else {
-                this.Adapter.UpdateCommand.Parameters[4].Value = ((object)(0));
-                this.Adapter.UpdateCommand.Parameters[5].Value = ((string)(Original_Fecha_solicitud));
+                this.Adapter.UpdateCommand.Parameters[3].Value = global::System.DBNull.Value;
+            }
+            this.Adapter.UpdateCommand.Parameters[4].Value = ((int)(Original_Id_solicitudM));
+            if ((Original_Fecha_solicitud == null)) {
+                this.Adapter.UpdateCommand.Parameters[5].Value = ((object)(1));
+                this.Adapter.UpdateCommand.Parameters[6].Value = global::System.DBNull.Value;
+            }
+            else {
+                this.Adapter.UpdateCommand.Parameters[5].Value = ((object)(0));
+                this.Adapter.UpdateCommand.Parameters[6].Value = ((string)(Original_Fecha_solicitud));
             }
             if ((Original_Solicita == null)) {
-                this.Adapter.UpdateCommand.Parameters[6].Value = ((object)(1));
-                this.Adapter.UpdateCommand.Parameters[7].Value = global::System.DBNull.Value;
+                this.Adapter.UpdateCommand.Parameters[7].Value = ((object)(1));
+                this.Adapter.UpdateCommand.Parameters[8].Value = global::System.DBNull.Value;
             }
             else {
-                this.Adapter.UpdateCommand.Parameters[6].Value = ((object)(0));
-                this.Adapter.UpdateCommand.Parameters[7].Value = ((string)(Original_Solicita));
+                this.Adapter.UpdateCommand.Parameters[7].Value = ((object)(0));
+                this.Adapter.UpdateCommand.Parameters[8].Value = ((string)(Original_Solicita));
             }
             if ((Original_Estado_solicitud == null)) {
-                this.Adapter.UpdateCommand.Parameters[8].Value = ((object)(1));
-                this.Adapter.UpdateCommand.Parameters[9].Value = global::System.DBNull.Value;
+                this.Adapter.UpdateCommand.Parameters[9].Value = ((object)(1));
+                this.Adapter.UpdateCommand.Parameters[10].Value = global::System.DBNull.Value;
             }
             else {
-                this.Adapter.UpdateCommand.Parameters[8].Value = ((object)(0));
-                this.Adapter.UpdateCommand.Parameters[9].Value = ((string)(Original_Estado_solicitud));
+                this.Adapter.UpdateCommand.Parameters[9].Value = ((object)(0));
+                this.Adapter.UpdateCommand.Parameters[10].Value = ((string)(Original_Estado_solicitud));
             }
-            this.Adapter.UpdateCommand.Parameters[10].Value = ((int)(Id_solicitudM));
+            if ((Original_Habitacion.HasValue == true)) {
+                this.Adapter.UpdateCommand.Parameters[11].Value = ((object)(0));
+                this.Adapter.UpdateCommand.Parameters[12].Value = ((int)(Original_Habitacion.Value));
+            }
+            else {
+                this.Adapter.UpdateCommand.Parameters[11].Value = ((object)(1));
+                this.Adapter.UpdateCommand.Parameters[12].Value = global::System.DBNull.Value;
+            }
+            this.Adapter.UpdateCommand.Parameters[13].Value = ((int)(Id_solicitudM));
             global::System.Data.ConnectionState previousConnectionState = this.Adapter.UpdateCommand.Connection.State;
             if (((this.Adapter.UpdateCommand.Connection.State & global::System.Data.ConnectionState.Open) 
                         != global::System.Data.ConnectionState.Open)) {
@@ -15219,8 +15297,8 @@ SELECT Id_solicitudM, Fecha_solicitud, Solicita, Estado_solicitud FROM solicitud
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
         [global::System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")]
         [global::System.ComponentModel.DataObjectMethodAttribute(global::System.ComponentModel.DataObjectMethodType.Update, true)]
-        public virtual int Update(string Fecha_solicitud, string Solicita, string Estado_solicitud, int Original_Id_solicitudM, string Original_Fecha_solicitud, string Original_Solicita, string Original_Estado_solicitud) {
-            return this.Update(Fecha_solicitud, Solicita, Estado_solicitud, Original_Id_solicitudM, Original_Fecha_solicitud, Original_Solicita, Original_Estado_solicitud, Original_Id_solicitudM);
+        public virtual int Update(string Fecha_solicitud, string Solicita, string Estado_solicitud, global::System.Nullable<int> Habitacion, int Original_Id_solicitudM, string Original_Fecha_solicitud, string Original_Solicita, string Original_Estado_solicitud, global::System.Nullable<int> Original_Habitacion) {
+            return this.Update(Fecha_solicitud, Solicita, Estado_solicitud, Habitacion, Original_Id_solicitudM, Original_Fecha_solicitud, Original_Solicita, Original_Estado_solicitud, Original_Habitacion, Original_Id_solicitudM);
         }
     }
     

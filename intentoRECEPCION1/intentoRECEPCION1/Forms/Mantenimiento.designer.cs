@@ -28,27 +28,34 @@
         /// </summary>
         private void InitializeComponent()
         {
+            this.components = new System.ComponentModel.Container();
             this.menuStrip1 = new System.Windows.Forms.MenuStrip();
             this.reservacionesToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.consultaToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.cerrarSesiónToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.textBox1 = new System.Windows.Forms.TextBox();
-            this.textBox2 = new System.Windows.Forms.TextBox();
-            this.comboBox1 = new System.Windows.Forms.ComboBox();
-            this.button1 = new System.Windows.Forms.Button();
-            this.button2 = new System.Windows.Forms.Button();
+            this.ins_habit_txt = new System.Windows.Forms.TextBox();
+            this.busc_cli_hab_txt = new System.Windows.Forms.TextBox();
+            this.cbx_solicitud = new System.Windows.Forms.ComboBox();
+            this.enviar_btn = new System.Windows.Forms.Button();
+            this.consultar_btn = new System.Windows.Forms.Button();
             this.groupBox2 = new System.Windows.Forms.GroupBox();
             this.dataGridView1 = new System.Windows.Forms.DataGridView();
-            this.Habitación = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.Seleccionar = new System.Windows.Forms.DataGridViewCheckBoxColumn();
-            this.Estado = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.label1 = new System.Windows.Forms.Label();
             this.label2 = new System.Windows.Forms.Label();
             this.label3 = new System.Windows.Forms.Label();
             this.button3 = new System.Windows.Forms.Button();
+            this.hotelDataSet = new intentoRECEPCION1.HotelDataSet();
+            this.solicitudesrecepcionmantenimientoBindingSource = new System.Windows.Forms.BindingSource(this.components);
+            this.solicitudes_recepcion_mantenimientoTableAdapter = new intentoRECEPCION1.HotelDataSetTableAdapters.solicitudes_recepcion_mantenimientoTableAdapter();
+            this.fechasolicitudDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.solicitaDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.habitacionDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.estadosolicitudDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.menuStrip1.SuspendLayout();
             this.groupBox2.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.hotelDataSet)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.solicitudesrecepcionmantenimientoBindingSource)).BeginInit();
             this.SuspendLayout();
             // 
             // menuStrip1
@@ -60,7 +67,7 @@
             this.cerrarSesiónToolStripMenuItem});
             this.menuStrip1.Location = new System.Drawing.Point(0, 0);
             this.menuStrip1.Name = "menuStrip1";
-            this.menuStrip1.Size = new System.Drawing.Size(591, 24);
+            this.menuStrip1.Size = new System.Drawing.Size(533, 24);
             this.menuStrip1.TabIndex = 0;
             this.menuStrip1.Text = "menuStrip1";
             // 
@@ -86,57 +93,57 @@
             this.cerrarSesiónToolStripMenuItem.Size = new System.Drawing.Size(88, 20);
             this.cerrarSesiónToolStripMenuItem.Text = "Cerrar Sesión";
             // 
-            // textBox1
+            // ins_habit_txt
             // 
-            this.textBox1.Location = new System.Drawing.Point(52, 319);
-            this.textBox1.Name = "textBox1";
-            this.textBox1.Size = new System.Drawing.Size(100, 20);
-            this.textBox1.TabIndex = 1;
+            this.ins_habit_txt.Location = new System.Drawing.Point(52, 319);
+            this.ins_habit_txt.Name = "ins_habit_txt";
+            this.ins_habit_txt.Size = new System.Drawing.Size(100, 20);
+            this.ins_habit_txt.TabIndex = 1;
             // 
-            // textBox2
+            // busc_cli_hab_txt
             // 
-            this.textBox2.Location = new System.Drawing.Point(60, 72);
-            this.textBox2.Name = "textBox2";
-            this.textBox2.Size = new System.Drawing.Size(100, 20);
-            this.textBox2.TabIndex = 2;
+            this.busc_cli_hab_txt.Location = new System.Drawing.Point(60, 72);
+            this.busc_cli_hab_txt.Name = "busc_cli_hab_txt";
+            this.busc_cli_hab_txt.Size = new System.Drawing.Size(182, 20);
+            this.busc_cli_hab_txt.TabIndex = 2;
             // 
-            // comboBox1
+            // cbx_solicitud
             // 
-            this.comboBox1.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
-            this.comboBox1.FormattingEnabled = true;
-            this.comboBox1.Items.AddRange(new object[] {
+            this.cbx_solicitud.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
+            this.cbx_solicitud.FormattingEnabled = true;
+            this.cbx_solicitud.Items.AddRange(new object[] {
             "Limpieza",
             "Mantenimiento"});
-            this.comboBox1.Location = new System.Drawing.Point(213, 316);
-            this.comboBox1.Name = "comboBox1";
-            this.comboBox1.Size = new System.Drawing.Size(121, 21);
-            this.comboBox1.TabIndex = 3;
+            this.cbx_solicitud.Location = new System.Drawing.Point(213, 316);
+            this.cbx_solicitud.Name = "cbx_solicitud";
+            this.cbx_solicitud.Size = new System.Drawing.Size(121, 21);
+            this.cbx_solicitud.TabIndex = 3;
             // 
-            // button1
+            // enviar_btn
             // 
-            this.button1.Location = new System.Drawing.Point(406, 317);
-            this.button1.Name = "button1";
-            this.button1.Size = new System.Drawing.Size(75, 23);
-            this.button1.TabIndex = 4;
-            this.button1.Text = "Enviar";
-            this.button1.UseVisualStyleBackColor = true;
-            this.button1.Click += new System.EventHandler(this.button1_Click);
+            this.enviar_btn.Location = new System.Drawing.Point(368, 316);
+            this.enviar_btn.Name = "enviar_btn";
+            this.enviar_btn.Size = new System.Drawing.Size(113, 24);
+            this.enviar_btn.TabIndex = 4;
+            this.enviar_btn.Text = "Enviar";
+            this.enviar_btn.UseVisualStyleBackColor = true;
+            this.enviar_btn.Click += new System.EventHandler(this.enviar_btn_Click);
             // 
-            // button2
+            // consultar_btn
             // 
-            this.button2.Location = new System.Drawing.Point(397, 69);
-            this.button2.Name = "button2";
-            this.button2.Size = new System.Drawing.Size(75, 23);
-            this.button2.TabIndex = 5;
-            this.button2.Text = "Consultar";
-            this.button2.UseVisualStyleBackColor = true;
+            this.consultar_btn.Location = new System.Drawing.Point(326, 72);
+            this.consultar_btn.Name = "consultar_btn";
+            this.consultar_btn.Size = new System.Drawing.Size(155, 23);
+            this.consultar_btn.TabIndex = 5;
+            this.consultar_btn.Text = "Consultar";
+            this.consultar_btn.UseVisualStyleBackColor = true;
             // 
             // groupBox2
             // 
             this.groupBox2.Controls.Add(this.dataGridView1);
             this.groupBox2.Location = new System.Drawing.Point(38, 131);
             this.groupBox2.Name = "groupBox2";
-            this.groupBox2.Size = new System.Drawing.Size(509, 150);
+            this.groupBox2.Size = new System.Drawing.Size(470, 150);
             this.groupBox2.TabIndex = 14;
             this.groupBox2.TabStop = false;
             this.groupBox2.Text = "Registrar Entrada o Salida";
@@ -145,33 +152,18 @@
             // 
             this.dataGridView1.AllowUserToAddRows = false;
             this.dataGridView1.AllowUserToDeleteRows = false;
+            this.dataGridView1.AutoGenerateColumns = false;
             this.dataGridView1.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.dataGridView1.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
-            this.Habitación,
-            this.Seleccionar,
-            this.Estado});
-            this.dataGridView1.Location = new System.Drawing.Point(22, 19);
+            this.fechasolicitudDataGridViewTextBoxColumn,
+            this.solicitaDataGridViewTextBoxColumn,
+            this.habitacionDataGridViewTextBoxColumn,
+            this.estadosolicitudDataGridViewTextBoxColumn});
+            this.dataGridView1.DataSource = this.solicitudesrecepcionmantenimientoBindingSource;
+            this.dataGridView1.Location = new System.Drawing.Point(15, 19);
             this.dataGridView1.Name = "dataGridView1";
-            this.dataGridView1.Size = new System.Drawing.Size(469, 124);
+            this.dataGridView1.Size = new System.Drawing.Size(443, 124);
             this.dataGridView1.TabIndex = 0;
-            // 
-            // Habitación
-            // 
-            this.Habitación.HeaderText = "Habitación";
-            this.Habitación.Name = "Habitación";
-            // 
-            // Seleccionar
-            // 
-            this.Seleccionar.HeaderText = "Cliente";
-            this.Seleccionar.Name = "Seleccionar";
-            this.Seleccionar.ReadOnly = true;
-            this.Seleccionar.Resizable = System.Windows.Forms.DataGridViewTriState.True;
-            this.Seleccionar.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.Automatic;
-            // 
-            // Estado
-            // 
-            this.Estado.HeaderText = "Estado";
-            this.Estado.Name = "Estado";
             // 
             // label1
             // 
@@ -203,7 +195,7 @@
             // 
             // button3
             // 
-            this.button3.Location = new System.Drawing.Point(38, 367);
+            this.button3.Location = new System.Drawing.Point(52, 367);
             this.button3.Name = "button3";
             this.button3.Size = new System.Drawing.Size(98, 44);
             this.button3.TabIndex = 18;
@@ -211,30 +203,71 @@
             this.button3.UseVisualStyleBackColor = true;
             this.button3.Click += new System.EventHandler(this.button3_Click);
             // 
+            // hotelDataSet
+            // 
+            this.hotelDataSet.DataSetName = "HotelDataSet";
+            this.hotelDataSet.SchemaSerializationMode = System.Data.SchemaSerializationMode.IncludeSchema;
+            // 
+            // solicitudesrecepcionmantenimientoBindingSource
+            // 
+            this.solicitudesrecepcionmantenimientoBindingSource.DataMember = "solicitudes_recepcion_mantenimiento";
+            this.solicitudesrecepcionmantenimientoBindingSource.DataSource = this.hotelDataSet;
+            // 
+            // solicitudes_recepcion_mantenimientoTableAdapter
+            // 
+            this.solicitudes_recepcion_mantenimientoTableAdapter.ClearBeforeFill = true;
+            // 
+            // fechasolicitudDataGridViewTextBoxColumn
+            // 
+            this.fechasolicitudDataGridViewTextBoxColumn.DataPropertyName = "Fecha_solicitud";
+            this.fechasolicitudDataGridViewTextBoxColumn.HeaderText = "Fecha_solicitud";
+            this.fechasolicitudDataGridViewTextBoxColumn.Name = "fechasolicitudDataGridViewTextBoxColumn";
+            // 
+            // solicitaDataGridViewTextBoxColumn
+            // 
+            this.solicitaDataGridViewTextBoxColumn.DataPropertyName = "Solicita";
+            this.solicitaDataGridViewTextBoxColumn.HeaderText = "Solicita";
+            this.solicitaDataGridViewTextBoxColumn.Name = "solicitaDataGridViewTextBoxColumn";
+            // 
+            // habitacionDataGridViewTextBoxColumn
+            // 
+            this.habitacionDataGridViewTextBoxColumn.DataPropertyName = "Habitacion";
+            this.habitacionDataGridViewTextBoxColumn.HeaderText = "Habitacion";
+            this.habitacionDataGridViewTextBoxColumn.Name = "habitacionDataGridViewTextBoxColumn";
+            // 
+            // estadosolicitudDataGridViewTextBoxColumn
+            // 
+            this.estadosolicitudDataGridViewTextBoxColumn.DataPropertyName = "Estado_solicitud";
+            this.estadosolicitudDataGridViewTextBoxColumn.HeaderText = "Estado_solicitud";
+            this.estadosolicitudDataGridViewTextBoxColumn.Name = "estadosolicitudDataGridViewTextBoxColumn";
+            // 
             // Mantenimiento
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(67)))), ((int)(((byte)(112)))), ((int)(((byte)(111)))));
-            this.ClientSize = new System.Drawing.Size(591, 423);
+            this.ClientSize = new System.Drawing.Size(533, 423);
             this.Controls.Add(this.button3);
             this.Controls.Add(this.label3);
             this.Controls.Add(this.label2);
             this.Controls.Add(this.label1);
             this.Controls.Add(this.groupBox2);
-            this.Controls.Add(this.button2);
-            this.Controls.Add(this.button1);
-            this.Controls.Add(this.comboBox1);
-            this.Controls.Add(this.textBox2);
-            this.Controls.Add(this.textBox1);
+            this.Controls.Add(this.consultar_btn);
+            this.Controls.Add(this.enviar_btn);
+            this.Controls.Add(this.cbx_solicitud);
+            this.Controls.Add(this.busc_cli_hab_txt);
+            this.Controls.Add(this.ins_habit_txt);
             this.Controls.Add(this.menuStrip1);
             this.MainMenuStrip = this.menuStrip1;
             this.Name = "Mantenimiento";
             this.Text = "Mantenimiento";
+            this.Load += new System.EventHandler(this.Mantenimiento_Load);
             this.menuStrip1.ResumeLayout(false);
             this.menuStrip1.PerformLayout();
             this.groupBox2.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.hotelDataSet)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.solicitudesrecepcionmantenimientoBindingSource)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -246,19 +279,23 @@
         private System.Windows.Forms.ToolStripMenuItem reservacionesToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem consultaToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem cerrarSesiónToolStripMenuItem;
-        private System.Windows.Forms.TextBox textBox1;
-        private System.Windows.Forms.TextBox textBox2;
-        private System.Windows.Forms.ComboBox comboBox1;
-        private System.Windows.Forms.Button button1;
-        private System.Windows.Forms.Button button2;
+        private System.Windows.Forms.TextBox ins_habit_txt;
+        private System.Windows.Forms.TextBox busc_cli_hab_txt;
+        private System.Windows.Forms.ComboBox cbx_solicitud;
+        private System.Windows.Forms.Button enviar_btn;
+        private System.Windows.Forms.Button consultar_btn;
         private System.Windows.Forms.GroupBox groupBox2;
         private System.Windows.Forms.DataGridView dataGridView1;
-        private System.Windows.Forms.DataGridViewTextBoxColumn Habitación;
-        private System.Windows.Forms.DataGridViewCheckBoxColumn Seleccionar;
-        private System.Windows.Forms.DataGridViewTextBoxColumn Estado;
         private System.Windows.Forms.Label label1;
         private System.Windows.Forms.Label label2;
         private System.Windows.Forms.Label label3;
         private System.Windows.Forms.Button button3;
+        private HotelDataSet hotelDataSet;
+        private System.Windows.Forms.BindingSource solicitudesrecepcionmantenimientoBindingSource;
+        private HotelDataSetTableAdapters.solicitudes_recepcion_mantenimientoTableAdapter solicitudes_recepcion_mantenimientoTableAdapter;
+        private System.Windows.Forms.DataGridViewTextBoxColumn fechasolicitudDataGridViewTextBoxColumn;
+        private System.Windows.Forms.DataGridViewTextBoxColumn solicitaDataGridViewTextBoxColumn;
+        private System.Windows.Forms.DataGridViewTextBoxColumn habitacionDataGridViewTextBoxColumn;
+        private System.Windows.Forms.DataGridViewTextBoxColumn estadosolicitudDataGridViewTextBoxColumn;
     }
 }

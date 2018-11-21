@@ -23,8 +23,6 @@ namespace intentoRECEPCION1
 
             dateTimePicker1.Value = Hoy;
             dateTimePicker2.Value = Hoy;
-
-
         }        
 
         //metodo para insertar, se manda a llamar en el button2_click
@@ -146,8 +144,6 @@ namespace intentoRECEPCION1
                 cmd.CommandType = CommandType.Text;
                 cmd.CommandText = "SELECT id_habitacion, No_cuarto, Tipo_habitacion, Precio FROM Habitaciones where Tipo_habitacion = '" + cbx_tipo_hab.SelectedItem + "' and not Id_habitacion in (Select Id_habitacion  from Disponibilidad_hab where Fecha_entrada like '" + F_entrada + "%' and Fecha_salida like '" + F_salida + "%')";
                 cmd.ExecuteNonQuery();
-                //sel();
-
                 DataTable dt = new DataTable();
                 SqlDataAdapter da = new SqlDataAdapter(cmd);
                 da.Fill(dt);
@@ -185,6 +181,7 @@ namespace intentoRECEPCION1
             }
         }
 
+        //reset datagrid por cambio de fecha
         private void dateTimePicker2_ValueChanged(object sender, EventArgs e)
         {
             if (cbx_tipo_hab.SelectedItem != null)
@@ -197,6 +194,7 @@ namespace intentoRECEPCION1
             }
         }
 
+        //Validaciones campos
         private void Cliente_nombre_txt_KeyPress(object sender, KeyPressEventArgs e)
         {
             if (Char.IsLetter(e.KeyChar)) 
@@ -218,8 +216,27 @@ namespace intentoRECEPCION1
         }
 
         private void textBox3_KeyPress(object sender, KeyPressEventArgs e)
+        {            
+            if (Char.IsDigit(e.KeyChar))
+            {
+                e.Handled = false;
+            }
+            else if (Char.IsControl(e.KeyChar))
+            {
+                e.Handled = false;
+            }
+            else if (Char.IsSeparator(e.KeyChar))
+            {
+                e.Handled = false;
+            }
+            else
+            {
+                e.Handled = true;
+            }
+        }
+
+        private void textBox5_KeyPress(object sender, KeyPressEventArgs e)
         {
-            
             if (Char.IsDigit(e.KeyChar))
             {
                 e.Handled = false;
