@@ -85,8 +85,10 @@ create table solicitudes_recepcion_mantenimiento(
 Id_solicitudM int identity,
 Fecha_solicitud varchar (30),
 Solicita varchar (60),
+Habitacion int,
 Estado_solicitud varchar (30),
-primary key (Id_solicitudM)
+primary key (Id_solicitudM),
+foreign key (Habitacion) references Habitaciones(Id_habitacion)
 );
 
 	-- Cancelaciones Recepcion - Rh
