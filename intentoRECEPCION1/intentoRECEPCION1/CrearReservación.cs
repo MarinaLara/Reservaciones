@@ -28,22 +28,37 @@ namespace intentoRECEPCION1
 
         private void guardar()
         {
-            int Tel, Tot;
-            string id;
-            id = dataGridView1.CurrentCell.Value.ToString();  
-            Tel =  Convert.ToInt32(this.textBox3.Text);
-            
+            //variables
+            int Tot, dias, colprecio;
+            string id, columna1;
+            DataGridViewRow fila = dataGridView1.CurrentRow; // obtengo la fila actualmente seleccionada en el dataGridView
+
+            //tomar la fecha de hoy
+            DateTime Hoy = DateTime.Today;
+            string fecha_reserva = Hoy.ToString("dd/MM/yyyy");
+
+            //conversiones            
+            columna1 = Convert.ToString(fila.Cells[3].Value); //obtengo el valor de la columna precio
+            id = Convert.ToString(fila.Cells[0].Value); //obtengo el valor de la columna id
+            colprecio = Convert.ToInt32(columna1);
             Convert.ToInt32(id);
-            Tot = 1000;
+
+            //Calcular la cantidad de dias
+            TimeSpan ts = dateTimePicker2.Value - dateTimePicker1.Value;
+            dias = (int)ts.TotalDays;           
             
+            //operaciones
+            Tot = dias * colprecio;
+
+            //insert
             DatosRes DatosRes = new DatosRes();
             DatosRes.Id_empleado = "1";
             DatosRes.Id_habitacion = id;
-            DatosRes.Fecha_reservacion = dateTimePicker1.Value.ToString();
+            DatosRes.Fecha_reservacion = fecha_reserva;
             DatosRes.Fecha_entrada = dateTimePicker1.Value.ToString();
             DatosRes.Fecha_salida = dateTimePicker2.Value.ToString();
             DatosRes.Nombre_cliente = Cliente_nombre_txt.Text;
-            DatosRes.Telefono_cliente = Tel;
+            DatosRes.Telefono_cliente = textBox3.Text;
             DatosRes.Tarjeta_pago = textBox5.Text;
             DatosRes.Total = Tot;
 
@@ -57,7 +72,7 @@ namespace intentoRECEPCION1
             else
             {
                 MessageBox.Show("No se pudieron Guardar lo datos", "Error al Guardar", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
-            }           
+            }
         }
 
 
@@ -74,8 +89,8 @@ namespace intentoRECEPCION1
 
         private void CrearReservación_Load(object sender, EventArgs e)
         {
-            // TODO: esta línea de código carga datos en la tabla 'hotelDataSet1.Habitaciones' Puede moverla o quitarla según sea necesario.
-            this.habitacionesTableAdapter2.Fill(this.hotelDataSet1.Habitaciones);
+            // TODO: esta línea de código carga datos en la tabla 'hotelDataSet.Habitaciones' Puede moverla o quitarla según sea necesario.
+            //this.habitacionesTableAdapter.Fill(this.hotelDataSet.Habitaciones);            
         }
 
         private void button2_Click(object sender, EventArgs e)
@@ -86,33 +101,17 @@ namespace intentoRECEPCION1
             Regreso.Show();
         }
 
-        private void button1_Click(object sender, EventArgs e)
-        {
-            string F_entrada = dateTimePicker1.Value.ToString("dd/MM/yyyy");
-            string F_salida =  dateTimePicker2.Value.ToString("dd/MM/yyyy");
-
-            //MessageBox.Show(F_entrada+"_____"+F_salida);
-
-            SqlConnection Conn = new SqlConnection(@"Data Source=LAPTOP-UGHMV4GH;Initial Catalog=Hotel;User ID=sa;Password=sasa");
-            Conn.Open();
-            SqlCommand cmd = Conn.CreateCommand();
-            cmd.CommandType = CommandType.Text;
-            cmd.CommandText = "SELECT id_habitacion, No_cuarto, Tipo_habitacion, Disponibilidad FROM Habitaciones where not Id_habitacion in (Select Id_habitacion  from Disponibilidad_hab where Fecha_entrada like '" + F_entrada + "%' and Fecha_salida like '" + F_salida +"%')";
-            cmd.ExecuteNonQuery();
-            DataTable dt = new DataTable();
-            SqlDataAdapter da = new SqlDataAdapter(cmd);
-            da.Fill(dt);
-            dataGridView1.DataSource = dt;
-            dataGridView1.Refresh();
-            Conn.Close();
-        }
-
         private void dataGridView1_CellContentClick(object sender, DataGridViewCellEventArgs e)
         {
-            if (dataGridView1.SelectedCells.Count == 1)
-            {                
-                string id = dataGridView1.CurrentCell.Value.ToString();            
-                MessageBox.Show(" "+ id);
+            if (dataGridView1.SelectedCells.Count > 1)
+            {
+                string columna1, columna2;
+       
+                DataGridViewRow fila = dataGridView1.CurrentRow; // obtengo la fila actualmente seleccionada en el dataGridView
+
+                columna1 = Convert.ToString(fila.Cells[0].Value); //obtengo el valor de la columna id
+
+                columna2= Convert.ToString(fila.Cells[3].Value); //obtengo el valor de la  columna precio
             }            
         }
 
@@ -121,6 +120,27 @@ namespace intentoRECEPCION1
             this.Close();
             Inicio Regreso = new Inicio();
             Regreso.Show();
+        }
+
+        private void disponibilidad_btn_Click(object sender, EventArgs e)
+        {
+            string F_entrada = dateTimePicker1.Value.ToString("dd/MM/yyyy");
+            string F_salida = dateTimePicker2.Value.ToString("dd/MM/yyyy");
+
+            //MessageBox.Show(F_entrada+"_____"+F_salida);
+
+            SqlConnection Conn = new SqlConnection(@"Data Source=LAPTOP-UGHMV4GH;Initial Catalog=Hotel;User ID=sa;Password=sasa");
+            Conn.Open();
+            SqlCommand cmd = Conn.CreateCommand();
+            cmd.CommandType = CommandType.Text;
+            cmd.CommandText = "SELECT id_habitacion, No_cuarto, Tipo_habitacion, Precio FROM Habitaciones where not Id_habitacion in (Select Id_habitacion  from Disponibilidad_hab where Fecha_entrada like '" + F_entrada + "%' and Fecha_salida like '" + F_salida + "%')";
+            cmd.ExecuteNonQuery();
+            DataTable dt = new DataTable();
+            SqlDataAdapter da = new SqlDataAdapter(cmd);
+            da.Fill(dt);
+            dataGridView1.DataSource = dt;
+            dataGridView1.Refresh();
+            Conn.Close();
         }
     }
 }
