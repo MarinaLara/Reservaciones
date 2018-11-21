@@ -339,6 +339,7 @@
             this.textBox3.Name = "textBox3";
             this.textBox3.Size = new System.Drawing.Size(100, 20);
             this.textBox3.TabIndex = 17;
+            this.textBox3.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.textBox3_KeyPress);
             // 
             // Cliente_nombre_txt
             // 
@@ -346,6 +347,7 @@
             this.Cliente_nombre_txt.Name = "Cliente_nombre_txt";
             this.Cliente_nombre_txt.Size = new System.Drawing.Size(190, 20);
             this.Cliente_nombre_txt.TabIndex = 16;
+            this.Cliente_nombre_txt.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.Cliente_nombre_txt_KeyPress);
             // 
             // label8
             // 
@@ -377,9 +379,9 @@
             // 
             // button3
             // 
-            this.button3.Location = new System.Drawing.Point(13, 577);
+            this.button3.Location = new System.Drawing.Point(30, 554);
             this.button3.Name = "button3";
-            this.button3.Size = new System.Drawing.Size(75, 47);
+            this.button3.Size = new System.Drawing.Size(75, 44);
             this.button3.TabIndex = 15;
             this.button3.Text = "Volver";
             this.button3.UseVisualStyleBackColor = true;
@@ -394,7 +396,7 @@
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(67)))), ((int)(((byte)(112)))), ((int)(((byte)(111)))));
-            this.ClientSize = new System.Drawing.Size(784, 642);
+            this.ClientSize = new System.Drawing.Size(784, 611);
             this.Controls.Add(this.button3);
             this.Controls.Add(this.button2);
             this.Controls.Add(this.groupBox3);
