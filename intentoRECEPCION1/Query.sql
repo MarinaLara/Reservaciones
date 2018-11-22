@@ -215,3 +215,14 @@ select Id_habitacion, No_cuarto, Disponibilidad
 from Habitaciones 
 where Tipo_habitacion = 'Doble' and  not Id_habitacion in (Select Id_habitacion 
 from Disponibilidad_hab where Fecha_entrada like '27/11/2018%' and Fecha_salida like '29/11/2018%');
+
+
+
+
+
+select Id_habitacion, No_cuarto, Disponibilidad
+from Habitaciones
+where Id_habitacion in (select Habitacion from solicitudes_recepcion_mantenimiento)
+
+
+select * from solicitudes_recepcion_mantenimiento

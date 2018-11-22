@@ -1,8 +1,10 @@
-﻿using intentoRECEPCION1.clases.Insert_Mant;
+﻿using intentoRECEPCION1.clases;
+using intentoRECEPCION1.clases.Insert_Mant;
 using System;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
+using System.Data.SqlClient;
 using System.Drawing;
 using System.Linq;
 using System.Text;
@@ -60,6 +62,7 @@ namespace intentoRECEPCION1
                 if (resultado > 0)
                 {
                     MessageBox.Show("Datos Guardados Correctamente", "Datos Guardado", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                    carga();
                 }
 
                 else
@@ -72,8 +75,27 @@ namespace intentoRECEPCION1
         private void Mantenimiento_Load(object sender, EventArgs e)
         {
             // TODO: esta línea de código carga datos en la tabla 'hotelDataSet.solicitudes_recepcion_mantenimiento' Puede moverla o quitarla según sea necesario.
-            this.solicitudes_recepcion_mantenimientoTableAdapter.Fill(this.hotelDataSet.solicitudes_recepcion_mantenimiento);
+            //this.solicitudes_recepcion_mantenimientoTableAdapter.Fill(this.hotelDataSet.solicitudes_recepcion_mantenimiento);
 
+            carga();
+
+        }
+
+        public void carga() 
+        {
+            using (SqlConnection Conn = Conexion.ObtnerCOnexion())
+            {
+                SqlCommand cmd = Conn.CreateCommand();
+                cmd.CommandType = CommandType.Text;
+                cmd.CommandText = "select Fecha_solicitud as 'Fecha solicitud', Habitacion as 'No. cuarto', Solicita as 'Requiere', Estado_solicitud as 'Estado' from solicitudes_recepcion_mantenimiento where Estado_solicitud = 'Pendiente'";
+                cmd.ExecuteNonQuery();
+                DataTable dt = new DataTable();
+                SqlDataAdapter da = new SqlDataAdapter(cmd);
+                da.Fill(dt);
+                dataGridView1.DataSource = dt;
+                dataGridView1.Refresh();
+                Conn.Close();
+            }
         }
     }
 }
