@@ -226,3 +226,13 @@ where Id_habitacion in (select Habitacion from solicitudes_recepcion_mantenimien
 
 
 select * from solicitudes_recepcion_mantenimiento
+--truncate table x
+
+
+select Fecha_solicitud, Solicita, Habitacion, Estado_solicitud 
+from solicitudes_recepcion_mantenimiento, Habitaciones
+where Habitacion = No_cuarto
+
+select Fecha_solicitud, Solicita, Habitacion, Estado_solicitud 
+from solicitudes_recepcion_mantenimiento
+where Estado_solicitud = 'Pendiente'

@@ -63,6 +63,8 @@ namespace intentoRECEPCION1
                 {
                     MessageBox.Show("Datos Guardados Correctamente", "Datos Guardado", MessageBoxButtons.OK, MessageBoxIcon.Information);
                     carga();
+                    ins_habit_txt.Text = "";
+                    cbx_solicitud.SelectedItem = null;
                 }
 
                 else
@@ -76,7 +78,6 @@ namespace intentoRECEPCION1
         {
             // TODO: esta línea de código carga datos en la tabla 'hotelDataSet.solicitudes_recepcion_mantenimiento' Puede moverla o quitarla según sea necesario.
             //this.solicitudes_recepcion_mantenimientoTableAdapter.Fill(this.hotelDataSet.solicitudes_recepcion_mantenimiento);
-
             carga();
 
         }
