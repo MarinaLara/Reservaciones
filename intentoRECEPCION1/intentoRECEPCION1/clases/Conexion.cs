@@ -12,7 +12,7 @@ namespace intentoRECEPCION1.clases
         public static SqlConnection ObtnerCOnexion()
         {
             //SqlConnection Conn = new SqlConnection(@"Data Source=192.168.1.65;Initial Catalog=Hotel;User ID=servidor;Password=servidor123");
-            SqlConnection Conn = new SqlConnection(@"Data Source=LAPTOP-UGHMV4GH;Initial Catalog=Hotel;User ID=sa;Password=sasa");
+            SqlConnection Conn = new SqlConnection(@"Data Source=DESKTOP-6JE2PCN;Initial Catalog=Hotel;User ID=sa;Password=sasa");
             Conn.Open();
             return Conn;
         }

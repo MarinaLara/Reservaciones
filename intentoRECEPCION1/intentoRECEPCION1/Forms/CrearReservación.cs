@@ -75,7 +75,7 @@ namespace intentoRECEPCION1
             }
         }
        
-        //menu cerrar secion //salir
+        //menu cerrar sesion //salir
         private void cerrarSesiónToolStripMenuItem_Click(object sender, EventArgs e)
         {
             Application.Exit();
