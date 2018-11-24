@@ -183,20 +183,22 @@ insert into Nomina (Id_nomina, Id_puesto, Id_asistencia, Nomina, Tipo_pago) valu
 insert into Empleados (Id_empleado, No_empleado, Nombre_empleado, Id_nomina, Direccion, Telefono, Correo, Contraseña) values (1, 1, 'Pepito', 1, 'ITH', 2459167, 'correo@correo.com', 123);
 
 -- insert habitaciones
-insert into Habitaciones (No_cuarto, Tipo_habitacion, Disponibilidad, Estado_habitacion) values (101, 'Sencilla', 'Disponible', 'Limpia', 1000);
-insert into Habitaciones (No_cuarto, Tipo_habitacion, Disponibilidad, Estado_habitacion) values (102, 'Sencilla', 'Disponible', 'Limpia', 1000);
-insert into Habitaciones (No_cuarto, Tipo_habitacion, Disponibilidad, Estado_habitacion) values (103, 'Sencilla', 'Disponible', 'Limpia', 1000);
-insert into Habitaciones (No_cuarto, Tipo_habitacion, Disponibilidad, Estado_habitacion) values (104, 'Sencilla', 'Disponible', 'Limpia', 1000);
-insert into Habitaciones (No_cuarto, Tipo_habitacion, Disponibilidad, Estado_habitacion) values (105, 'Sencilla', 'Disponible', 'Limpia', 1000);
-insert into Habitaciones (No_cuarto, Tipo_habitacion, Disponibilidad, Estado_habitacion) values (106, 'Doble', 'Disponible', 'Limpia', 2000);
-insert into Habitaciones (No_cuarto, Tipo_habitacion, Disponibilidad, Estado_habitacion) values (107, 'Doble', 'Disponible', 'Limpia', 2000);
-insert into Habitaciones (No_cuarto, Tipo_habitacion, Disponibilidad, Estado_habitacion) values (108, 'Doble', 'Disponible', 'Limpia', 2000);
-insert into Habitaciones (No_cuarto, Tipo_habitacion, Disponibilidad, Estado_habitacion) values (109, 'Doble', 'Disponible', 'Limpia', 2000);
-insert into Habitaciones (No_cuarto, Tipo_habitacion, Disponibilidad, Estado_habitacion) values (110, 'Doble', 'Disponible', 'Limpia', 2000);
+insert into Habitaciones (No_cuarto, Tipo_habitacion, Disponibilidad, Estado_habitacion, precio) values (101, 'Sencilla', 'Disponible', 'Limpia', 1000);
+insert into Habitaciones (No_cuarto, Tipo_habitacion, Disponibilidad, Estado_habitacion, precio) values (102, 'Sencilla', 'Disponible', 'Limpia', 1000);
+insert into Habitaciones (No_cuarto, Tipo_habitacion, Disponibilidad, Estado_habitacion, precio) values (103, 'Sencilla', 'Disponible', 'Limpia', 1000);
+insert into Habitaciones (No_cuarto, Tipo_habitacion, Disponibilidad, Estado_habitacion, precio) values (104, 'Sencilla', 'Disponible', 'Limpia', 1000);
+insert into Habitaciones (No_cuarto, Tipo_habitacion, Disponibilidad, Estado_habitacion, precio) values (105, 'Sencilla', 'Disponible', 'Limpia', 1000);
+insert into Habitaciones (No_cuarto, Tipo_habitacion, Disponibilidad, Estado_habitacion, precio) values (106, 'Doble', 'Disponible', 'Limpia', 2000);
+insert into Habitaciones (No_cuarto, Tipo_habitacion, Disponibilidad, Estado_habitacion, precio) values (107, 'Doble', 'Disponible', 'Limpia', 2000);
+insert into Habitaciones (No_cuarto, Tipo_habitacion, Disponibilidad, Estado_habitacion, precio) values (108, 'Doble', 'Disponible', 'Limpia', 2000);
+insert into Habitaciones (No_cuarto, Tipo_habitacion, Disponibilidad, Estado_habitacion, precio) values (109, 'Doble', 'Disponible', 'Limpia', 2000);
+insert into Habitaciones (No_cuarto, Tipo_habitacion, Disponibilidad, Estado_habitacion, precio) values (110, 'Doble', 'Disponible', 'Limpia', 2000);
 
 	--insert reservaciones
-insert into Reservaciones (Id_empleado, Id_habitacion, Fecha_reservacion, Fecha_entrada, Fecha_salida, Nombre_cliente, Telefono_cliente, Tarjeta_pago, Total) values (1, 5, '15/11/2018', '20/11/2018', '22/11/2018', 'Fredi', 48310564458, 1234567890123456, 1000);
-insert into Reservaciones (Id_empleado, Id_habitacion, Fecha_reservacion, Fecha_entrada, Fecha_salida, Nombre_cliente, Telefono_cliente, Tarjeta_pago, Total) values (1, 6, '15/11/2018', '20/11/2018', '22/11/2018', 'Mercurio', 7912462257, 1234567890123456, 2000);
+insert into Reservaciones (Id_empleado, Id_habitacion, Fecha_reservacion, Fecha_entrada, Fecha_salida, Nombre_cliente, Telefono_cliente, Tarjeta_pago, Total) 
+values (1, 5, '15/11/2018', '20/11/2018', '22/11/2018', 'Fredi', 48310564458, 1234567890123456, 1000);
+insert into Reservaciones (Id_empleado, Id_habitacion, Fecha_reservacion, Fecha_entrada, Fecha_salida, Nombre_cliente, Telefono_cliente, Tarjeta_pago, Total) 
+values (1, 6, '15/11/2018', '20/11/2018', '22/11/2018', 'Mercurio', 7912462257, 1234567890123456, 2000);
 insert into Disponibilidad_hab (Id_habitacion, Fecha_entrada, Fecha_salida, Estado) values (5 , '20/11/2018', '22/11/2018', 'No disponible');
 insert into Disponibilidad_hab (Id_habitacion, Fecha_entrada, Fecha_salida, Estado) values (6 , '20/11/2018', '22/11/2018', 'No disponible');
 
