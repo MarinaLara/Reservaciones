@@ -15,6 +15,7 @@ namespace intentoRECEPCION1
         public Inicio()
         {
             InitializeComponent();
+            
         }
 
         DateTime Fecha = DateTime.Today;
@@ -34,9 +35,7 @@ namespace intentoRECEPCION1
         private void cerrarSesionToolStripMenuItem1_Click(object sender, EventArgs e)
         {
             Application.Exit();
-        }
-
-        
+        }        
 
         private void button2_Click(object sender, EventArgs e)
         {

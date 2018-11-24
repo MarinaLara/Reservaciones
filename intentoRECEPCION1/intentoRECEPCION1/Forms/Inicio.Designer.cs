@@ -35,6 +35,7 @@
             this.aToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.cerrarSesionToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.consultarToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.checarInOutToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.solicitarToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.cerrarSesionToolStripMenuItem1 = new System.Windows.Forms.ToolStripMenuItem();
             this.button3 = new System.Windows.Forms.Button();
@@ -45,7 +46,7 @@
             this.label4 = new System.Windows.Forms.Label();
             this.button6 = new System.Windows.Forms.Button();
             this.label6 = new System.Windows.Forms.Label();
-            this.checarInOutToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.button5 = new System.Windows.Forms.Button();
             this.menuStrip1.SuspendLayout();
             this.SuspendLayout();
             // 
@@ -101,16 +102,23 @@
             // cerrarSesionToolStripMenuItem
             // 
             this.cerrarSesionToolStripMenuItem.Name = "cerrarSesionToolStripMenuItem";
-            this.cerrarSesionToolStripMenuItem.Size = new System.Drawing.Size(152, 22);
+            this.cerrarSesionToolStripMenuItem.Size = new System.Drawing.Size(149, 22);
             this.cerrarSesionToolStripMenuItem.Text = "Crear";
             this.cerrarSesionToolStripMenuItem.Click += new System.EventHandler(this.cerrarSesionToolStripMenuItem_Click);
             // 
             // consultarToolStripMenuItem
             // 
             this.consultarToolStripMenuItem.Name = "consultarToolStripMenuItem";
-            this.consultarToolStripMenuItem.Size = new System.Drawing.Size(152, 22);
+            this.consultarToolStripMenuItem.Size = new System.Drawing.Size(149, 22);
             this.consultarToolStripMenuItem.Text = "Consultar";
             this.consultarToolStripMenuItem.Click += new System.EventHandler(this.consultarToolStripMenuItem_Click);
+            // 
+            // checarInOutToolStripMenuItem
+            // 
+            this.checarInOutToolStripMenuItem.Name = "checarInOutToolStripMenuItem";
+            this.checarInOutToolStripMenuItem.Size = new System.Drawing.Size(149, 22);
+            this.checarInOutToolStripMenuItem.Text = "Checar In/Out";
+            this.checarInOutToolStripMenuItem.Click += new System.EventHandler(this.checarInOutToolStripMenuItem_Click);
             // 
             // solicitarToolStripMenuItem
             // 
@@ -211,12 +219,14 @@
             this.label6.TabIndex = 13;
             this.label6.Text = "Entrada/Salida";
             // 
-            // checarInOutToolStripMenuItem
+            // button5
             // 
-            this.checarInOutToolStripMenuItem.Name = "checarInOutToolStripMenuItem";
-            this.checarInOutToolStripMenuItem.Size = new System.Drawing.Size(152, 22);
-            this.checarInOutToolStripMenuItem.Text = "Checar In/Out";
-            this.checarInOutToolStripMenuItem.Click += new System.EventHandler(this.checarInOutToolStripMenuItem_Click);
+            this.button5.Location = new System.Drawing.Point(461, 86);
+            this.button5.Name = "button5";
+            this.button5.Size = new System.Drawing.Size(135, 104);
+            this.button5.TabIndex = 14;
+            this.button5.Text = "button5";
+            this.button5.UseVisualStyleBackColor = true;
             // 
             // Inicio
             // 
@@ -224,6 +234,7 @@
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(67)))), ((int)(((byte)(112)))), ((int)(((byte)(111)))));
             this.ClientSize = new System.Drawing.Size(667, 369);
+            this.Controls.Add(this.button5);
             this.Controls.Add(this.label6);
             this.Controls.Add(this.button6);
             this.Controls.Add(this.label4);
@@ -264,6 +275,7 @@
         private System.Windows.Forms.Button button6;
         private System.Windows.Forms.Label label6;
         private System.Windows.Forms.ToolStripMenuItem checarInOutToolStripMenuItem;
+        private System.Windows.Forms.Button button5;
     }
 }
 
