@@ -85,7 +85,7 @@ namespace intentoRECEPCION1
                 SqlCommand cmd = Conn.CreateCommand();
                 cmd.CommandType = CommandType.Text;
                 //cmd.CommandText = "SELECT id_habitacion, No_cuarto, Tipo_habitacion, Precio FROM Habitaciones where Id_habitacion in (Select Id_habitacion  from Disponibilidad_hab where Fecha_entrada like '" + F_entrada + "%')";
-                cmd.CommandText = "SELECT id_habitacion, Nombre_cliente, Fecha_entrada FROM Reservaciones where Id_habitacion in (Select Id_habitacion  from Reservaciones where Nombre_cliente like '" + textBox1.Text + "' and Fecha_entrada like '" + F_entrada + "%')";
+                cmd.CommandText = "SELECT No_cuarto, Nombre_cliente, Fecha_entrada, Fecha_salida FROM Reservaciones, Habitaciones where Nombre_cliente like '" + textBox1.Text + "%' and Fecha_entrada like '" + F_entrada + "%' and Reservaciones.Id_habitacion = Habitaciones.Id_habitacion";
                 //cmd.CommandText = "SELECT id_habitacion, No_cuarto, Tipo_habitacion, Nombre_cliente FROM Reservaciones where Nombre_cliente = '" + textBox1 + "' and Id_habitacion in (Select Id_habitacion  from Disponibilidad_hab where Fecha_entrada like '" + F_entrada + "%')";
                 cmd.ExecuteNonQuery();
                 DataTable dt = new DataTable();

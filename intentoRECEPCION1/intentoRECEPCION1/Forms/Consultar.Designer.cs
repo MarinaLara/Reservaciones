@@ -41,24 +41,22 @@
             this.button2 = new System.Windows.Forms.Button();
             this.button3 = new System.Windows.Forms.Button();
             this.disponibilidad_btn = new System.Windows.Forms.Button();
-            this.hotelDataSet = new intentoRECEPCION1.HotelDataSet();
             this.precioDataGridViewTextBoxColumn1 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.tipohabitacionDataGridViewTextBoxColumn1 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.nocuartoDataGridViewTextBoxColumn1 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.idhabitacionDataGridViewTextBoxColumn1 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.dataGridView1 = new System.Windows.Forms.DataGridView();
+            this.reservacionesBindingSource = new System.Windows.Forms.BindingSource(this.components);
+            this.hotelDataSet = new intentoRECEPCION1.HotelDataSet();
             this.habitacionesBindingSource = new System.Windows.Forms.BindingSource(this.components);
             this.habitacionesTableAdapter = new intentoRECEPCION1.HotelDataSetTableAdapters.HabitacionesTableAdapter();
-            this.reservacionesBindingSource = new System.Windows.Forms.BindingSource(this.components);
             this.reservacionesTableAdapter = new intentoRECEPCION1.HotelDataSetTableAdapters.ReservacionesTableAdapter();
-            this.idhabitacionDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.nombreclienteDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.Seleccionar = new System.Windows.Forms.DataGridViewCheckBoxColumn();
             this.menuStrip1.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.hotelDataSet)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.habitacionesBindingSource)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.reservacionesBindingSource)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.hotelDataSet)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.habitacionesBindingSource)).BeginInit();
             this.SuspendLayout();
             // 
             // menuStrip1
@@ -132,9 +130,9 @@
             // 
             // button1
             // 
-            this.button1.Location = new System.Drawing.Point(61, 368);
+            this.button1.Location = new System.Drawing.Point(61, 347);
             this.button1.Name = "button1";
-            this.button1.Size = new System.Drawing.Size(75, 23);
+            this.button1.Size = new System.Drawing.Size(116, 49);
             this.button1.TabIndex = 6;
             this.button1.Text = "Volver";
             this.button1.UseVisualStyleBackColor = true;
@@ -142,9 +140,9 @@
             // 
             // button2
             // 
-            this.button2.Location = new System.Drawing.Point(553, 143);
+            this.button2.Location = new System.Drawing.Point(278, 347);
             this.button2.Name = "button2";
-            this.button2.Size = new System.Drawing.Size(75, 23);
+            this.button2.Size = new System.Drawing.Size(116, 49);
             this.button2.TabIndex = 7;
             this.button2.Text = "Modificar";
             this.button2.UseVisualStyleBackColor = true;
@@ -152,9 +150,9 @@
             // 
             // button3
             // 
-            this.button3.Location = new System.Drawing.Point(553, 322);
+            this.button3.Location = new System.Drawing.Point(491, 347);
             this.button3.Name = "button3";
-            this.button3.Size = new System.Drawing.Size(75, 23);
+            this.button3.Size = new System.Drawing.Size(116, 49);
             this.button3.TabIndex = 8;
             this.button3.Text = "Eliminar";
             this.button3.UseVisualStyleBackColor = true;
@@ -168,11 +166,6 @@
             this.disponibilidad_btn.Text = "Comprobar reserva";
             this.disponibilidad_btn.UseVisualStyleBackColor = true;
             this.disponibilidad_btn.Click += new System.EventHandler(this.disponibilidad_btn_Click);
-            // 
-            // hotelDataSet
-            // 
-            this.hotelDataSet.DataSetName = "HotelDataSet";
-            this.hotelDataSet.SchemaSerializationMode = System.Data.SchemaSerializationMode.IncludeSchema;
             // 
             // precioDataGridViewTextBoxColumn1
             // 
@@ -201,18 +194,24 @@
             // 
             // dataGridView1
             // 
-            this.dataGridView1.AutoGenerateColumns = false;
             this.dataGridView1.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.dataGridView1.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
-            this.idhabitacionDataGridViewTextBoxColumn,
-            this.nombreclienteDataGridViewTextBoxColumn,
             this.Seleccionar});
-            this.dataGridView1.DataSource = this.reservacionesBindingSource;
             this.dataGridView1.Location = new System.Drawing.Point(61, 129);
             this.dataGridView1.Name = "dataGridView1";
-            this.dataGridView1.Size = new System.Drawing.Size(470, 202);
+            this.dataGridView1.Size = new System.Drawing.Size(546, 202);
             this.dataGridView1.TabIndex = 0;
             this.dataGridView1.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dataGridView1_CellContentClick);
+            // 
+            // reservacionesBindingSource
+            // 
+            this.reservacionesBindingSource.DataMember = "Reservaciones";
+            this.reservacionesBindingSource.DataSource = this.hotelDataSet;
+            // 
+            // hotelDataSet
+            // 
+            this.hotelDataSet.DataSetName = "HotelDataSet";
+            this.hotelDataSet.SchemaSerializationMode = System.Data.SchemaSerializationMode.IncludeSchema;
             // 
             // habitacionesBindingSource
             // 
@@ -223,26 +222,9 @@
             // 
             this.habitacionesTableAdapter.ClearBeforeFill = true;
             // 
-            // reservacionesBindingSource
-            // 
-            this.reservacionesBindingSource.DataMember = "Reservaciones";
-            this.reservacionesBindingSource.DataSource = this.hotelDataSet;
-            // 
             // reservacionesTableAdapter
             // 
             this.reservacionesTableAdapter.ClearBeforeFill = true;
-            // 
-            // idhabitacionDataGridViewTextBoxColumn
-            // 
-            this.idhabitacionDataGridViewTextBoxColumn.DataPropertyName = "Id_habitacion";
-            this.idhabitacionDataGridViewTextBoxColumn.HeaderText = "Habitacion";
-            this.idhabitacionDataGridViewTextBoxColumn.Name = "idhabitacionDataGridViewTextBoxColumn";
-            // 
-            // nombreclienteDataGridViewTextBoxColumn
-            // 
-            this.nombreclienteDataGridViewTextBoxColumn.DataPropertyName = "Nombre_cliente";
-            this.nombreclienteDataGridViewTextBoxColumn.HeaderText = "Cliente";
-            this.nombreclienteDataGridViewTextBoxColumn.Name = "nombreclienteDataGridViewTextBoxColumn";
             // 
             // Seleccionar
             // 
@@ -254,7 +236,7 @@
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(67)))), ((int)(((byte)(112)))), ((int)(((byte)(111)))));
-            this.ClientSize = new System.Drawing.Size(725, 463);
+            this.ClientSize = new System.Drawing.Size(725, 418);
             this.Controls.Add(this.disponibilidad_btn);
             this.Controls.Add(this.button3);
             this.Controls.Add(this.button2);
@@ -271,10 +253,10 @@
             this.Load += new System.EventHandler(this.Consultar_Load);
             this.menuStrip1.ResumeLayout(false);
             this.menuStrip1.PerformLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.hotelDataSet)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.habitacionesBindingSource)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.reservacionesBindingSource)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.hotelDataSet)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.habitacionesBindingSource)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -304,8 +286,6 @@
         private HotelDataSetTableAdapters.HabitacionesTableAdapter habitacionesTableAdapter;
         private System.Windows.Forms.BindingSource reservacionesBindingSource;
         private HotelDataSetTableAdapters.ReservacionesTableAdapter reservacionesTableAdapter;
-        private System.Windows.Forms.DataGridViewTextBoxColumn idhabitacionDataGridViewTextBoxColumn;
-        private System.Windows.Forms.DataGridViewTextBoxColumn nombreclienteDataGridViewTextBoxColumn;
         private System.Windows.Forms.DataGridViewCheckBoxColumn Seleccionar;
     }
 }

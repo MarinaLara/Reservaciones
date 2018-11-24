@@ -1,0 +1,14 @@
+D:\Documentos\GitHub\Reservaciones\intentoRECEPCION1\intentoRECEPCION1\bin\Debug\intentoRECEPCION1.exe.config
+D:\Documentos\GitHub\Reservaciones\intentoRECEPCION1\intentoRECEPCION1\bin\Debug\intentoRECEPCION1.exe
+D:\Documentos\GitHub\Reservaciones\intentoRECEPCION1\intentoRECEPCION1\bin\Debug\intentoRECEPCION1.pdb
+D:\Documentos\GitHub\Reservaciones\intentoRECEPCION1\intentoRECEPCION1\obj\Debug\intentoRECEPCION1.csprojResolveAssemblyReference.cache
+D:\Documentos\GitHub\Reservaciones\intentoRECEPCION1\intentoRECEPCION1\obj\Debug\intentoRECEPCION1.Consultar.resources
+D:\Documentos\GitHub\Reservaciones\intentoRECEPCION1\intentoRECEPCION1\obj\Debug\intentoRECEPCION1.CrearReservación.resources
+D:\Documentos\GitHub\Reservaciones\intentoRECEPCION1\intentoRECEPCION1\obj\Debug\intentoRECEPCION1.Inicio.resources
+D:\Documentos\GitHub\Reservaciones\intentoRECEPCION1\intentoRECEPCION1\obj\Debug\intentoRECEPCION1.Mantenimiento.resources
+D:\Documentos\GitHub\Reservaciones\intentoRECEPCION1\intentoRECEPCION1\obj\Debug\intentoRECEPCION1.Modificar.resources
+D:\Documentos\GitHub\Reservaciones\intentoRECEPCION1\intentoRECEPCION1\obj\Debug\intentoRECEPCION1.Properties.Resources.resources
+D:\Documentos\GitHub\Reservaciones\intentoRECEPCION1\intentoRECEPCION1\obj\Debug\intentoRECEPCION1.RegistrarES.resources
+D:\Documentos\GitHub\Reservaciones\intentoRECEPCION1\intentoRECEPCION1\obj\Debug\intentoRECEPCION1.csproj.GenerateResource.Cache
+D:\Documentos\GitHub\Reservaciones\intentoRECEPCION1\intentoRECEPCION1\obj\Debug\intentoRECEPCION1.exe
+D:\Documentos\GitHub\Reservaciones\intentoRECEPCION1\intentoRECEPCION1\obj\Debug\intentoRECEPCION1.pdb
