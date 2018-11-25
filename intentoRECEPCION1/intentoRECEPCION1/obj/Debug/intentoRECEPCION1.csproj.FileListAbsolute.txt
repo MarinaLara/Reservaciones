@@ -12,3 +12,4 @@ D:\Documentos\GitHub\Reservaciones\intentoRECEPCION1\intentoRECEPCION1\obj\Debug
 D:\Documentos\GitHub\Reservaciones\intentoRECEPCION1\intentoRECEPCION1\obj\Debug\intentoRECEPCION1.csproj.GenerateResource.Cache
 D:\Documentos\GitHub\Reservaciones\intentoRECEPCION1\intentoRECEPCION1\obj\Debug\intentoRECEPCION1.exe
 D:\Documentos\GitHub\Reservaciones\intentoRECEPCION1\intentoRECEPCION1\obj\Debug\intentoRECEPCION1.pdb
+D:\Documentos\GitHub\intentoRECEPCION1.exe.config
