@@ -1,4 +1,5 @@
-﻿using System;
+﻿using intentoRECEPCION1.Forms;
+using System;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
@@ -84,6 +85,20 @@ namespace intentoRECEPCION1
             this.Hide();
             RegistrarES RES = new RegistrarES();
             RES.Show();
+        }
+
+        private void button5_Click(object sender, EventArgs e)
+        {
+            this.Hide();
+            Reportes Rep = new Reportes();
+            Rep.Show();
+        }
+
+        private void button7_Click(object sender, EventArgs e)
+        {
+            this.Hide();
+            Habitaciones Hab = new Habitaciones();
+            Hab.Show();
         }
 
     }

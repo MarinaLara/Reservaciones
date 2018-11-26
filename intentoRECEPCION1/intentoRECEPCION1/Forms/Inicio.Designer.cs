@@ -47,6 +47,7 @@
             this.button6 = new System.Windows.Forms.Button();
             this.label6 = new System.Windows.Forms.Label();
             this.button5 = new System.Windows.Forms.Button();
+            this.button7 = new System.Windows.Forms.Button();
             this.menuStrip1.SuspendLayout();
             this.SuspendLayout();
             // 
@@ -83,7 +84,7 @@
             this.cerrarSesionToolStripMenuItem1});
             this.menuStrip1.Location = new System.Drawing.Point(0, 0);
             this.menuStrip1.Name = "menuStrip1";
-            this.menuStrip1.Size = new System.Drawing.Size(667, 24);
+            this.menuStrip1.Size = new System.Drawing.Size(846, 24);
             this.menuStrip1.TabIndex = 3;
             this.menuStrip1.Text = "menuStrip1";
             // 
@@ -225,15 +226,27 @@
             this.button5.Name = "button5";
             this.button5.Size = new System.Drawing.Size(135, 104);
             this.button5.TabIndex = 14;
-            this.button5.Text = "button5";
+            this.button5.Text = "Reportes";
             this.button5.UseVisualStyleBackColor = true;
+            this.button5.Click += new System.EventHandler(this.button5_Click);
+            // 
+            // button7
+            // 
+            this.button7.Location = new System.Drawing.Point(649, 86);
+            this.button7.Name = "button7";
+            this.button7.Size = new System.Drawing.Size(135, 104);
+            this.button7.TabIndex = 15;
+            this.button7.Text = "Habitaciones";
+            this.button7.UseVisualStyleBackColor = true;
+            this.button7.Click += new System.EventHandler(this.button7_Click);
             // 
             // Inicio
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(67)))), ((int)(((byte)(112)))), ((int)(((byte)(111)))));
-            this.ClientSize = new System.Drawing.Size(667, 369);
+            this.ClientSize = new System.Drawing.Size(846, 369);
+            this.Controls.Add(this.button7);
             this.Controls.Add(this.button5);
             this.Controls.Add(this.label6);
             this.Controls.Add(this.button6);
@@ -276,6 +289,7 @@
         private System.Windows.Forms.Label label6;
         private System.Windows.Forms.ToolStripMenuItem checarInOutToolStripMenuItem;
         private System.Windows.Forms.Button button5;
+        private System.Windows.Forms.Button button7;
     }
 }
 
