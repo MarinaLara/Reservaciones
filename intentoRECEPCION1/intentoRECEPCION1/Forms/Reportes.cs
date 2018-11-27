@@ -101,5 +101,67 @@ namespace intentoRECEPCION1.Forms
                 }
             }
         }
+
+        private void checkBox1_CheckedChanged(object sender, EventArgs e)
+        {
+            if (checkBox1.Checked == true)
+            {
+                if (comboBox1.SelectedItem == "Mantenimiento" && comboBox2.SelectedItem != null)
+                {
+                    if (comboBox2.SelectedItem == "Pendiente")
+                    {
+                        using (SqlConnection Conn = Conexion.ObtnerCOnexion())
+                        {
+                            SqlCommand cmd = Conn.CreateCommand();
+                            cmd.CommandType = CommandType.Text;
+                            cmd.CommandText = "SELECT no_habitacion, fecha, descripcion, costo_daños, estado FROM MAN_reporte_limpieza where estado = 'Pendiente'";
+                            cmd.ExecuteNonQuery();
+                            DataTable dt = new DataTable();
+                            SqlDataAdapter da = new SqlDataAdapter(cmd);
+                            da.Fill(dt);
+                            dataGridView1.DataSource = dt;
+                            dataGridView1.Refresh();
+                            Conn.Close();
+                        }
+                    }
+                    else if (comboBox2.SelectedItem == "Atendiendo")
+                    {
+                        using (SqlConnection Conn = Conexion.ObtnerCOnexion())
+                        {
+                            SqlCommand cmd = Conn.CreateCommand();
+                            cmd.CommandType = CommandType.Text;
+                            cmd.CommandText = "SELECT no_habitacion, fecha, descripcion, costo_daños, estado FROM MAN_reporte_limpieza where estado = 'Atendiendo'";
+                            cmd.ExecuteNonQuery();
+                            DataTable dt = new DataTable();
+                            SqlDataAdapter da = new SqlDataAdapter(cmd);
+                            da.Fill(dt);
+                            dataGridView1.DataSource = dt;
+                            dataGridView1.Refresh();
+                            Conn.Close();
+                        }
+                    }
+                    else if (comboBox2.SelectedItem == "Finalizado")
+                    {
+                        using (SqlConnection Conn = Conexion.ObtnerCOnexion())
+                        {
+                            SqlCommand cmd = Conn.CreateCommand();
+                            cmd.CommandType = CommandType.Text;
+                            cmd.CommandText = "SELECT no_habitacion, fecha, descripcion, costo_daños, estado FROM MAN_reporte_limpieza where estado = 'Finalizado'";
+                            cmd.ExecuteNonQuery();
+                            DataTable dt = new DataTable();
+                            SqlDataAdapter da = new SqlDataAdapter(cmd);
+                            da.Fill(dt);
+                            dataGridView1.DataSource = dt;
+                            dataGridView1.Refresh();
+                            Conn.Close();
+                        }
+                    }
+                }
+                else if (comboBox1.SelectedItem == "R. H." && comboBox2.SelectedItem != null)
+                {
+                    //
+                }
+            }
+        }
     }
 }
