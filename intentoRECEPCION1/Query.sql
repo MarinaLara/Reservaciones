@@ -112,13 +112,14 @@ foreign key (Id_reservacion) references Reservaciones (Id_reservacion)
 
 --Fin tablas hechas por reservaciones
 
-create table reportes_mantenimiento(
+create table MAN_reporte_limpieza(
 no_reporte int not null,--->int
 no_habitacion int,--->int
 no_empleado int,--->int
 fecha varchar(30),----------->date
 descripcion varchar (30),----->text
-costo_danos int,--->int
+costo_daños int,--->int
+estado varchar (50),
 primary key (no_reporte)
 );
 
