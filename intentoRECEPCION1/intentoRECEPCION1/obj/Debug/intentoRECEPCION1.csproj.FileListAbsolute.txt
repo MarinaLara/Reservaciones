@@ -13,3 +13,4 @@ D:\Documentos\GitHub\intentoRECEPCION1.exe.config
 D:\Documentos\GitHub\intentoRECEPCION1.exe
 D:\Documentos\GitHub\intentoRECEPCION1.pdb
 D:\Documentos\GitHub\Reservaciones\intentoRECEPCION1\intentoRECEPCION1\obj\Debug\intentoRECEPCION1.Forms.Reportes.resources
+D:\Documentos\GitHub\Reservaciones\intentoRECEPCION1\intentoRECEPCION1\obj\Debug\intentoRECEPCION1.Forms.Habitaciones.resources

@@ -1,7 +1,9 @@
-﻿using System;
+﻿using intentoRECEPCION1.clases;
+using System;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
+using System.Data.SqlClient;
 using System.Drawing;
 using System.Linq;
 using System.Text;
@@ -22,6 +24,42 @@ namespace intentoRECEPCION1.Forms
             this.Close();
             Inicio Regreso = new Inicio();
             Regreso.Show();
+        }
+
+        private void comboBox1_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            if (comboBox1.SelectedItem == "Mantenimiento")
+            {
+                using (SqlConnection Conn = Conexion.ObtnerCOnexion())
+                {
+                    SqlCommand cmd = Conn.CreateCommand();
+                    cmd.CommandType = CommandType.Text;
+                    cmd.CommandText = "SELECT no_habitacion, fecha, descripcion, costo_danos FROM reportes_mantenimiento";
+                    cmd.ExecuteNonQuery();
+                    DataTable dt = new DataTable();
+                    SqlDataAdapter da = new SqlDataAdapter(cmd);
+                    da.Fill(dt);
+                    dataGridView1.DataSource = dt;
+                    dataGridView1.Refresh();
+                    Conn.Close();
+                }
+            }
+            else if (comboBox1.SelectedItem == "R. H.")
+            {
+                using (SqlConnection Conn = Conexion.ObtnerCOnexion())
+                {
+                    SqlCommand cmd = Conn.CreateCommand();
+                    cmd.CommandType = CommandType.Text;
+                    cmd.CommandText = "SELECT Fecha_solicitud, Cliente, Devolucion, Estado_solicitud FROM solicitudes_recepcion_recursoshumanos";
+                    cmd.ExecuteNonQuery();
+                    DataTable dt = new DataTable();
+                    SqlDataAdapter da = new SqlDataAdapter(cmd);
+                    da.Fill(dt);
+                    dataGridView1.DataSource = dt;
+                    dataGridView1.Refresh();
+                    Conn.Close();
+                }
+            }
         }
     }
 }
