@@ -34,7 +34,7 @@ namespace intentoRECEPCION1.Forms
                 {
                     SqlCommand cmd = Conn.CreateCommand();
                     cmd.CommandType = CommandType.Text;
-                    cmd.CommandText = "SELECT no_habitacion, fecha, descripcion, costo_danos FROM reportes_mantenimiento";
+                    cmd.CommandText = "SELECT no_habitacion, fecha, descripcion, costo_daños, estado FROM MAN_reporte_limpieza";
                     cmd.ExecuteNonQuery();
                     DataTable dt = new DataTable();
                     SqlDataAdapter da = new SqlDataAdapter(cmd);
@@ -46,7 +46,7 @@ namespace intentoRECEPCION1.Forms
             }
             else if (comboBox1.SelectedItem == "R. H.")
             {
-                using (SqlConnection Conn = Conexion.ObtnerCOnexion())
+                /*using (SqlConnection Conn = Conexion.ObtnerCOnexion())
                 {
                     SqlCommand cmd = Conn.CreateCommand();
                     cmd.CommandType = CommandType.Text;
@@ -58,7 +58,7 @@ namespace intentoRECEPCION1.Forms
                     dataGridView1.DataSource = dt;
                     dataGridView1.Refresh();
                     Conn.Close();
-                }
+                }*/
             }
         }
     }

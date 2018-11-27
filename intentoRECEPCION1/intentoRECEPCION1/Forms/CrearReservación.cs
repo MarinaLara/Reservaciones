@@ -83,9 +83,7 @@ namespace intentoRECEPCION1
 
         //carga datagrid
         private void CrearReservación_Load(object sender, EventArgs e)
-        {
-            // TODO: esta línea de código carga datos en la tabla 'hotelDataSet.Habitaciones' Puede moverla o quitarla según sea necesario.
-            //this.habitacionesTableAdapter.Fill(this.hotelDataSet.Habitaciones);            
+        {  
         }
 
         //boton crear reserva
@@ -166,13 +164,13 @@ namespace intentoRECEPCION1
                 //conversiones        
                 columna1 = Convert.ToString(fila.Cells[3].Value); //obtengo el valor de la columna precio
                 id = Convert.ToString(fila.Cells[0].Value); //obtengo el valor de la columna id
+
                 colprecio = Convert.ToInt32(columna1);
                 Convert.ToInt32(id);
 
                 //Calcular la cantidad de dias
                 TimeSpan ts = dateTimePicker2.Value - dateTimePicker1.Value;
                 dias = (int)ts.TotalDays;
-
                 //operaciones
                 Tot = dias * colprecio;
 

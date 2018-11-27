@@ -26,14 +26,6 @@ namespace intentoRECEPCION1
 
         private void Consultar_Load(object sender, EventArgs e)
         {
-            // TODO: esta línea de código carga datos en la tabla 'hotelDataSet.Reservaciones' Puede moverla o quitarla según sea necesario.
-            //this.reservacionesTableAdapter.Fill(this.hotelDataSet.Reservaciones);
-            // TODO: esta línea de código carga datos en la tabla 'hotelDataSet.Habitaciones' Puede moverla o quitarla según sea necesario.
-            //ODO: esta línea de código carga datos en la tabla 'hotelDataSet.Habitaciones' Puede moverla o quitarla según sea necesario.
-            // this.habitacionesTableAdapter.Fill(this.hotelDataSet.Habitaciones);
-            // TODO: esta línea de código carga datos en la tabla 'hotelDataSet.Habitaciones' Puede moverla o quitarla según sea necesario.
-            //this.habitacionesTableAdapter1.Fill(this.hotelDataSet.Habitaciones);
-
 
         }
 

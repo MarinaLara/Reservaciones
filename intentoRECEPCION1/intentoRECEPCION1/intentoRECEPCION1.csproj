@@ -110,6 +110,16 @@
     <Compile Include="Forms\Modificar.designer.cs">
       <DependentUpon>Modificar.cs</DependentUpon>
     </Compile>
+    <Compile Include="HotelDataSetServidor.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>HotelDataSetServidor.xsd</DependentUpon>
+    </Compile>
+    <Compile Include="HotelDataSetServidor1.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>HotelDataSetServidor1.xsd</DependentUpon>
+    </Compile>
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Forms\RegistrarES.cs">
@@ -162,6 +172,28 @@
     </None>
     <None Include="HotelDataSet.xss">
       <DependentUpon>HotelDataSet.xsd</DependentUpon>
+    </None>
+    <None Include="HotelDataSetServidor.xsc">
+      <DependentUpon>HotelDataSetServidor.xsd</DependentUpon>
+    </None>
+    <None Include="HotelDataSetServidor.xsd">
+      <Generator>MSDataSetGenerator</Generator>
+      <LastGenOutput>HotelDataSetServidor.Designer.cs</LastGenOutput>
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="HotelDataSetServidor.xss">
+      <DependentUpon>HotelDataSetServidor.xsd</DependentUpon>
+    </None>
+    <None Include="HotelDataSetServidor1.xsc">
+      <DependentUpon>HotelDataSetServidor1.xsd</DependentUpon>
+    </None>
+    <None Include="HotelDataSetServidor1.xsd">
+      <Generator>MSDataSetGenerator</Generator>
+      <LastGenOutput>HotelDataSetServidor1.Designer.cs</LastGenOutput>
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="HotelDataSetServidor1.xss">
+      <DependentUpon>HotelDataSetServidor1.xsd</DependentUpon>
     </None>
     <None Include="Properties\Settings.settings">
       <Generator>SettingsSingleFileGenerator</Generator>

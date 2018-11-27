@@ -88,7 +88,7 @@ namespace intentoRECEPCION1
             {
                 SqlCommand cmd = Conn.CreateCommand();
                 cmd.CommandType = CommandType.Text;
-                cmd.CommandText = "select Fecha_solicitud as 'Fecha solicitud', Habitacion as 'No. cuarto', Solicita as 'Requiere', Estado_solicitud as 'Estado' from solicitudes_recepcion_mantenimiento where Estado_solicitud = 'Pendiente'";
+                cmd.CommandText = "select Fecha_solicitud as 'Fecha solicitud', Habitacion as 'No. cuarto', Solicita as 'Requiere', Estado_solicitud as 'Estado' from solicitudes_recepcion_mantenimiento";
                 cmd.ExecuteNonQuery();
                 DataTable dt = new DataTable();
                 SqlDataAdapter da = new SqlDataAdapter(cmd);
