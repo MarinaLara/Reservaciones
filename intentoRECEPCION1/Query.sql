@@ -100,8 +100,27 @@ Devolucion float,
 Estado_solicitud varchar (30),
 primary key (Id_solicitudRH)
 );
+
+create table chekin_out(
+id_check int identity,
+Id_reservacion int,
+Cin varchar(30),
+Cout varchar (30),
+primary key (id_check),
+foreign key (Id_reservacion) references Reservaciones (Id_reservacion)
+);
+
 --Fin tablas hechas por reservaciones
 
+create table reportes_mantenimiento(
+no_reporte int not null,--->int
+no_habitacion int,--->int
+no_empleado int,--->int
+fecha varchar(30),----------->date
+descripcion varchar (30),----->text
+costo_danos int,--->int
+primary key (no_reporte)
+);
 
 create table Mantenimiento(
 Id_mantenimiento int not null,
@@ -238,3 +257,19 @@ where Habitacion = No_cuarto
 select Fecha_solicitud, Solicita, Habitacion, Estado_solicitud 
 from solicitudes_recepcion_mantenimiento
 where Estado_solicitud = 'Pendiente'
+
+
+
+
+
+insert into chekin_out (Id_reservacion, Cin) values (2, '17/11/2018');
+
+select Nombre_cliente, Fecha_entrada, Fecha_salida, Cin, Cout
+from Reservaciones, chekin_out
+where Reservaciones.Id_reservacion = chekin_out.Id_reservacion
+and Nombre_cliente = 'Juan G'
+
+
+
+select * from Reservaciones;
+select * from chekin_out;
