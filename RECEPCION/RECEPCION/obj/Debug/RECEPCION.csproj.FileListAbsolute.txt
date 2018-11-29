@@ -1,0 +1,17 @@
+D:\Documentos\GitHub\Reservaciones\RECEPCION\intentoRECEPCION1\obj\Debug\RECEPCION.Consultar.resources
+D:\Documentos\GitHub\Reservaciones\RECEPCION\intentoRECEPCION1\obj\Debug\RECEPCION.CrearReservación.resources
+D:\Documentos\GitHub\Reservaciones\RECEPCION\intentoRECEPCION1\obj\Debug\RECEPCION.Forms.Habitaciones.resources
+D:\Documentos\GitHub\Reservaciones\RECEPCION\intentoRECEPCION1\obj\Debug\RECEPCION.Inicio.resources
+D:\Documentos\GitHub\Reservaciones\RECEPCION\intentoRECEPCION1\obj\Debug\RECEPCION.Mantenimiento.resources
+D:\Documentos\GitHub\Reservaciones\RECEPCION\intentoRECEPCION1\obj\Debug\RECEPCION.Modificar.resources
+D:\Documentos\GitHub\Reservaciones\RECEPCION\intentoRECEPCION1\obj\Debug\RECEPCION.Forms.Reportes.resources
+D:\Documentos\GitHub\Reservaciones\RECEPCION\intentoRECEPCION1\obj\Debug\RECEPCION.Properties.Resources.resources
+D:\Documentos\GitHub\Reservaciones\RECEPCION\intentoRECEPCION1\obj\Debug\RECEPCION.RegistrarES.resources
+D:\Documentos\GitHub\Reservaciones\RECEPCION\intentoRECEPCION1\obj\Debug\RECEPCION.csproj.GenerateResource.Cache
+D:\Documentos\GitHub\RECEPCION.exe.config
+D:\Documentos\GitHub\Reservaciones\RECEPCION\intentoRECEPCION1\obj\Debug\RECEPCION.exe
+D:\Documentos\GitHub\Reservaciones\RECEPCION\intentoRECEPCION1\obj\Debug\RECEPCION.pdb
+D:\Documentos\GitHub\RECEPCION.exe
+D:\Documentos\GitHub\RECEPCION.pdb
+D:\Documentos\GitHub\Reservaciones\RECEPCION\RECEPCION\obj\Debug\RECEPCION.exe
+D:\Documentos\GitHub\Reservaciones\RECEPCION\RECEPCION\obj\Debug\RECEPCION.pdb
