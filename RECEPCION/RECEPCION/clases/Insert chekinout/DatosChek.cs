@@ -8,14 +8,15 @@ namespace RECEPCION.clases.Insert_chekinout
 {
     class DatosChek
     {
-        public String Id_empleado { get; set; }
+        public int Id_reservación { get; set; }
+        public String Cin { get; set; }
 
         public DatosChek() { }
 
-        public DatosChek(String pId_empleado)
+        public DatosChek(int pId_reservación, String pCin)
         {
-            this.Id_empleado = pId_empleado;
-            
+            this.Id_reservación = pId_reservación;
+            this.Cin = pCin;
         }
 
     }

@@ -15,8 +15,8 @@ namespace RECEPCION.clases.Insert_chekinout
 
             using (SqlConnection Conn = Conexion.ObtnerCOnexion())
             {
-                SqlCommand Comando = new SqlCommand(string.Format("Insert Into Reservaciones (Id_empleado) values ('{0}')",
-                    pDatosRes.Id_empleado), Conn);
+                SqlCommand Comando = new SqlCommand(string.Format("Insert Into Chekin_out (Id_reservacion, Cin) values ('{0}', '{1}')",
+                    pDatosRes.Id_reservación, pDatosRes.Cin), Conn);
 
                 retorno = Comando.ExecuteNonQuery();
                 Conn.Close();
