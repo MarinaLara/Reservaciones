@@ -17,8 +17,10 @@ namespace intentoRECEPCION1
         public RegistrarES()
         {
             InitializeComponent();
+            
         }
 
+        //boton volver
         private void button1_Click(object sender, EventArgs e)
         {
             this.Close();
@@ -26,15 +28,18 @@ namespace intentoRECEPCION1
             Regreso.Show();
         }
 
+        //boton buscar
         private void button2_Click(object sender, EventArgs e)
         {
+            string F_entrada = dateTimePicker1.Value.ToString("dd/MM/yyyy");
+
             if (textBox1.Text != " ")
             {
                 using (SqlConnection Conn = Conexion.ObtnerCOnexion())
                 {
                     SqlCommand cmd = Conn.CreateCommand();
                     cmd.CommandType = CommandType.Text;
-                    cmd.CommandText = "SELECT Nombre_cliente, Fecha_entrada, Fecha_salida, Cin, Cout from Reservaciones, chekin_out where Reservaciones.Id_reservacion = chekin_out.Id_reservacion and Nombre_cliente like '"+textBox1.Text+"%'";
+                    cmd.CommandText = "SELECT Nombre_cliente, Fecha_entrada, Fecha_salida, Cin, Cout, chekin_out.Id_reservacion from Reservaciones, chekin_out where Reservaciones.Id_reservacion = chekin_out.Id_reservacion and Nombre_cliente like '" + textBox1.Text + "%' and Fecha_entrada like '" + F_entrada + "%'";
                     cmd.ExecuteNonQuery();
                     DataTable dt = new DataTable();
                     SqlDataAdapter da = new SqlDataAdapter(cmd);
@@ -85,7 +90,46 @@ namespace intentoRECEPCION1
 
         private void Enviar_Click(object sender, EventArgs e)
         {
+            //tomar la fecha de hoy
+            DateTime Hoy = DateTime.Today;
+            Convert.ToString(Hoy);
+            string columna1;
+            DataGridViewRow fila = dataGridView1.CurrentRow; // obtengo la fila actualmente seleccionada en el dataGridView
+            columna1 = Convert.ToString(fila.Cells[4].Value); //obtengo el valor de la columna precio
 
+            if (comboBox1.SelectedItem != null)
+            {
+                if (comboBox1.SelectedItem == "Entrada")
+                {
+                    if (columna1 == "") //vacio
+                    {
+                        //insert
+                        /*DatosRes DatosRes = new DatosRes();
+                        DatosRes.Id_empleado = "1";
+                        
+
+                        int resultado = Regreserva.Agregar(DatosRes);
+
+                        if (resultado > 0)
+                        {
+                            MessageBox.Show("Datos Guardados Correctamente", "Datos Guardado", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                        }
+
+                        else
+                        {
+                            MessageBox.Show("No se pudieron Guardar lo datos", "Error al Guardar", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
+                        }*/
+                    }
+                    else
+                    {
+                        MessageBox.Show("Entrada anteriormente registrada");
+                    }
+                }
+                else if (comboBox1.SelectedItem == "Salida")
+                {
+                    
+                }
+            }
         }
     }
 }

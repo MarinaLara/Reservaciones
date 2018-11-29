@@ -60,6 +60,8 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="clases\Conexion.cs" />
+    <Compile Include="clases\Insert chekinout\DatosChek.cs" />
+    <Compile Include="clases\Insert chekinout\Regchekinout.cs" />
     <Compile Include="clases\Insert Mant\DatosMant.cs" />
     <Compile Include="clases\Insert Mant\RegSolMant.cs" />
     <Compile Include="Forms\Consultar.cs">

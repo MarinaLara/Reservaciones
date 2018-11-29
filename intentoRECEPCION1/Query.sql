@@ -265,7 +265,7 @@ where Estado_solicitud = 'Pendiente'
 
 insert into chekin_out (Id_reservacion, Cin) values (2, '17/11/2018');
 
-select Nombre_cliente, Fecha_entrada, Fecha_salida, Cin, Cout
+select Nombre_cliente, Fecha_entrada, Fecha_salida, Cin, Cout, chekin_out.Id_reservacion
 from Reservaciones, chekin_out
 where Reservaciones.Id_reservacion = chekin_out.Id_reservacion
 and Nombre_cliente = 'Juan G'
