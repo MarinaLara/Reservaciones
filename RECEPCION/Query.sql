@@ -274,3 +274,5 @@ and Nombre_cliente = 'Juan G'
 
 select * from Reservaciones;
 select * from chekin_out;
+
+update chekin_out set Cin = '17/11/2018' where Id_reservacion = 2;
