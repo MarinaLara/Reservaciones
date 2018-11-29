@@ -1,5 +1,4 @@
 ﻿using RECEPCION.clases;
-using RECEPCION.clases.Insert_chekinout;
 using System;
 using System.Collections.Generic;
 using System.ComponentModel;
@@ -93,10 +92,13 @@ namespace RECEPCION
         {
             //tomar la fecha de hoy
             
-            string columna1, columna2;
+            string columna1, columna2, columna3;
+            DateTime Hoy = DateTime.Today;
+            string fecha_reserva = Hoy.ToString("dd/MM/yyyy");            
             DataGridViewRow fila = dataGridView1.CurrentRow; // obtengo la fila actualmente seleccionada en el dataGridView
             columna1 = Convert.ToString(fila.Cells[4].Value); //obtengo el valor de la columna cin
             columna2 = Convert.ToString(fila.Cells[6].Value); //obtengo el valor de la columna id
+            columna3 = Convert.ToString(fila.Cells[5].Value); //obtengo el valor de la columna cout
 
             if (comboBox1.SelectedItem != null)
             {
@@ -104,9 +106,7 @@ namespace RECEPCION
                 {
                     if (columna1 == "") //vacio
                     {
-                        //insert
-                        DateTime Hoy = DateTime.Today;
-                        string fecha_reserva = Hoy.ToString("dd/MM/yyyy");
+                        //update
                         Convert.ToInt32(columna2);
                         using (SqlConnection Conn = Conexion.ObtnerCOnexion())
                         {
@@ -129,7 +129,28 @@ namespace RECEPCION
                 }
                 else if (comboBox1.SelectedItem == "Salida")
                 {
-                    
+                    if (columna3 == "") //vacio
+                    {
+                        //update
+                        Convert.ToInt32(columna2);
+                        using (SqlConnection Conn = Conexion.ObtnerCOnexion())
+                        {
+                            SqlCommand cmd = Conn.CreateCommand();
+                            cmd.CommandType = CommandType.Text;
+                            cmd.CommandText = "update chekin_out set Cout = '" + fecha_reserva + "' where Id_reservacion = " + columna2 + ";";
+                            cmd.ExecuteNonQuery();
+                            DataTable dt = new DataTable();
+                            SqlDataAdapter da = new SqlDataAdapter(cmd);
+                            da.Fill(dt);
+                            dataGridView1.DataSource = dt;
+                            dataGridView1.Refresh();
+                            Conn.Close();
+                        }
+                    }
+                    else
+                    {
+                        MessageBox.Show("Entrada anteriormente registrada");
+                    }
                 }
             }
         }
