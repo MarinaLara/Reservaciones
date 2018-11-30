@@ -276,3 +276,7 @@ select * from Reservaciones;
 select * from chekin_out;
 
 update chekin_out set Cin = '17/11/2018' where Id_reservacion = 2;
+
+
+--Buscar el ultimo id insertado
+select Id_reservacion from Reservaciones where Id_reservacion = some (select max (Id_reservacion) from Reservaciones);

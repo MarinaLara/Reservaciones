@@ -432,7 +432,6 @@
             // 
             this.Seleccionar.HeaderText = "Seleccionar";
             this.Seleccionar.Name = "Seleccionar";
-            this.Seleccionar.ReadOnly = true;
             // 
             // CrearReservación
             // 
@@ -449,7 +448,6 @@
             this.MainMenuStrip = this.menuStrip1;
             this.Name = "CrearReservación";
             this.Text = "CrearReservación";
-            this.Load += new System.EventHandler(this.CrearReservación_Load);
             this.menuStrip1.ResumeLayout(false);
             this.menuStrip1.PerformLayout();
             this.groupBox1.ResumeLayout(false);

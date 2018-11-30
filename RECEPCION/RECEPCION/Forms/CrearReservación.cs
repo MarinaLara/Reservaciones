@@ -81,11 +81,6 @@ namespace RECEPCION
             Application.Exit();
         }
 
-        //carga datagrid
-        private void CrearReservación_Load(object sender, EventArgs e)
-        {  
-        }
-
         //boton crear reserva
         private void button2_Click(object sender, EventArgs e)
         {
@@ -104,12 +99,33 @@ namespace RECEPCION
             else
             {
                 guardar();
+                //crear metodo para insertar chekin_out mandando a buscar el ultimo id insertado y tomarlo para insertarlo en la tabla
+
                 this.Close();
                 Inicio Regreso = new Inicio();
                 Regreso.Show();
             }
         }
         
+        //
+        public void buscar2() 
+        {
+            int resultado = 0;
+
+            using (SqlConnection Conn = Conexion.ObtnerCOnexion())
+            {
+                SqlCommand cmd = Conn.CreateCommand();
+                cmd.CommandType = CommandType.Text;
+                cmd.CommandText = "select Id_reservacion from Reservaciones where Id_reservacion = some (select max (Id_reservacion) from Reservaciones)";
+                cmd.ExecuteNonQuery();
+                cmd.Parameters.AddWithValue("Id_reservacion", "Id_reservacion".ToString());
+                resultado = Convert.ToInt32(cmd.ExecuteScalar());
+                
+                MessageBox.Show("" + resultado);
+                Conn.Close();
+            }
+        }
+
         //boton volver
         private void button3_Click(object sender, EventArgs e)
         {
@@ -127,7 +143,8 @@ namespace RECEPCION
             }
             else 
             {
-                buscar();                
+                buscar2();
+                //buscar();                
             }
         }
 
@@ -187,8 +204,7 @@ namespace RECEPCION
                 DataTable dt = (DataTable)dataGridView1.DataSource;
                 dt.Clear();
                 label4.Text = "0";
-                cbx_tipo_hab.SelectedItem = null;
-                
+                cbx_tipo_hab.SelectedItem = null;                
             }
         }
 
