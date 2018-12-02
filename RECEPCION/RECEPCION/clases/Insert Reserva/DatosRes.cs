@@ -17,11 +17,11 @@ namespace RECEPCION
         public String Telefono_cliente { get; set; }
         public String Tarjeta_pago { get; set; }
         public float Total { get; set; }
-
+        public int Id_reservacion { get; set; }
 
         public DatosRes() { }
 
-        public DatosRes(String pId_empleado, String pId_habitacion, String pFecha_reservacion, String pFecha_entrada, String pFecha_salida, String pNombre_cliente, String pTelefono_cliente, String pTarjeta_pago, float pTotal)
+        public DatosRes(String pId_empleado, int pId_reservacion, String pId_habitacion, String pFecha_reservacion, String pFecha_entrada, String pFecha_salida, String pNombre_cliente, String pTelefono_cliente, String pTarjeta_pago, float pTotal)
         {
             this.Id_empleado = pId_empleado;
             this.Id_habitacion = pId_habitacion;
@@ -32,6 +32,7 @@ namespace RECEPCION
             this.Telefono_cliente = pTelefono_cliente;
             this.Tarjeta_pago = pTarjeta_pago;
             this.Total = pTotal;
+            this.Id_reservacion = pId_reservacion;
             
         }
     }

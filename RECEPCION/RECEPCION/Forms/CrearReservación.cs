@@ -1,4 +1,5 @@
 ﻿using RECEPCION.clases;
+using RECEPCION.clases.Insert_Reserva;
 using System;
 using System.Collections.Generic;
 using System.ComponentModel;
@@ -100,6 +101,7 @@ namespace RECEPCION
             {
                 guardar();
                 //crear metodo para insertar chekin_out mandando a buscar el ultimo id insertado y tomarlo para insertarlo en la tabla
+                buscar_ultimo_id_reservacion();
 
                 this.Close();
                 Inicio Regreso = new Inicio();
@@ -108,9 +110,9 @@ namespace RECEPCION
         }
         
         //
-        public void buscar2() 
+        public void buscar_ultimo_id_reservacion() 
         {
-            int resultado = 0;
+            int res;
 
             using (SqlConnection Conn = Conexion.ObtnerCOnexion())
             {
@@ -119,11 +121,15 @@ namespace RECEPCION
                 cmd.CommandText = "select Id_reservacion from Reservaciones where Id_reservacion = some (select max (Id_reservacion) from Reservaciones)";
                 cmd.ExecuteNonQuery();
                 cmd.Parameters.AddWithValue("Id_reservacion", "Id_reservacion".ToString());
-                resultado = Convert.ToInt32(cmd.ExecuteScalar());
-                
-                MessageBox.Show("" + resultado);
+                res = Convert.ToInt32(cmd.ExecuteScalar());               
                 Conn.Close();
             }
+
+            //insert
+            DatosRes DatosRes = new DatosRes();
+            DatosRes.Id_reservacion = res;
+
+            int resultado = Insertchekinout.Agregar(DatosRes);
         }
 
         //boton volver
@@ -143,8 +149,7 @@ namespace RECEPCION
             }
             else 
             {
-                buscar2();
-                //buscar();                
+                buscar();                
             }
         }
 
