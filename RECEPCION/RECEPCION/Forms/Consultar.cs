@@ -94,24 +94,18 @@ namespace RECEPCION
 
         private void button3_Click(object sender, EventArgs e)
         {
-            /*string F_entrada = dateTimePicker1.Value.ToString("dd/MM/yyyy");
-            string Nombre = textBox1.ToString();
-
+            //consulta si existe la solicitud
             using (SqlConnection Conn = Conexion.ObtnerCOnexion())
             {
                 SqlCommand cmd = Conn.CreateCommand();
                 cmd.CommandType = CommandType.Text;
-                cmd.CommandText = "SELECT No_cuarto, Nombre_cliente, Fecha_entrada, Fecha_salida FROM Reservaciones, Habitaciones where Nombre_cliente like '" + textBox1.Text + "%' and Fecha_entrada like '" + F_entrada + "%' and Reservaciones.Id_habitacion = Habitaciones.Id_habitacion";
+                cmd.CommandText = "Select Id_reservacion from Reservaciones where Id_reservacion in (select Id_reservacion from solicitudes_recepcion_recursoshumanos)";
                 cmd.ExecuteNonQuery();
-                DataTable dt = new DataTable();
-                SqlDataAdapter da = new SqlDataAdapter(cmd);
-                da.Fill(dt);
-                dataGridView1.DataSource = dt;
-                dataGridView1.Refresh();
-                Conn.Close();
-            }*/
-            /*
-             * consulta si existe la solicitud
+            }
+            DataGridViewRow fila = dataGridView1.CurrentRow; // obtengo la fila actualmente seleccionada en el dataGridView
+            String columna1;
+            columna1 = Convert.ToString(fila.Cells[3].Value); //obtengo el valor de la columna precio
+             /* 
              * //atrapa los datos en variables
              * 
              * if (id_res in tabla solicitud)
