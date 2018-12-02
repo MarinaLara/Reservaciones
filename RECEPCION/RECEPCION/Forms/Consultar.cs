@@ -91,5 +91,35 @@ namespace RECEPCION
         {
 
         }
+
+        private void button3_Click(object sender, EventArgs e)
+        {
+
+            /*
+             * consulta si existe la solicitud
+             * //atrapa los datos en variables
+             * 
+             * if (id_res in tabla solicitud)
+             * {
+             *      if(estado_solicitud == aprobado){
+             *          elimina reserva y devuelve dinero
+             *      }else if (solicitud == Rechazado){
+             *          Devolucion no aprobada, ¿Desea eliminar?
+             *          if(si){eliminar}
+             *          else if (no) {
+             *              desea modificar?
+             *              if(si){Modificar}
+             *              else if(no){??}
+             *          }
+             *      }else {             
+             *          //aun no hay respuesta
+             *          Message En espera
+             *      }
+             * }else{
+             *      Mandar solicitud
+             *      //insert
+             * }
+            */
+        }
     }
 }

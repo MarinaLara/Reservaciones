@@ -46,12 +46,12 @@
             this.nocuartoDataGridViewTextBoxColumn1 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.idhabitacionDataGridViewTextBoxColumn1 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.dataGridView1 = new System.Windows.Forms.DataGridView();
+            this.Seleccionar = new System.Windows.Forms.DataGridViewCheckBoxColumn();
             this.reservacionesBindingSource = new System.Windows.Forms.BindingSource(this.components);
             this.hotelDataSet = new RECEPCION.HotelDataSet();
             this.habitacionesBindingSource = new System.Windows.Forms.BindingSource(this.components);
             this.habitacionesTableAdapter = new RECEPCION.HotelDataSetTableAdapters.HabitacionesTableAdapter();
             this.reservacionesTableAdapter = new RECEPCION.HotelDataSetTableAdapters.ReservacionesTableAdapter();
-            this.Seleccionar = new System.Windows.Forms.DataGridViewCheckBoxColumn();
             this.menuStrip1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.reservacionesBindingSource)).BeginInit();
@@ -156,6 +156,7 @@
             this.button3.TabIndex = 8;
             this.button3.Text = "Eliminar";
             this.button3.UseVisualStyleBackColor = true;
+            this.button3.Click += new System.EventHandler(this.button3_Click);
             // 
             // disponibilidad_btn
             // 
@@ -203,6 +204,11 @@
             this.dataGridView1.TabIndex = 0;
             this.dataGridView1.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dataGridView1_CellContentClick);
             // 
+            // Seleccionar
+            // 
+            this.Seleccionar.HeaderText = "Seleccionar";
+            this.Seleccionar.Name = "Seleccionar";
+            // 
             // reservacionesBindingSource
             // 
             this.reservacionesBindingSource.DataMember = "Reservaciones";
@@ -225,11 +231,6 @@
             // reservacionesTableAdapter
             // 
             this.reservacionesTableAdapter.ClearBeforeFill = true;
-            // 
-            // Seleccionar
-            // 
-            this.Seleccionar.HeaderText = "Seleccionar";
-            this.Seleccionar.Name = "Seleccionar";
             // 
             // Consultar
             // 
