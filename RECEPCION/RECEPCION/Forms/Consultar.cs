@@ -76,7 +76,7 @@ namespace RECEPCION
             {
                 SqlCommand cmd = Conn.CreateCommand();
                 cmd.CommandType = CommandType.Text;
-                cmd.CommandText = "SELECT No_cuarto, Nombre_cliente, Fecha_entrada, Fecha_salida FROM Reservaciones, Habitaciones where Nombre_cliente like '" + textBox1.Text + "%' and Fecha_entrada like '" + F_entrada + "%' and Reservaciones.Id_habitacion = Habitaciones.Id_habitacion";
+                cmd.CommandText = "SELECT No_cuarto, Nombre_cliente, Fecha_entrada, Fecha_salida, Id_reservacion FROM Reservaciones, Habitaciones where Nombre_cliente like '" + textBox1.Text + "%' and Fecha_entrada like '" + F_entrada + "%' and Reservaciones.Id_habitacion = Habitaciones.Id_habitacion";
                 cmd.ExecuteNonQuery();
                 DataTable dt = new DataTable();
                 SqlDataAdapter da = new SqlDataAdapter(cmd);
@@ -94,7 +94,22 @@ namespace RECEPCION
 
         private void button3_Click(object sender, EventArgs e)
         {
+            /*string F_entrada = dateTimePicker1.Value.ToString("dd/MM/yyyy");
+            string Nombre = textBox1.ToString();
 
+            using (SqlConnection Conn = Conexion.ObtnerCOnexion())
+            {
+                SqlCommand cmd = Conn.CreateCommand();
+                cmd.CommandType = CommandType.Text;
+                cmd.CommandText = "SELECT No_cuarto, Nombre_cliente, Fecha_entrada, Fecha_salida FROM Reservaciones, Habitaciones where Nombre_cliente like '" + textBox1.Text + "%' and Fecha_entrada like '" + F_entrada + "%' and Reservaciones.Id_habitacion = Habitaciones.Id_habitacion";
+                cmd.ExecuteNonQuery();
+                DataTable dt = new DataTable();
+                SqlDataAdapter da = new SqlDataAdapter(cmd);
+                da.Fill(dt);
+                dataGridView1.DataSource = dt;
+                dataGridView1.Refresh();
+                Conn.Close();
+            }*/
             /*
              * consulta si existe la solicitud
              * //atrapa los datos en variables
