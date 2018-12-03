@@ -45,6 +45,11 @@
             this.groupBox1 = new System.Windows.Forms.GroupBox();
             this.groupBox2 = new System.Windows.Forms.GroupBox();
             this.dataGridView1 = new System.Windows.Forms.DataGridView();
+            this.idhabitacionDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.nocuartoDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.tipohabitacionDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.precioDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Seleccionar = new System.Windows.Forms.DataGridViewCheckBoxColumn();
             this.habitacionesBindingSource3 = new System.Windows.Forms.BindingSource(this.components);
             this.hotelDataSet = new RECEPCION.HotelDataSet();
             this.habitacionesBindingSource2 = new System.Windows.Forms.BindingSource(this.components);
@@ -66,11 +71,6 @@
             this.habitacionesBindingSource1 = new System.Windows.Forms.BindingSource(this.components);
             this.habitacionesTableAdapter1 = new RECEPCION.HotelDataSetServidorTableAdapters.HabitacionesTableAdapter();
             this.habitacionesTableAdapter2 = new RECEPCION.HotelDataSetServidor1TableAdapters.HabitacionesTableAdapter();
-            this.idhabitacionDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.nocuartoDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.tipohabitacionDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.precioDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.Seleccionar = new System.Windows.Forms.DataGridViewCheckBoxColumn();
             this.menuStrip1.SuspendLayout();
             this.groupBox1.SuspendLayout();
             this.groupBox2.SuspendLayout();
@@ -154,19 +154,21 @@
             // 
             this.dateTimePicker1.CustomFormat = "dd/MM/yyyy";
             this.dateTimePicker1.Location = new System.Drawing.Point(18, 61);
+            this.dateTimePicker1.MinDate = new System.DateTime(2018, 12, 2, 0, 0, 0, 0);
             this.dateTimePicker1.Name = "dateTimePicker1";
             this.dateTimePicker1.Size = new System.Drawing.Size(197, 20);
             this.dateTimePicker1.TabIndex = 3;
-            this.dateTimePicker1.Value = new System.DateTime(2018, 11, 20, 0, 0, 0, 0);
+            this.dateTimePicker1.Value = new System.DateTime(2018, 12, 2, 0, 0, 0, 0);
             // 
             // dateTimePicker2
             // 
             this.dateTimePicker2.CustomFormat = "dd/MM/yyyy";
             this.dateTimePicker2.Location = new System.Drawing.Point(262, 60);
+            this.dateTimePicker2.MinDate = new System.DateTime(2018, 12, 2, 0, 0, 0, 0);
             this.dateTimePicker2.Name = "dateTimePicker2";
             this.dateTimePicker2.Size = new System.Drawing.Size(200, 20);
             this.dateTimePicker2.TabIndex = 4;
-            this.dateTimePicker2.Value = new System.DateTime(2018, 11, 20, 0, 0, 0, 0);
+            this.dateTimePicker2.Value = new System.DateTime(2018, 12, 2, 0, 0, 0, 0);
             this.dateTimePicker2.ValueChanged += new System.EventHandler(this.dateTimePicker2_ValueChanged);
             // 
             // label3
@@ -246,6 +248,37 @@
             this.dataGridView1.Size = new System.Drawing.Size(440, 221);
             this.dataGridView1.TabIndex = 0;
             this.dataGridView1.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dataGridView1_CellContentClick);
+            // 
+            // idhabitacionDataGridViewTextBoxColumn
+            // 
+            this.idhabitacionDataGridViewTextBoxColumn.DataPropertyName = "Id_habitacion";
+            this.idhabitacionDataGridViewTextBoxColumn.HeaderText = "Id_habitacion";
+            this.idhabitacionDataGridViewTextBoxColumn.Name = "idhabitacionDataGridViewTextBoxColumn";
+            this.idhabitacionDataGridViewTextBoxColumn.ReadOnly = true;
+            this.idhabitacionDataGridViewTextBoxColumn.Visible = false;
+            // 
+            // nocuartoDataGridViewTextBoxColumn
+            // 
+            this.nocuartoDataGridViewTextBoxColumn.DataPropertyName = "No_cuarto";
+            this.nocuartoDataGridViewTextBoxColumn.HeaderText = "No_cuarto";
+            this.nocuartoDataGridViewTextBoxColumn.Name = "nocuartoDataGridViewTextBoxColumn";
+            // 
+            // tipohabitacionDataGridViewTextBoxColumn
+            // 
+            this.tipohabitacionDataGridViewTextBoxColumn.DataPropertyName = "Tipo_habitacion";
+            this.tipohabitacionDataGridViewTextBoxColumn.HeaderText = "Tipo_habitacion";
+            this.tipohabitacionDataGridViewTextBoxColumn.Name = "tipohabitacionDataGridViewTextBoxColumn";
+            // 
+            // precioDataGridViewTextBoxColumn
+            // 
+            this.precioDataGridViewTextBoxColumn.DataPropertyName = "Precio";
+            this.precioDataGridViewTextBoxColumn.HeaderText = "Precio";
+            this.precioDataGridViewTextBoxColumn.Name = "precioDataGridViewTextBoxColumn";
+            // 
+            // Seleccionar
+            // 
+            this.Seleccionar.HeaderText = "Seleccionar";
+            this.Seleccionar.Name = "Seleccionar";
             // 
             // habitacionesBindingSource3
             // 
@@ -401,37 +434,6 @@
             // habitacionesTableAdapter2
             // 
             this.habitacionesTableAdapter2.ClearBeforeFill = true;
-            // 
-            // idhabitacionDataGridViewTextBoxColumn
-            // 
-            this.idhabitacionDataGridViewTextBoxColumn.DataPropertyName = "Id_habitacion";
-            this.idhabitacionDataGridViewTextBoxColumn.HeaderText = "Id_habitacion";
-            this.idhabitacionDataGridViewTextBoxColumn.Name = "idhabitacionDataGridViewTextBoxColumn";
-            this.idhabitacionDataGridViewTextBoxColumn.ReadOnly = true;
-            this.idhabitacionDataGridViewTextBoxColumn.Visible = false;
-            // 
-            // nocuartoDataGridViewTextBoxColumn
-            // 
-            this.nocuartoDataGridViewTextBoxColumn.DataPropertyName = "No_cuarto";
-            this.nocuartoDataGridViewTextBoxColumn.HeaderText = "No_cuarto";
-            this.nocuartoDataGridViewTextBoxColumn.Name = "nocuartoDataGridViewTextBoxColumn";
-            // 
-            // tipohabitacionDataGridViewTextBoxColumn
-            // 
-            this.tipohabitacionDataGridViewTextBoxColumn.DataPropertyName = "Tipo_habitacion";
-            this.tipohabitacionDataGridViewTextBoxColumn.HeaderText = "Tipo_habitacion";
-            this.tipohabitacionDataGridViewTextBoxColumn.Name = "tipohabitacionDataGridViewTextBoxColumn";
-            // 
-            // precioDataGridViewTextBoxColumn
-            // 
-            this.precioDataGridViewTextBoxColumn.DataPropertyName = "Precio";
-            this.precioDataGridViewTextBoxColumn.HeaderText = "Precio";
-            this.precioDataGridViewTextBoxColumn.Name = "precioDataGridViewTextBoxColumn";
-            // 
-            // Seleccionar
-            // 
-            this.Seleccionar.HeaderText = "Seleccionar";
-            this.Seleccionar.Name = "Seleccionar";
             // 
             // CrearReservación
             // 

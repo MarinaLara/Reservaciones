@@ -130,5 +130,10 @@ namespace RECEPCION
              * }
             */
         }
+
+        private void groupBox1_Enter(object sender, EventArgs e)
+        {
+
+        }
     }
 }
