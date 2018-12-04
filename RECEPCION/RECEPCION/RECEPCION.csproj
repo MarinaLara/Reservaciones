@@ -63,6 +63,8 @@
     <Compile Include="clases\Insert Mant\DatosMant.cs" />
     <Compile Include="clases\Insert Mant\RegSolMant.cs" />
     <Compile Include="clases\Insert Reserva\Insertchekinout.cs" />
+    <Compile Include="clases\Insert Sol_RH\DatosSolRH.cs" />
+    <Compile Include="clases\Insert Sol_RH\RegSolRH.cs" />
     <Compile Include="Forms\Consultar.cs">
       <SubType>Form</SubType>
     </Compile>

@@ -274,9 +274,24 @@ and Nombre_cliente = 'Juan G'
 
 select * from Reservaciones;
 select * from chekin_out;
+select * from Disponibilidad_hab;
 
 update chekin_out set Cin = '17/11/2018' where Id_reservacion = 2;
 
 
 --Buscar el ultimo id insertado
 select Id_reservacion from Reservaciones where Id_reservacion = some (select max (Id_reservacion) from Reservaciones);
+
+Select * from Reservaciones 
+where Id_reservacion = 26 and Id_reservacion in (select Id_reservacion from solicitudes_recepcion_recursoshumanos)
+
+select * from solicitudes_recepcion_recursoshumanos 
+where Id_reservacion = 26;
+
+-- Id_reservacion, Fecha_solicitud, Habitacion, Devolucion, Estado_solicitud
+-- res, '', 101, 
+insert into solicitudes_recepcion_recursoshumanos (Id_reservacion, Fecha_solicitud, Habitacion, Devolucion, Estado_solicitud) values (29);
+
+Select Id_habitacion, Total from Reservaciones where Id_reservacion = 26;
+Select Id_habitacion from Habitaciones
+
