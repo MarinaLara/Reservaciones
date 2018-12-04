@@ -14,6 +14,3 @@ D:\Documentos\GitHub\Reservaciones\RECEPCION\RECEPCION\obj\Debug\RECEPCION.Forms
 D:\Documentos\GitHub\Reservaciones\RECEPCION\RECEPCION\obj\Debug\RECEPCION.Properties.Resources.resources
 D:\Documentos\GitHub\Reservaciones\RECEPCION\RECEPCION\obj\Debug\RECEPCION.RegistrarES.resources
 D:\Documentos\GitHub\Reservaciones\RECEPCION\RECEPCION\obj\Debug\RECEPCION.csproj.GenerateResource.Cache
-C:\Users\PC\Documents\GitHub\RECEPCION.exe.config
-C:\Users\PC\Documents\GitHub\Reservaciones\RECEPCION\RECEPCION\obj\Debug\RECEPCION.exe
-C:\Users\PC\Documents\GitHub\Reservaciones\RECEPCION\RECEPCION\obj\Debug\RECEPCION.pdb
