@@ -311,27 +311,25 @@ namespace RECEPCION.Forms
 
                             // Open the document to enable you to write to the document
                             document.Open();
-
-                            PdfPTable head = new PdfPTable(2);
-                            head.DefaultCell.BorderWidth = 0;
-
+                           
                             // Creamos la imagen y le ajustamos el tamaño
-                            iTextSharp.text.Image imagen = iTextSharp.text.Image.GetInstance("D:/Documentos/GitHub/Reservaciones/Imagenes/opened-door-aperture.png");
+                            iTextSharp.text.Image imagen = iTextSharp.text.Image.GetInstance("D:/Documentos/GitHub/Reservaciones/Imagenes/logo.png");
                             imagen.BorderWidth = 0;
                             imagen.Alignment = Element.ALIGN_RIGHT;
-                            imagen.ScaleAbsolute(70f, 70f);
-                                                       
+                            imagen.ScaleAbsolute(59f, 59f);
+
+                            PdfPTable head = new PdfPTable(3);
+                            head.DefaultCell.BorderWidth = 0;
+                            // Insertamos la imagen en el documento
                             head.AddCell(imagen);
-                            head.AddCell("Reporte de Mantenimiento");
+                            // Add a simple and wellknown phrase to the document in a flow layout manner
+                            head.AddCell("Reporte de ");
+                            head.AddCell("Mantenimiento");
+                            
                             document.Add(head);
                             document.Add(new Paragraph(" "));
 
-                            // Insertamos la imagen en el documento
-                            //document.Add(imagen);
-
-                            // Add a simple and wellknown phrase to the document in a flow layout manner
-                            //document.Add(new Paragraph("Reporte de Mantenimiento"));
-                            //document.Add(new Paragraph(" "));
+                            
 
                             PdfPTable table = new PdfPTable(4);
 
@@ -368,6 +366,13 @@ namespace RECEPCION.Forms
                     
                 }
             }
+        }
+
+        private void button2_Click(object sender, EventArgs e)
+        {
+            this.Close();
+            prueba Prueb = new prueba();
+            Prueb.Show();
         }
     }
 }

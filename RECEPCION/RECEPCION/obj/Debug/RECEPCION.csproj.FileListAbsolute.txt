@@ -17,3 +17,6 @@ D:\Documentos\GitHub\Reservaciones\RECEPCION\RECEPCION\obj\Debug\RECEPCION.cspro
 C:\Users\PC\Documents\GitHub\RECEPCION.exe.config
 C:\Users\PC\Documents\GitHub\Reservaciones\RECEPCION\RECEPCION\obj\Debug\RECEPCION.exe
 C:\Users\PC\Documents\GitHub\Reservaciones\RECEPCION\RECEPCION\obj\Debug\RECEPCION.pdb
+D:\Documentos\GitHub\Reservaciones\RECEPCION\RECEPCION\obj\Debug\RECEPCION.Forms.prueba.resources
+D:\Documentos\GitHub\Reservaciones\RECEPCION\RECEPCION\obj\Debug\RdlCompile.cache
+D:\Documentos\GitHub\Reservaciones\RECEPCION\RECEPCION\obj\Debug\RdlCompile.compiled
