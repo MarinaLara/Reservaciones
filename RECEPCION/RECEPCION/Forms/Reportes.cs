@@ -1,14 +1,19 @@
-﻿using RECEPCION.clases;
+﻿using iTextSharp.text;
+using iTextSharp.text.pdf;
+using iTextSharp.text.pdf.parser;
+using RECEPCION.clases;
 using System;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
 using System.Data.SqlClient;
 using System.Drawing;
+using System.IO;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+
 
 namespace RECEPCION.Forms
 {
@@ -34,7 +39,7 @@ namespace RECEPCION.Forms
                 {
                     SqlCommand cmd = Conn.CreateCommand();
                     cmd.CommandType = CommandType.Text;
-                    cmd.CommandText = "SELECT no_habitacion, fecha, descripcion, costo_daños, estado FROM MAN_reporte_limpieza";
+                    cmd.CommandText = "SELECT no_habitacion, fecha, descripcion, costo_daños, estado, no_reporte FROM MAN_reporte_limpieza";
                     cmd.ExecuteNonQuery();
                     DataTable dt = new DataTable();
                     SqlDataAdapter da = new SqlDataAdapter(cmd);
@@ -74,7 +79,7 @@ namespace RECEPCION.Forms
                     {
                         SqlCommand cmd = Conn.CreateCommand();
                         cmd.CommandType = CommandType.Text;
-                        cmd.CommandText = "SELECT no_habitacion, fecha, descripcion, costo_daños, estado FROM MAN_reporte_limpieza";
+                        cmd.CommandText = "SELECT no_habitacion, fecha, descripcion, costo_daños, estado, no_reporte FROM MAN_reporte_limpieza";
                         cmd.ExecuteNonQuery();
                         DataTable dt = new DataTable();
                         SqlDataAdapter da = new SqlDataAdapter(cmd);
@@ -109,7 +114,7 @@ namespace RECEPCION.Forms
                 {
                     SqlCommand cmd = Conn.CreateCommand();
                     cmd.CommandType = CommandType.Text;
-                    cmd.CommandText = "SELECT no_habitacion, fecha, descripcion, costo_daños, estado FROM MAN_reporte_limpieza where estado = 'Pendiente'";
+                    cmd.CommandText = "SELECT no_habitacion, fecha, descripcion, costo_daños, estado, no_reporte FROM MAN_reporte_limpieza where estado = 'Pendiente'";
                     cmd.ExecuteNonQuery();
                     DataTable dt = new DataTable();
                     SqlDataAdapter da = new SqlDataAdapter(cmd);
@@ -125,7 +130,7 @@ namespace RECEPCION.Forms
                 {
                     SqlCommand cmd = Conn.CreateCommand();
                     cmd.CommandType = CommandType.Text;
-                    cmd.CommandText = "SELECT no_habitacion, fecha, descripcion, costo_daños, estado FROM MAN_reporte_limpieza where estado = 'Atendiendo'";
+                    cmd.CommandText = "SELECT no_habitacion, fecha, descripcion, costo_daños, estado, no_reporte FROM MAN_reporte_limpieza where estado = 'Atendiendo'";
                     cmd.ExecuteNonQuery();
                     DataTable dt = new DataTable();
                     SqlDataAdapter da = new SqlDataAdapter(cmd);
@@ -141,7 +146,7 @@ namespace RECEPCION.Forms
                 {
                     SqlCommand cmd = Conn.CreateCommand();
                     cmd.CommandType = CommandType.Text;
-                    cmd.CommandText = "SELECT no_habitacion, fecha, descripcion, costo_daños, estado FROM MAN_reporte_limpieza where estado = 'Finalizado'";
+                    cmd.CommandText = "SELECT no_habitacion, fecha, descripcion, costo_daños, estado, no_reporte FROM MAN_reporte_limpieza where estado = 'Finalizado'";
                     cmd.ExecuteNonQuery();
                     DataTable dt = new DataTable();
                     SqlDataAdapter da = new SqlDataAdapter(cmd);
@@ -253,6 +258,116 @@ namespace RECEPCION.Forms
         private void cerrarSesionToolStripMenuItem1_Click(object sender, EventArgs e)
         {
             Application.Exit();
+        }
+
+        private void button1_Click(object sender, EventArgs e)
+        {
+            String columna1;
+            DataGridViewRow fila = dataGridView1.CurrentRow; // obtengo la fila actualmente seleccionada en el dataGridView
+
+            columna1 = Convert.ToString(fila.Cells[6].Value); //obtengo el valor de la columna 1 (ignorando la columna seleccionar)
+
+            if (dataGridView1.RowCount == 0)
+            {
+                MessageBox.Show("No Hay Datos Para Realizar Un Reporte");
+            }
+            else
+            {
+                //ESCOJE A RUTA DONDE GUARDAREMOS EL PDF 
+                SaveFileDialog save = new SaveFileDialog();
+                save.Filter = "PDF Files (*.pdf)|*.pdf|All Files (*.*)|*.*";
+                if (save.ShowDialog() == DialogResult.OK)
+                {
+                    if (comboBox1.SelectedItem == "Mantenimiento")
+                    {
+                        using (SqlConnection Conn = Conexion.ObtnerCOnexion())
+                        {
+                            SqlCommand cmd = Conn.CreateCommand();
+                            cmd.CommandType = CommandType.Text;
+                            cmd.CommandText = "SELECT no_habitacion, fecha, descripcion, costo_daños, no_reporte estado FROM MAN_reporte_limpieza where no_reporte ="+columna1;
+                            cmd.ExecuteNonQuery();
+                            DataTable dt = new DataTable();
+                            SqlDataAdapter da = new SqlDataAdapter(cmd);
+                            da.Fill(dt);
+                            dataGridView1.DataSource = dt;
+                            String perro = dt.Rows[0][0].ToString();
+                            int NumRows = dt.Rows.Count;
+                            Conn.Close();
+
+                            string filename = save.FileName;
+                            System.IO.FileStream fs = new FileStream(filename, FileMode.Create);
+
+
+                            Document document = new Document(PageSize.A4, 25, 30, 40, 25);
+
+                            PdfWriter writer = PdfWriter.GetInstance(document, fs);
+
+
+                            document.AddAuthor("Micke Blomquist");
+                            document.AddCreator("Sample application using iTextSharp");
+                            document.AddKeywords("PDF tutorial education");
+                            document.AddSubject("Document subject - Describing the steps creating a PDF document");
+                            document.AddTitle("The document title - PDF creation using iTextSharp");
+
+                            // Open the document to enable you to write to the document
+                            document.Open();
+
+                            PdfPTable head = new PdfPTable(2);
+                            head.DefaultCell.BorderWidth = 0;
+
+                            // Creamos la imagen y le ajustamos el tamaño
+                            iTextSharp.text.Image imagen = iTextSharp.text.Image.GetInstance("D:/Documentos/GitHub/Reservaciones/Imagenes/opened-door-aperture.png");
+                            imagen.BorderWidth = 0;
+                            imagen.Alignment = Element.ALIGN_RIGHT;
+                            imagen.ScaleAbsolute(70f, 70f);
+                                                       
+                            head.AddCell(imagen);
+                            head.AddCell("Reporte de Mantenimiento");
+                            document.Add(head);
+                            document.Add(new Paragraph(" "));
+
+                            // Insertamos la imagen en el documento
+                            //document.Add(imagen);
+
+                            // Add a simple and wellknown phrase to the document in a flow layout manner
+                            //document.Add(new Paragraph("Reporte de Mantenimiento"));
+                            //document.Add(new Paragraph(" "));
+
+                            PdfPTable table = new PdfPTable(4);
+
+
+                            table.AddCell("Habitacion");
+                            table.AddCell("Fecha");
+                            table.AddCell("descripcion");
+                            table.AddCell("costo_daños");
+
+                           /* for (int i = 0; i < NumRows; i++)
+                            {*/
+                            table.AddCell(dt.Rows[0][0].ToString());
+                            table.AddCell(dt.Rows[0][1].ToString());
+                            table.AddCell(dt.Rows[0][2].ToString());
+                            table.AddCell(dt.Rows[0][3].ToString());
+                            //}
+
+                            
+                            document.Add(table);
+                            // Close the document
+                            document.Close();
+                            // Close the writer instance
+                            writer.Close();
+                            // Always close open filehandles explicity
+                            fs.Close();
+                        }
+                    }
+                    else if (comboBox1.SelectedItem == "R. H.")
+                    {
+                        //
+                    }
+                    
+                    
+                    
+                }
+            }
         }
     }
 }
