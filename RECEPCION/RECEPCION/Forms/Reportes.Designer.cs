@@ -147,13 +147,17 @@
             // 
             this.comboBox2.FormattingEnabled = true;
             this.comboBox2.Items.AddRange(new object[] {
+            "Seleccionar",
             "Pendiente",
             "Atendiendo",
-            "Finalizado"});
+            "Finalizado",
+            "Aprobado",
+            "Rechazado"});
             this.comboBox2.Location = new System.Drawing.Point(213, 68);
             this.comboBox2.Name = "comboBox2";
             this.comboBox2.Size = new System.Drawing.Size(121, 21);
             this.comboBox2.TabIndex = 20;
+            this.comboBox2.Text = "Seleccionar";
             this.comboBox2.SelectedIndexChanged += new System.EventHandler(this.comboBox2_SelectedIndexChanged);
             // 
             // label2
@@ -174,6 +178,7 @@
             this.checkBox1.TabIndex = 22;
             this.checkBox1.Text = "Buscar por ambos";
             this.checkBox1.UseVisualStyleBackColor = true;
+            this.checkBox1.Visible = false;
             this.checkBox1.CheckedChanged += new System.EventHandler(this.checkBox1_CheckedChanged);
             // 
             // Reportes

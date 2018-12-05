@@ -63,19 +63,46 @@ namespace RECEPCION
             DatosRes.Tarjeta_pago = textBox5.Text;
             DatosRes.Total = Tot;
 
+            update1(Tot);
+
             int resultado = Regreserva.Agregar(DatosRes);
 
             if (resultado > 0)
             {
                 MessageBox.Show("Datos Guardados Correctamente", "Datos Guardado", MessageBoxButtons.OK, MessageBoxIcon.Information);
             }
-
             else
             {
                 MessageBox.Show("No se pudieron Guardar lo datos", "Error al Guardar", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
             }
         }
-       
+
+        public void update1(int Tot)
+        {
+            int Total_caja;
+            using (SqlConnection Conn = Conexion.ObtnerCOnexion())
+            {
+                SqlCommand cmd = Conn.CreateCommand();
+                cmd.CommandType = CommandType.Text;
+                cmd.CommandText = "Select Total from Caja";
+                cmd.ExecuteNonQuery();
+                cmd.Parameters.AddWithValue("Total", "Total".ToString());
+                Total_caja = Convert.ToInt32(cmd.ExecuteScalar()); 
+                Conn.Close();
+            }
+
+            Tot = Tot + Total_caja;
+
+            using (SqlConnection Conn = Conexion.ObtnerCOnexion())
+            {
+                SqlCommand cmd = Conn.CreateCommand();
+                cmd.CommandType = CommandType.Text;
+                cmd.CommandText = "update Caja set Total =  "+Tot+ "where Id_caja = 1";
+                cmd.ExecuteNonQuery();   
+                Conn.Close();
+            }
+        }
+
         //menu cerrar sesion //salir
         private void cerrarSesiónToolStripMenuItem_Click(object sender, EventArgs e)
         {
@@ -85,27 +112,52 @@ namespace RECEPCION
         //boton crear reserva
         private void button2_Click(object sender, EventArgs e)
         {
-            if (Cliente_nombre_txt.Text == "")
+            if (checkBox1.Checked == true)
             {
-                MessageBox.Show("Favor de llenar todos los campos");
-            }
-            else if (textBox3.Text == "")
-            {
-                MessageBox.Show("Favor de llenar todos los campos");
-            }
-            else if (textBox5.Text == "")
-            {
-                MessageBox.Show("Favor de llenar todos los campos");
-            }
-            else
-            {
-                guardar();
-                //crear metodo para insertar chekin_out mandando a buscar el ultimo id insertado y tomarlo para insertarlo en la tabla
-                buscar_ultimo_id_reservacion();
+                if (Cliente_nombre_txt.Text == "")
+                {
+                    MessageBox.Show("Favor de llenar todos los campos");
+                }
+                else if (textBox3.Text == "")
+                {
+                    MessageBox.Show("Favor de llenar todos los campos");
+                }
+                else
+                {
+                    MessageBox.Show("Favor de realizar el pago en efectivo");
+                    guardar();
+                    //crear metodo para insertar chekin_out mandando a buscar el ultimo id insertado y tomarlo para insertarlo en la tabla
+                    buscar_ultimo_id_reservacion();
 
-                this.Close();
-                Inicio Regreso = new Inicio();
-                Regreso.Show();
+                    this.Close();
+                    Inicio Regreso = new Inicio();
+                    Regreso.Show();
+                }
+            }
+            else //si no esta seleccionado
+            {
+                if (Cliente_nombre_txt.Text == "")
+                {
+                    MessageBox.Show("Favor de llenar todos los campos");
+                }
+                else if (textBox3.Text == "")
+                {
+                    MessageBox.Show("Favor de llenar todos los campos");
+                }
+                else if (textBox5.Text == "")
+                {
+                    MessageBox.Show("Favor de llenar todos los campos");
+                }
+                else
+                {
+                    guardar();
+                    //crear metodo para insertar chekin_out mandando a buscar el ultimo id insertado y tomarlo para insertarlo en la tabla
+                    buscar_ultimo_id_reservacion();
+
+                    this.Close();
+                    Inicio Regreso = new Inicio();
+                    Regreso.Show();
+                }
             }
         }
         
@@ -272,6 +324,27 @@ namespace RECEPCION
             {
                 e.Handled = true;
             }
+        }
+
+        private void CrearReservación_Load(object sender, EventArgs e)
+        {
+            // TODO: esta línea de código carga datos en la tabla 'hotelDataSetServidor1.Reservaciones' Puede moverla o quitarla según sea necesario.
+            //this.reservacionesTableAdapter.Fill(this.hotelDataSetServidor1.Reservaciones);
+
+        }
+
+        private void buscarToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            this.Close();
+            Consultar Con = new Consultar();
+            Con.Show();
+        }
+
+        private void modificarToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            this.Close();
+            Modificar Mod = new Modificar();
+            Mod.Show();
         }
 
     }
