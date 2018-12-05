@@ -180,6 +180,9 @@ namespace RECEPCION
                 else if (Estado == "Aprobado")
                 {
                     MessageBox.Show("Solicitud aprobada, procediendo a eliminar reservacion");
+                    //update 2
+                    update2(res);
+
                     //eliminar
                     using (SqlConnection Conn = Conexion.ObtnerCOnexion())
                     {
@@ -198,6 +201,9 @@ namespace RECEPCION
                 else if (Estado == "Rechazado")
                 {
                     MessageBox.Show("Solicitud Rechazada, procediendo a eliminar reservacion");
+                    //update 2
+                    update2(res);
+                    
                     //eliminar
                     using (SqlConnection Conn = Conexion.ObtnerCOnexion())
                     {
@@ -214,31 +220,38 @@ namespace RECEPCION
                     }
                 }
             }
-            
-             /* 
-             * //atrapa los datos en variables
-             * 
-             * if (id_res in tabla solicitud)
-             * {
-             *      if(estado_solicitud == aprobado){
-             *          elimina reserva y devuelve dinero
-             *      }else if (solicitud == Rechazado){
-             *          Devolucion no aprobada, ¿Desea eliminar?
-             *          if(si){eliminar}
-             *          else if (no) {
-             *              desea modificar?
-             *              if(si){Modificar}
-             *              else if(no){??}
-             *          }
-             *      }else {             
-             *          //aun no hay respuesta
-             *          Message En espera
-             *      }
-             * }else{
-             *      Mandar solicitud
-             *      //insert
-             * }
-            */
+
+        }
+
+        public void update2(int res)
+        {
+            int Total_reserva, Total_caja;
+
+            using (SqlConnection Conn = Conexion.ObtnerCOnexion())
+            {
+                SqlCommand cmd = Conn.CreateCommand();
+                cmd.CommandType = CommandType.Text;
+                cmd.CommandText = "select Total from Reservaciones where Id_reservacion = " + res;
+                cmd.ExecuteNonQuery();
+                cmd.Parameters.AddWithValue("Total", "Total".ToString());
+                Total_reserva = Convert.ToInt32(cmd.ExecuteScalar());
+                cmd.CommandText = "select Total_caja from Caja where Id_caja = 1";
+                cmd.ExecuteNonQuery();
+                cmd.Parameters.AddWithValue("Total_caja", "Total_caja".ToString());
+                Total_caja = Convert.ToInt32(cmd.ExecuteScalar());
+                Conn.Close();
+            }
+
+            Total_caja = Total_caja - Total_reserva;
+
+            using (SqlConnection Conn = Conexion.ObtnerCOnexion())
+            {
+                SqlCommand cmd = Conn.CreateCommand();
+                cmd.CommandType = CommandType.Text;
+                cmd.CommandText = "update Caja set Total_caja =  " + Total_caja + "where Id_caja = 1";
+                cmd.ExecuteNonQuery();
+                Conn.Close();
+            }
         }
 
         private void groupBox1_Enter(object sender, EventArgs e)

@@ -84,9 +84,9 @@ namespace RECEPCION
             {
                 SqlCommand cmd = Conn.CreateCommand();
                 cmd.CommandType = CommandType.Text;
-                cmd.CommandText = "Select Total from Caja";
+                cmd.CommandText = "Select Total_caja from Caja";
                 cmd.ExecuteNonQuery();
-                cmd.Parameters.AddWithValue("Total", "Total".ToString());
+                cmd.Parameters.AddWithValue("Total_caja", "Total_caja".ToString());
                 Total_caja = Convert.ToInt32(cmd.ExecuteScalar()); 
                 Conn.Close();
             }
@@ -97,7 +97,7 @@ namespace RECEPCION
             {
                 SqlCommand cmd = Conn.CreateCommand();
                 cmd.CommandType = CommandType.Text;
-                cmd.CommandText = "update Caja set Total =  "+Tot+ "where Id_caja = 1";
+                cmd.CommandText = "update Caja set Total_caja =  " + Tot + "where Id_caja = 1";
                 cmd.ExecuteNonQuery();   
                 Conn.Close();
             }
