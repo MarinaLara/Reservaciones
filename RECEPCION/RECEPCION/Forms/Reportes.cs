@@ -163,5 +163,10 @@ namespace RECEPCION.Forms
                 }
             }
         }
+
+        private void cerrarSesionToolStripMenuItem1_Click(object sender, EventArgs e)
+        {
+            Application.Exit();
+        }
     }
 }

@@ -102,6 +102,7 @@
             this.cerrarSesionToolStripMenuItem1.Name = "cerrarSesionToolStripMenuItem1";
             this.cerrarSesionToolStripMenuItem1.Size = new System.Drawing.Size(87, 20);
             this.cerrarSesionToolStripMenuItem1.Text = "Cerrar sesión";
+            this.cerrarSesionToolStripMenuItem1.Click += new System.EventHandler(this.cerrarSesionToolStripMenuItem1_Click);
             // 
             // dataGridView1
             // 
