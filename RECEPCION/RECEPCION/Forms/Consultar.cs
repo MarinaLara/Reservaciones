@@ -53,6 +53,7 @@ namespace RECEPCION
 
         private void button2_Click(object sender, EventArgs e)
         {
+            this.Close();
             Modificar Mod = new Modificar();
             Mod.Show();
         }

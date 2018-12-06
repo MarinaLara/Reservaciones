@@ -77,6 +77,10 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="clases\Conexion.cs" />
+    <Compile Include="clases\Habitaciones\DatHabitacion.cs" />
+    <Compile Include="clases\Habitaciones\Insertacion.cs" />
+    <Compile Include="clases\Habitaciones\Modhabi.cs" />
+    <Compile Include="clases\Habitaciones\Updhabi.cs" />
     <Compile Include="clases\Insert Mant\DatosMant.cs" />
     <Compile Include="clases\Insert Mant\RegSolMant.cs" />
     <Compile Include="clases\Insert Reserva\Insertchekinout.cs" />
@@ -98,7 +102,7 @@
     <Compile Include="Forms\Habitaciones.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="Forms\Habitaciones.Designer.cs">
+    <Compile Include="Forms\Habitaciones.designer.cs">
       <DependentUpon>Habitaciones.cs</DependentUpon>
     </Compile>
     <Compile Include="Forms\prueba.cs">
@@ -160,6 +164,8 @@
       <DependentUpon>RegistrarES.cs</DependentUpon>
     </Compile>
     <Compile Include="clases\Insert Reserva\Regreserva.cs" />
+    <Compile Include="Update Reserva.cs" />
+    <Compile Include="Updeserva.cs" />
     <EmbeddedResource Include="Forms\Consultar.resx">
       <DependentUpon>Consultar.cs</DependentUpon>
     </EmbeddedResource>

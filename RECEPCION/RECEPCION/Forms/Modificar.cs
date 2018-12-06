@@ -22,22 +22,13 @@ namespace RECEPCION
 
         private void Modificar_Load(object sender, EventArgs e)
         {
-            // TODO: esta línea de código carga datos en la tabla 'hotelDataSet.Disponibilidad_hab' Puede moverla o quitarla según sea necesario.
-            //this.disponibilidad_habTableAdapter.Fill(this.hotelDataSet.Disponibilidad_hab);
-            // TODO: esta línea de código carga datos en la tabla 'hotelDataSet.Reservaciones' Puede moverla o quitarla según sea necesario.
-            //this.reservacionesTableAdapter.Fill(this.hotelDataSet.Reservaciones);
-            // TODO: esta línea de código carga datos en la tabla 'hotelDataSet.Habitaciones' Puede moverla o quitarla según sea necesario.
-            //this.habitacionesTableAdapter.Fill(this.hotelDataSet.Habitaciones);
-            // TODO: esta línea de código carga datos en la tabla 'hotelDataSet.Habitaciones' Puede moverla o quitarla según sea necesario.
-            //this.habitacionesTableAdapter.Fill(this.hotelDataSet.Habitaciones);
-
-        }
+           }
 
         private void button2_Click(object sender, EventArgs e)
         {
             this.Close();
-            Consultar ConRes = new Consultar();
-            ConRes.Show();
+            Inicio Regreso = new Inicio();
+            Regreso.Show();
         }
         private void button1_Click(object sender, EventArgs e)
         {
@@ -102,6 +93,7 @@ namespace RECEPCION
             UpdateRes.Id_reservacion = columna2;
             UpdateRes.Id_dispo = dispo;
 
+            Update3(Tot, columna2);
 
             int resultado = Updeserva.Agregar(UpdateRes);
 
@@ -116,6 +108,66 @@ namespace RECEPCION
             }
 
         }
+
+        public void Update3(int Tot, string columna2) 
+        {
+            int Total_reserva, Total_caja, Nuevo;
+
+            using (SqlConnection Conn = Conexion.ObtnerCOnexion())
+            {
+                SqlCommand cmd = Conn.CreateCommand();
+                cmd.CommandType = CommandType.Text;
+                cmd.CommandText = "select Total from Reservaciones where Id_reservacion = " + columna2;
+                cmd.ExecuteNonQuery();
+                cmd.Parameters.AddWithValue("Total", "Total".ToString());
+                Total_reserva = Convert.ToInt32(cmd.ExecuteScalar());
+                cmd.CommandText = "select Total_caja from Caja where Id_caja = 1";
+                cmd.ExecuteNonQuery();
+                cmd.Parameters.AddWithValue("Total_caja", "Total_caja".ToString());
+                Total_caja = Convert.ToInt32(cmd.ExecuteScalar());
+                Conn.Close();
+            }
+
+            if (Tot > Total_reserva)
+            {
+                Nuevo = Tot - Total_reserva;
+                Total_caja = Total_caja + Nuevo;
+
+                //update
+                using (SqlConnection Conn = Conexion.ObtnerCOnexion())
+                {
+                    SqlCommand cmd = Conn.CreateCommand();
+                    cmd.CommandType = CommandType.Text;
+                    cmd.CommandText = "update Caja set Total_caja =  " + Total_caja + "where Id_caja = 1";
+                    cmd.ExecuteNonQuery();
+                    Conn.Close();
+                }
+            }
+            else if (Tot < Total_reserva)
+            {
+                Nuevo = Total_reserva - Tot;
+                Total_caja = Total_caja - Nuevo;
+
+                if (Nuevo > Total_caja)
+                {
+                    MessageBox.Show("No se puede hacer la devolucion de la diferencia del total");
+                }
+                else {
+                    //update
+                    using (SqlConnection Conn = Conexion.ObtnerCOnexion())
+                    {
+                        SqlCommand cmd = Conn.CreateCommand();
+                        cmd.CommandType = CommandType.Text;
+                        cmd.CommandText = "update Caja set Total_caja =  " + Total_caja + "where Id_caja = 1";
+                        cmd.ExecuteNonQuery();
+                        Conn.Close();
+                    }
+                }
+
+                
+            }                      
+        }
+
         public void buscar_id_reservacion()
         {
             int res;

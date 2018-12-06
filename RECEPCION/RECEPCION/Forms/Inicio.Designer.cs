@@ -50,6 +50,8 @@
             this.button7 = new System.Windows.Forms.Button();
             this.label5 = new System.Windows.Forms.Label();
             this.label7 = new System.Windows.Forms.Label();
+            this.button8 = new System.Windows.Forms.Button();
+            this.label8 = new System.Windows.Forms.Label();
             this.menuStrip1.SuspendLayout();
             this.SuspendLayout();
             // 
@@ -154,7 +156,7 @@
             // 
             this.button4.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("button4.BackgroundImage")));
             this.button4.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom;
-            this.button4.Location = new System.Drawing.Point(457, 253);
+            this.button4.Location = new System.Drawing.Point(642, 253);
             this.button4.Name = "button4";
             this.button4.Size = new System.Drawing.Size(119, 104);
             this.button4.TabIndex = 5;
@@ -195,7 +197,7 @@
             // 
             this.label4.AutoSize = true;
             this.label4.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label4.Location = new System.Drawing.Point(457, 226);
+            this.label4.Location = new System.Drawing.Point(642, 226);
             this.label4.Name = "label4";
             this.label4.Size = new System.Drawing.Size(51, 24);
             this.label4.TabIndex = 9;
@@ -265,12 +267,35 @@
             this.label7.Text = "Habitaciones";
             this.label7.Click += new System.EventHandler(this.label7_Click);
             // 
+            // button8
+            // 
+            this.button8.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("button8.BackgroundImage")));
+            this.button8.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom;
+            this.button8.Location = new System.Drawing.Point(461, 253);
+            this.button8.Name = "button8";
+            this.button8.Size = new System.Drawing.Size(115, 104);
+            this.button8.TabIndex = 19;
+            this.button8.UseVisualStyleBackColor = true;
+            this.button8.Click += new System.EventHandler(this.button8_Click);
+            // 
+            // label8
+            // 
+            this.label8.AutoSize = true;
+            this.label8.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label8.Location = new System.Drawing.Point(430, 226);
+            this.label8.Name = "label8";
+            this.label8.Size = new System.Drawing.Size(177, 24);
+            this.label8.TabIndex = 20;
+            this.label8.Text = "Modificar Reserva";
+            // 
             // Inicio
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(67)))), ((int)(((byte)(112)))), ((int)(((byte)(111)))));
             this.ClientSize = new System.Drawing.Size(846, 369);
+            this.Controls.Add(this.label8);
+            this.Controls.Add(this.button8);
             this.Controls.Add(this.label7);
             this.Controls.Add(this.label5);
             this.Controls.Add(this.button7);
@@ -319,6 +344,8 @@
         private System.Windows.Forms.Button button7;
         private System.Windows.Forms.Label label5;
         private System.Windows.Forms.Label label7;
+        private System.Windows.Forms.Button button8;
+        private System.Windows.Forms.Label label8;
     }
 }
 

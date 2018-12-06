@@ -106,5 +106,12 @@ namespace RECEPCION
 
         }
 
+        private void button8_Click(object sender, EventArgs e)
+        {
+            this.Hide();
+            Modificar Mod = new Modificar();
+            Mod.Show();
+        }
+
     }
 }
