@@ -199,7 +199,7 @@ namespace RECEPCION
                         MessageBox.Show("Eliminado correctamente");
                     }
                 }
-                else if (Estado == "Rechazado")
+                else if (Estado == "Rechazado" || Estado == "Rechazada")
                 {
                     MessageBox.Show("Solicitud Rechazada, procediendo a eliminar reservacion");
                     //update 2
